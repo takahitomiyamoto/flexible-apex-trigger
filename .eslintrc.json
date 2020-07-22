@@ -1,0 +1,13 @@
+{
+  "env": {
+    "commonjs": true,
+    "node": true,
+    "browser": true
+  },
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module"
+  },
+  "extends": ["@salesforce/eslint-config-lwc/recommended"]
+}

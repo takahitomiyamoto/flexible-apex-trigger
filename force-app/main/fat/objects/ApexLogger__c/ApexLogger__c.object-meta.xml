@@ -153,12 +153,12 @@
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>Private</externalSharingModel>
-    <label>Apex Logger</label>
+    <label>ApexLogger</label>
     <nameField>
-        <label>Apex Logger ID</label>
+        <label>ApexLogger ID</label>
         <type>Text</type>
     </nameField>
-    <pluralLabel>Apex Loggers</pluralLabel>
+    <pluralLabel>ApexLoggers</pluralLabel>
     <searchLayouts />
     <sharingModel>ReadWrite</sharingModel>
     <visibility>Public</visibility>

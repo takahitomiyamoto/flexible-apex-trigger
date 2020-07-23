@@ -12,11 +12,17 @@ export default async function _queryApexLogger() {
   const loginResultString = readFileSyncUtf8(environment.logs.loginJwt);
   const loginResult = JSON.parse(loginResultString);
 
-  let _query = [];
+  const fields = [];
+  fields.push('Id');
+  fields.push('Name');
+  fields.push('StatusCode__c');
+  fields.push('Type__c');
+  fields.push('Fields__c');
+  fields.push('Message__c');
+
+  const _query = [];
   _query.push('SELECT');
-  _query.push('Id,');
-  _query.push('Name,');
-  _query.push('CreatedDate');
+  _query.push(fields.join(','));
   _query.push('FROM');
   _query.push('ApexLogger__c');
   _query.push('WHERE');
@@ -25,9 +31,6 @@ export default async function _queryApexLogger() {
   _query.push('CreatedDate DESC');
   _query.push('LIMIT');
   _query.push('50000');
-  _query = _query.join('+');
-  _query = _query.replace(' ', '+');
-  _query = encodeURI(_query);
 
   // queryApexLogger
   const result = await query({
@@ -35,7 +38,7 @@ export default async function _queryApexLogger() {
     instanceUrl: loginResult.instanceUrl,
     options: {
       asOfVersion: environment.secrets.asOfVersion,
-      q: _query
+      q: encodeURI(_query.join('+').replace(' ', '+'))
     }
   });
 

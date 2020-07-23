@@ -18,11 +18,9 @@
                 <behavior>Edit</behavior>
                 <field>Apex_Class__c</field>
             </layoutItems>
-        </layoutColumns>
-        <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Active__c</field>
+                <field>SObject__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -30,10 +28,10 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>SObject__c</field>
+                <field>Active__c</field>
             </layoutItems>
         </layoutColumns>
-        <style>TwoColumnsTopToBottom</style>
+        <style>OneColumn</style>
     </layoutSections>
     <layoutSections>
         <customLabel>true</customLabel>
@@ -81,8 +79,8 @@
         <label>System Information</label>
         <layoutColumns>
             <layoutItems>
-                <behavior>Required</behavior>
-                <field>NamespacePrefix</field>
+                <behavior>Edit</behavior>
+                <field>IsProtected</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
@@ -91,8 +89,8 @@
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>IsProtected</field>
+                <behavior>Required</behavior>
+                <field>NamespacePrefix</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>

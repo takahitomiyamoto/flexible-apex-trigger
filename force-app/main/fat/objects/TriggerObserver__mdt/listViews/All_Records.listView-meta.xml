@@ -3,9 +3,8 @@
     <fullName>All_Records</fullName>
     <columns>MasterLabel</columns>
     <columns>SObject__c</columns>
-    <columns>Apex_Class__c</columns>
-    <columns>Active__c</columns>
     <columns>Test_Only__c</columns>
+    <columns>Active__c</columns>
     <columns>Before_Insert__c</columns>
     <columns>Before_Update__c</columns>
     <columns>Before_Delete__c</columns>

@@ -2450,10 +2450,10 @@ has@^1.0.3:
   dependencies:
     function-bind "^1.1.1"
 
-heat-sfdx-common@0.1.12:
-  version "0.1.12"
-  resolved "https://registry.yarnpkg.com/heat-sfdx-common/-/heat-sfdx-common-0.1.12.tgz#1db1ef1c97568cd272d7e9cd77d45cc2869d51f7"
-  integrity sha512-yczAv81XI+G7xvmGp0foOeJDiaKptaEoZ7oxvROncShwa4obFUH9VwwmHZHPJAqDmZmIgRpH7j9vGfWiT3imLA==
+heat-sfdx-common@0.1.14:
+  version "0.1.14"
+  resolved "https://registry.yarnpkg.com/heat-sfdx-common/-/heat-sfdx-common-0.1.14.tgz#b1fd68218791469f51c09da066a6c4b9c8a02fd4"
+  integrity sha512-HWJfBF1PWNp2ukitStfQdWeO9yIKRtBIKCu/64QOF8nFn4bHmJsKJu57vJCZSptkjTTDiZB+QRLl0uqMtzt7qw==
   dependencies:
     "@types/jsonwebtoken" "8.5.0"
     "@types/node" "14.0.24"

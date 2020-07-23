@@ -18,9 +18,12 @@
                 <behavior>Edit</behavior>
                 <field>Logging_Level__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Logger_Object__c</field>
+            </layoutItems>
         </layoutColumns>
-        <layoutColumns />
-        <style>TwoColumnsTopToBottom</style>
+        <style>OneColumn</style>
     </layoutSections>
     <layoutSections>
         <customLabel>false</customLabel>
@@ -29,8 +32,8 @@
         <label>System Information</label>
         <layoutColumns>
             <layoutItems>
-                <behavior>Required</behavior>
-                <field>NamespacePrefix</field>
+                <behavior>Edit</behavior>
+                <field>IsProtected</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
@@ -39,8 +42,8 @@
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>IsProtected</field>
+                <behavior>Required</behavior>
+                <field>NamespacePrefix</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>

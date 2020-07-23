@@ -7,6 +7,10 @@
     <label>DEFAULT</label>
     <protected>false</protected>
     <values>
+        <field>Logger_Object__c</field>
+        <value xsi:type="xsd:string">ApexLogger__c</value>
+    </values>
+    <values>
         <field>Logging_Level__c</field>
         <value xsi:type="xsd:string">DEBUG</value>
     </values>

@@ -38,7 +38,7 @@ export default async function _queryApexLogger() {
     instanceUrl: loginResult.instanceUrl,
     options: {
       asOfVersion: environment.secrets.asOfVersion,
-      q: encodeURI(_query.join('+').replace(' ', '+'))
+      q: encodeURI(_query.join('+').split(' ').join('+'))
     }
   });
 

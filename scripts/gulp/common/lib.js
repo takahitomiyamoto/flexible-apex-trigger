@@ -4,6 +4,13 @@
  */
 import gulp from 'gulp';
 import shell from 'gulp-shell';
+import path from 'path';
+import {
+  loginJwt,
+  query,
+  readFileSyncUtf8,
+  writeFileSyncUtf8
+} from 'heat-sfdx-common';
 
 const execute = (command) => {
   return gulp.src('.').pipe(
@@ -14,4 +21,4 @@ const execute = (command) => {
   );
 };
 
-export { execute };
+export { path, loginJwt, query, readFileSyncUtf8, writeFileSyncUtf8, execute };

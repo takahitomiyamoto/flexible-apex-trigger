@@ -20,6 +20,7 @@ export default function _upgradeDependencies() {
   commands.push('gulp');
   commands.push('gulp-babel');
   commands.push('gulp-shell');
+  commands.push('heat-sfdx-common');
   commands.push('prettier');
   commands.push('prettier-plugin-apex');
 

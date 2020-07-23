@@ -4,7 +4,7 @@
   "description": "This is a framework that makes our Apex Trigger development more flexible.",
   "scripts": {
     "gulp:init": "gulp init",
-    "gulp:manifest:create": "gulp manifestCreate",
+    "gulp:logger:apex:query": "gulp queryApexLogger",
     "prettier": "prettier \"**/*.{cls,cmp,component,css,html,js,json,md,page,trigger,xml,yaml,yml}\" --write --loglevel log",
     "lint": "npm run lint:lwc",
     "lint:lwc": "eslint force-app/main/default/lwc",
@@ -25,6 +25,7 @@
     "gulp": "4.0.2",
     "gulp-babel": "8.0.0",
     "gulp-shell": "0.8.0",
+    "heat-sfdx-common": "0.1.12",
     "prettier": "2.0.5",
     "prettier-plugin-apex": "1.6.0"
   }

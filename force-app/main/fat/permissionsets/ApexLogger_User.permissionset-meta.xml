@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <applicationVisibilities>
+        <application>FAT_Sample</application>
+        <visible>true</visible>
+    </applicationVisibilities>
     <customMetadataTypeAccesses>
         <enabled>true</enabled>
         <name>Logger__mdt</name>
@@ -7,22 +11,12 @@
     <description>View ApexLogger</description>
     <fieldPermissions>
         <editable>false</editable>
-        <field>ApexLogger__c.Fields__c</field>
+        <field>ApexLogger__c.LoggingLevel__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>ApexLogger__c.Message__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>ApexLogger__c.StatusCode__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>ApexLogger__c.Type__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <hasActivationRequired>false</hasActivationRequired>
@@ -40,4 +34,8 @@
         <recordType>ApexLogger__c.Default</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
+    <tabSettings>
+        <tab>ApexLogger__c</tab>
+        <visibility>Visible</visibility>
+    </tabSettings>
 </PermissionSet>

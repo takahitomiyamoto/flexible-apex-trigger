@@ -3,15 +3,15 @@
     <fullName>All_Records</fullName>
     <columns>MasterLabel</columns>
     <columns>SObject__c</columns>
-    <columns>Test_Only__c</columns>
+    <columns>TestOnly__c</columns>
     <columns>Active__c</columns>
-    <columns>Before_Insert__c</columns>
-    <columns>Before_Update__c</columns>
-    <columns>Before_Delete__c</columns>
-    <columns>After_Insert__c</columns>
-    <columns>After_Update__c</columns>
-    <columns>After_Delete__c</columns>
-    <columns>After_Undelete__c</columns>
+    <columns>BeforeInsert__c</columns>
+    <columns>BeforeUpdate__c</columns>
+    <columns>BeforeDelete__c</columns>
+    <columns>AfterInsert__c</columns>
+    <columns>AfterUpdate__c</columns>
+    <columns>AfterDelete__c</columns>
+    <columns>AfterUndelete__c</columns>
     <filterScope>Everything</filterScope>
     <label>All Records</label>
 </ListView>

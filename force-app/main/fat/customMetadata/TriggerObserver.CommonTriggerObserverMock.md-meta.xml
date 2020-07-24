@@ -11,35 +11,35 @@
         <value xsi:type="xsd:boolean">true</value>
     </values>
     <values>
-        <field>After_Delete__c</field>
+        <field>AfterDelete__c</field>
         <value xsi:type="xsd:boolean">true</value>
     </values>
     <values>
-        <field>After_Insert__c</field>
+        <field>AfterInsert__c</field>
         <value xsi:type="xsd:boolean">true</value>
     </values>
     <values>
-        <field>After_Undelete__c</field>
+        <field>AfterUndelete__c</field>
         <value xsi:type="xsd:boolean">true</value>
     </values>
     <values>
-        <field>After_Update__c</field>
+        <field>AfterUpdate__c</field>
         <value xsi:type="xsd:boolean">true</value>
     </values>
     <values>
-        <field>Apex_Class__c</field>
+        <field>ApexClass__c</field>
         <value xsi:type="xsd:string">CommonTriggerObserverMock</value>
     </values>
     <values>
-        <field>Before_Delete__c</field>
+        <field>BeforeDelete__c</field>
         <value xsi:type="xsd:boolean">true</value>
     </values>
     <values>
-        <field>Before_Insert__c</field>
+        <field>BeforeInsert__c</field>
         <value xsi:type="xsd:boolean">true</value>
     </values>
     <values>
-        <field>Before_Update__c</field>
+        <field>BeforeUpdate__c</field>
         <value xsi:type="xsd:boolean">true</value>
     </values>
     <values>
@@ -47,7 +47,7 @@
         <value xsi:type="xsd:string">Account</value>
     </values>
     <values>
-        <field>Test_Only__c</field>
-        <value xsi:type="xsd:boolean">true</value>
+        <field>TestOnly__c</field>
+        <value xsi:type="xsd:boolean">false</value>
     </values>
 </CustomMetadata>

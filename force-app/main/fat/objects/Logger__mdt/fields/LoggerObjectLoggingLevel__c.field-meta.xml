@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
-    <fullName>Logger_Object__c</fullName>
+    <fullName>LoggerObjectLoggingLevel__c</fullName>
     <externalId>false</externalId>
     <fieldManageability>SubscriberControlled</fieldManageability>
-    <inlineHelpText>API Name of Custom Logger Object</inlineHelpText>
-    <label>Logger Object</label>
+    <inlineHelpText
+  >API Name of Logging Level Field on Custom Logger Object</inlineHelpText>
+    <label>Logger Object : Logging Level</label>
     <length>255</length>
     <required>false</required>
     <type>Text</type>

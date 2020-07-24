@@ -159,7 +159,12 @@
         <type>Text</type>
     </nameField>
     <pluralLabel>ApexLoggers</pluralLabel>
-    <searchLayouts />
+    <searchLayouts>
+        <searchResultsAdditionalFields
+    >LoggingLevel__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields
+    >Message__c</searchResultsAdditionalFields>
+    </searchLayouts>
     <sharingModel>ReadWrite</sharingModel>
     <visibility>Public</visibility>
 </CustomObject>

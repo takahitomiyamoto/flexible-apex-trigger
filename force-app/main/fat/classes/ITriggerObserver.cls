@@ -3,7 +3,7 @@
  * @description Interface for all trigger observers
  */
 public interface ITriggerObserver {
-  ITriggerObserver getTriggerObserver(CommonTriggerHandler handler);
+  ITriggerObserver storeTriggerObserver(CommonTriggerHandler handler);
   void onBeforeInsert();
   void onBeforeUpdate();
   void onBeforeDelete();

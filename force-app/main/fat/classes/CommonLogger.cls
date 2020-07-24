@@ -218,10 +218,10 @@ public without sharing class CommonLogger {
     Boolean isHigher = level.ordinal() >= defaultLevel.ordinal();
     if (isHigher) {
       String debugLog =
-        String.valueOf(level) +
-        SYMBOL_DIVIDER +
         getClassName() +
         SYMBOL_CLS +
+        SYMBOL_DIVIDER +
+        String.valueOf(level) +
         SYMBOL_DIVIDER +
         getMethodName() +
         SYMBOL_DIVIDER +

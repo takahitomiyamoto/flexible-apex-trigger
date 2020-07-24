@@ -137,25 +137,28 @@ public without sharing class CommonLogger {
    */
   private void archiveLoggerObject(String logMessage) {
     Logger__mdt globalLogger = getLogger();
-    Boolean archive = globalLogger.Archive__c;
-    if (archive) {
-      String loggerObject = globalLogger.LoggerObject__c;
-      SObject apexLogger = CommonUtils.createObject(loggerObject);
-      apexLogger.put(globalLogger.LoggerObjectName__c, getTimestampNow());
-      apexLogger.put(
-        globalLogger.LoggerObjectLoggingLevel__c,
-        globalLogger.LoggingLevel__c
-      );
-      apexLogger.put(globalLogger.LoggerObjectMessage__c, logMessage);
-      apexLogger.put(
-        'RecordTypeId',
-        CommonUtils.getRecordTypeId(
-          globalLogger.LoggerObject__c,
-          globalLogger.LoggerObjectRecordType__c
-        )
-      );
-      // TODO: saveResult
-      Database.insert(apexLogger, false);
+    String loggerObject = globalLogger.LoggerObject__c;
+
+    SObject apexLogger = CommonUtils.createObject(loggerObject);
+    apexLogger.put(globalLogger.LoggerObjectName__c, getTimestampNow());
+    apexLogger.put(
+      globalLogger.LoggerObjectLoggingLevel__c,
+      globalLogger.LoggingLevel__c
+    );
+    apexLogger.put(globalLogger.LoggerObjectMessage__c, logMessage);
+    apexLogger.put(
+      'RecordTypeId',
+      CommonUtils.getRecordTypeId(
+        globalLogger.LoggerObject__c,
+        globalLogger.LoggerObjectRecordType__c
+      )
+    );
+
+    Database.SaveResult result = Database.insert(apexLogger, false);
+    if (!result.isSuccess()) {
+      for (Database.Error error : result.getErrors()) {
+        System.debug(LoggingLevel.ERROR, CommonError.createErrorMessage(error));
+      }
     }
   }
 
@@ -252,7 +255,11 @@ public without sharing class CommonLogger {
     System.debug(LOGGING_LEVEL_DEFAULT, logMessage);
     System.debug(LOGGING_LEVEL_DEFAULT, PARTING_LINE);
 
-    this.archiveLoggerObject(logMessage);
+    Logger__mdt globalLogger = getLogger();
+    Boolean archive = globalLogger.Archive__c;
+    if (archive) {
+      this.archiveLoggerObject(logMessage);
+    }
     this.debuglogs.clear();
   }
 }

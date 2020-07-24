@@ -4,7 +4,7 @@
  */
 public without sharing class CommonLogger {
   // Constants
-  public static final System.loggingLevel LOGGING_LEVEL_DEFAULT = getLoggingLevelDefault();
+  public static final LoggingLevel LOGGING_LEVEL_DEFAULT = getLoggingLevelDefault();
   private static final Integer MAX_WIDTH = CommonLoggerConstants.MAX_WIDTH;
   private static final String DATE_FORMAT = CommonLoggerConstants.DATE_FORMAT;
   private static final String MSG_START_LOGGING = CommonLoggerConstants.MSG_START_LOGGING;
@@ -29,7 +29,7 @@ public without sharing class CommonLogger {
    * @description private constructor with no parameter
    */
   private CommonLogger() {
-    System.debug(System.loggingLevel.FINEST, MSG_START_LOGGING);
+    System.debug(LoggingLevel.FINEST, MSG_START_LOGGING);
   }
 
   /**
@@ -37,34 +37,34 @@ public without sharing class CommonLogger {
    * @description get LoggingLevel
    */
   @TestVisible
-  private static System.LoggingLevel getLoggingLevel(String value) {
+  private static LoggingLevel getLoggingLevel(String value) {
     switch on value {
       when 'NONE' {
-        return System.LoggingLevel.NONE;
+        return LoggingLevel.NONE;
       }
       when 'ERROR' {
-        return System.LoggingLevel.ERROR;
+        return LoggingLevel.ERROR;
       }
       when 'WARN' {
-        return System.LoggingLevel.WARN;
+        return LoggingLevel.WARN;
       }
       when 'INFO' {
-        return System.LoggingLevel.INFO;
+        return LoggingLevel.INFO;
       }
       when 'DEBUG' {
-        return System.LoggingLevel.DEBUG;
+        return LoggingLevel.DEBUG;
       }
       when 'FINE' {
-        return System.LoggingLevel.FINE;
+        return LoggingLevel.FINE;
       }
       when 'FINER' {
-        return System.LoggingLevel.FINER;
+        return LoggingLevel.FINER;
       }
       when 'FINEST' {
-        return System.LoggingLevel.FINEST;
+        return LoggingLevel.FINEST;
       }
       when else {
-        return System.LoggingLevel.DEBUG;
+        return LoggingLevel.DEBUG;
       }
     }
   }
@@ -111,7 +111,7 @@ public without sharing class CommonLogger {
    * @name getLoggingLevelDefault
    * @description get the default value of LoggingLevel
    */
-  private static System.loggingLevel getLoggingLevelDefault() {
+  private static LoggingLevel getLoggingLevelDefault() {
     String developerName = CommonLoggerConstants.LOGGER_DEFAULT;
 
     Logger__mdt logger = [
@@ -206,21 +206,19 @@ public without sharing class CommonLogger {
    * @name stackDebugLog
    * @description stack the debugLog
    */
-  public void stackDebugLog(System.LoggingLevel loggingLevel, Object message) {
-    System.LoggingLevel defaultLevel = getLoggingLevel(
-      LOGGING_LEVEL_DEFAULT.name()
-    );
+  public void stackDebugLog(LoggingLevel level, Object message) {
+    LoggingLevel defaultLevel = getLoggingLevel(LOGGING_LEVEL_DEFAULT.name());
 
-    Boolean notLogging = System.LoggingLevel.NONE.equals(defaultLevel);
+    Boolean notLogging = LoggingLevel.NONE.equals(defaultLevel);
     if (notLogging) {
       return;
     }
 
     // output log if it is higher than default logginglevel
-    Boolean isHigher = loggingLevel.ordinal() >= defaultLevel.ordinal();
+    Boolean isHigher = level.ordinal() >= defaultLevel.ordinal();
     if (isHigher) {
       String debugLog =
-        String.valueOf(loggingLevel) +
+        String.valueOf(level) +
         SYMBOL_DIVIDER +
         getClassName() +
         SYMBOL_CLS +

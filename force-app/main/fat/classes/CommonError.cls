@@ -12,7 +12,7 @@ public without sharing class CommonError {
    */
   private class ErrorObject {
     List<String> fields;
-    System.StatusCode statusCode;
+    StatusCode statusCode;
     Exception cause;
     Integer lineNumber;
     String message;

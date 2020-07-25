@@ -8,7 +8,7 @@ public with sharing class AccountTriggerValidation implements ITriggerObserver {
   }
 
   // Constants
-  private static final String ERROR_MESSAGE_PHONE_REQUIRED = AccountConstants.ERROR_MESSAGE_PHONE_REQUIRED;
+  private static final String ERROR_MESSAGE_PHONE_REQUIRED = System.Label.ERROR_MESSAGE_PHONE_REQUIRED;
 
   // Logger Variable
   private final CommonLogger logger = CommonLogger.getInstance();
@@ -23,7 +23,7 @@ public with sharing class AccountTriggerValidation implements ITriggerObserver {
   public AccountTriggerValidation() {
     logger.setClassName('AccountTriggerValidation');
     logger.setMethodName('AccountTriggerValidation');
-    logger.stackDebugLog(LoggingLevel.FINE, '-');
+    logger.stackDebugLog(LoggingLevel.FINEST, '-');
   }
 
   /**

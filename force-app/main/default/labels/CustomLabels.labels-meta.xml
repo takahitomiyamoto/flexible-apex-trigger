@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
+    <labels>
+        <fullName>ERROR_MESSAGE_PHONE_REQUIRED</fullName>
+        <categories>Account</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ERROR_MESSAGE_PHONE_REQUIRED</shortDescription>
+        <value>FAXが入っている場合は電話番号も入力してください。</value>
+    </labels>
+    <labels>
+        <fullName>NAME_PREFIX_SAMPLE</fullName>
+        <categories>Account</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>NAME_PREFIX_SAMPLE</shortDescription>
+        <value>[サンプル]</value>
+    </labels>
+</CustomLabels>

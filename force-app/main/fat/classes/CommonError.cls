@@ -1,16 +1,23 @@
 /**
  * @name CommonError.cls
- * @description utilities of Error
+ * @description utilities of Exception
  */
 public without sharing class CommonError {
+  // Custom Exception
+  public class RequiredFieldMissingException extends Exception {
+  }
+  public class CreateObjectException extends Exception {
+  }
+
+  // Constants
   private static final String SYMBOL_DIVIDER = CommonConstants.SYMBOL_DIVIDER;
   private static final String SYMBOL_NEWLINE = CommonConstants.SYMBOL_NEWLINE;
 
   /**
-   * @name ErrorObject
-   * @description ErrorObject
+   * @name ErrorMessage
+   * @description error message
    */
-  private class ErrorObject {
+  private class ErrorMessage {
     List<String> fields;
     StatusCode statusCode;
     Exception cause;
@@ -25,7 +32,7 @@ public without sharing class CommonError {
    * @description create Error Message from Database.Error
    */
   public static String createErrorMessage(Database.Error error) {
-    ErrorObject errorObj = new ErrorObject();
+    ErrorMessage errorObj = new ErrorMessage();
     errorObj.fields = error.getFields();
     errorObj.statusCode = error.getStatusCode();
     errorObj.message = error.getMessage();
@@ -38,7 +45,7 @@ public without sharing class CommonError {
    * @description create Error Message from Exception
    */
   public static String createErrorMessage(Exception e) {
-    ErrorObject errorObj = new ErrorObject();
+    ErrorMessage errorObj = new ErrorMessage();
     errorObj.cause = e.getCause();
     errorObj.lineNumber = e.getLineNumber();
     errorObj.message = e.getMessage();

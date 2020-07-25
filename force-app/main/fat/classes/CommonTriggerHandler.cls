@@ -3,10 +3,6 @@
  * @description base for all trigger handlers
  */
 public without sharing class CommonTriggerHandler {
-  // Custom Exception
-  private class CommonException extends Exception {
-  }
-
   // Logger Variable
   private final CommonLogger logger = CommonLogger.getInstance();
 
@@ -40,7 +36,7 @@ public without sharing class CommonTriggerHandler {
 
   /**
    * @name CommonTriggerHandler
-   * @description Constructor with parameters
+   * @description constructor with parameters
    */
   public CommonTriggerHandler(String sObjectName) {
     logger.setClassName('CommonTriggerHandler');
@@ -254,8 +250,9 @@ public without sharing class CommonTriggerHandler {
       ITriggerObserver observer = CommonTriggerUtils.fetchTriggerObserver(
         Type.forName(triggerObserver.ApexClass__c)
       );
+
       if (null == observer) {
-        continue;
+        return;
       }
 
       this.addTriggerObserver(
@@ -330,14 +327,15 @@ public without sharing class CommonTriggerHandler {
           firstRun = false;
         }
       }
-    } catch (Exception ex) {
+    } catch (Exception e) {
       logger.setClassName('CommonTriggerHandler');
       logger.setMethodName('invoke');
       logger.stackDebugLog(
         LoggingLevel.ERROR,
-        CommonError.createErrorMessage(ex)
+        CommonError.createErrorMessage(e)
       );
     } finally {
+      // TODO: Queueable で書けるかどうか。。
       logger.fetchDebugLogs();
     }
   }

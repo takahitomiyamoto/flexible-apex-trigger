@@ -1,6 +1,6 @@
 /**
  * @name ITriggerObserver.cls
- * @description Interface for all trigger observers
+ * @description interface for all trigger observers
  */
 public interface ITriggerObserver {
   ITriggerObserver storeTriggerObserver(CommonTriggerHandler handler);

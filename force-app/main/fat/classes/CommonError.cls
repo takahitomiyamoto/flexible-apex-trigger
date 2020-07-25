@@ -22,6 +22,11 @@ public without sharing class CommonError {
     String type;
   }
 
+  /**
+   * @name hasStackTrace
+   * @description whether stackTrace is empty or not
+   */
+  @TestVisible
   private static Boolean hasStackTrace(String stackTrace) {
     return 0 ==
       stackTrace.replace(SYMBOL_NEWLINE, '')

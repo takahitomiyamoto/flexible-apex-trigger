@@ -3,6 +3,10 @@
  * @description common utilities
  */
 public without sharing class CommonUtils {
+  // Custom Exception
+  public class CustomException extends Exception {
+  }
+
   /**
    * @name createObject
    * @description create sObject
@@ -10,11 +14,8 @@ public without sharing class CommonUtils {
   public static SObject createObject(String typeName) {
     Schema.SObjectType targetType = Schema.getGlobalDescribe().get(typeName);
     if (null == targetType) {
-      throw new CommonError.CreateObjectException(
-        'The sObject ' +
-        typeName +
-        ' is NOT FOUND.'
-      );
+      String message = 'The sObject ' + typeName + ' is NOT FOUND.';
+      throw new CustomException(message);
     }
     return targetType.newSObject();
   }

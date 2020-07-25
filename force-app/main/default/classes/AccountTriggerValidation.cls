@@ -3,6 +3,10 @@
  * @description validation for Account Trigger
  */
 public with sharing class AccountTriggerValidation implements ITriggerObserver {
+  // Custom Exception
+  public class CustomException extends Exception {
+  }
+
   // Constants
   private static final String ERROR_MESSAGE_PHONE_REQUIRED = AccountConstants.ERROR_MESSAGE_PHONE_REQUIRED;
 
@@ -46,9 +50,7 @@ public with sharing class AccountTriggerValidation implements ITriggerObserver {
 
       if (hasFax && !hasPhone) {
         account.Phone.addError(ERROR_MESSAGE_PHONE_REQUIRED);
-        throw new CommonError.RequiredFieldMissingException(
-          ERROR_MESSAGE_PHONE_REQUIRED
-        );
+        throw new CustomException(ERROR_MESSAGE_PHONE_REQUIRED);
       }
     }
   }

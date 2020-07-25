@@ -133,9 +133,7 @@ public without sharing class CommonTriggerHandler {
       LoggingLevel.DEBUG,
       'afterUpdate: ' + afterUpdate.size()
     );
-    System.debug('afterUpdate: ' + afterUpdate);
     for (ITriggerObserver triggerObserver : afterUpdate) {
-      System.debug('triggerObserver: ' + triggerObserver);
       triggerObserver.onAfterUpdate();
     }
   }
@@ -328,15 +326,13 @@ public without sharing class CommonTriggerHandler {
         }
       }
     } catch (Exception e) {
-      logger.setClassName('CommonTriggerHandler');
-      logger.setMethodName('invoke');
       logger.stackDebugLog(
         LoggingLevel.ERROR,
         CommonError.createErrorMessage(e)
       );
     } finally {
-      // TODO: Queueable で書けるかどうか。。
-      logger.fetchDebugLogs();
+      logger.publish();
+      logger.clearDebugLogs();
     }
   }
 }

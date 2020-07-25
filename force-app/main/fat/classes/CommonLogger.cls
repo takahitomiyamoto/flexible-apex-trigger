@@ -19,7 +19,7 @@ public without sharing class CommonLogger {
   private static Logger__mdt globalLogger;
 
   // Instance Variables
-  private List<String> debuglogs = new List<String>();
+  private List<String> debugLogs = new List<String>();
   private String timestampNow;
   private String className;
   private String methodName;
@@ -155,11 +155,7 @@ public without sharing class CommonLogger {
     );
 
     Database.SaveResult result = Database.insert(apexLogger, false);
-    if (!result.isSuccess()) {
-      for (Database.Error error : result.getErrors()) {
-        System.debug(LoggingLevel.ERROR, CommonError.createErrorMessage(error));
-      }
-    }
+    CommonError.handleError(result);
   }
 
   /**
@@ -227,7 +223,7 @@ public without sharing class CommonLogger {
         SYMBOL_DIVIDER +
         message;
 
-      this.debuglogs.add(debugLog);
+      this.debugLogs.add(debugLog);
     }
   }
 
@@ -236,28 +232,53 @@ public without sharing class CommonLogger {
    * @description fetch all debugLogs
    */
   public void fetchDebugLogs() {
-    Boolean isEmpty = 0 == this.debuglogs.size();
+    Boolean isEmpty = 0 == this.debugLogs.size();
     if (isEmpty) {
       return;
     }
 
     setTimestampNow();
 
-    String logMessage = String.join(this.debuglogs, SYMBOL_NEWLINE);
+    String logMessage = String.join(this.debugLogs, SYMBOL_NEWLINE);
     Boolean isLong = (MAX_WIDTH < logMessage.length());
     if (isLong) {
       logMessage = logMessage.abbreviate(MAX_WIDTH);
     }
 
-    System.debug(LOGGING_LEVEL_DEFAULT, PARTING_LINE);
-    System.debug(LOGGING_LEVEL_DEFAULT, logMessage);
-    System.debug(LOGGING_LEVEL_DEFAULT, PARTING_LINE);
+    System.debug(LoggingLevel.DEBUG, PARTING_LINE);
+    System.debug(LoggingLevel.DEBUG, logMessage);
+    System.debug(LoggingLevel.DEBUG, PARTING_LINE);
 
     Logger__mdt globalLogger = getLogger();
     Boolean archive = globalLogger.Archive__c;
     if (archive) {
       this.archiveLoggerObject(logMessage);
     }
-    this.debuglogs.clear();
+  }
+
+  /**
+   * @name clearDebugLogs
+   * @description clear all debugLogs
+   */
+  public void clearDebugLogs() {
+    this.debugLogs.clear();
+  }
+
+  /**
+   * @name publish
+   * @description publish LoggerEvent__e
+   */
+  public void publish() {
+    LoggerEvent__e event = new LoggerEvent__e();
+    event.Logger__c = JSON.serialize(this);
+
+    List<LoggerEvent__e> events = new List<LoggerEvent__e>();
+    events.add(event);
+
+    List<Database.SaveResult> results = EventBus.publish(events);
+
+    for (Database.SaveResult result : results) {
+      CommonError.handleError(result);
+    }
   }
 }

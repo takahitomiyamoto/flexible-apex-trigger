@@ -3,12 +3,6 @@
  * @description utilities of Exception
  */
 public without sharing class CommonError {
-  // Custom Exception
-  public class RequiredFieldMissingException extends Exception {
-  }
-  public class CreateObjectException extends Exception {
-  }
-
   // Constants
   private static final String SYMBOL_DIVIDER = CommonConstants.SYMBOL_DIVIDER;
   private static final String SYMBOL_NEWLINE = CommonConstants.SYMBOL_NEWLINE;
@@ -25,6 +19,13 @@ public without sharing class CommonError {
     String message;
     String stackTrace;
     String type;
+  }
+
+  private static Boolean hasStackTrace(String stackTrace) {
+    return 0 ==
+      stackTrace.replace(SYMBOL_NEWLINE, '').replace('()', '').length()
+      ? false
+      : true;
   }
 
   /**
@@ -49,10 +50,23 @@ public without sharing class CommonError {
     errorObj.cause = e.getCause();
     errorObj.lineNumber = e.getLineNumber();
     errorObj.message = e.getMessage();
-    errorObj.stackTrace = e.getStackTraceString()
-      .replace(SYMBOL_NEWLINE, SYMBOL_DIVIDER);
+    errorObj.stackTrace = !hasStackTrace(e.getStackTraceString())
+      ? ''
+      : e.getStackTraceString().replace(SYMBOL_NEWLINE, SYMBOL_DIVIDER);
     errorObj.type = e.getTypeName();
 
     return JSON.serialize(errorObj);
+  }
+
+  /**
+   * @name getRecordTypeId
+   * @description get recordTypeId
+   */
+  public static void handleError(Database.SaveResult result) {
+    if (!result.isSuccess()) {
+      for (Database.Error error : result.getErrors()) {
+        System.debug(LoggingLevel.ERROR, createErrorMessage(error));
+      }
+    }
   }
 }

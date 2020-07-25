@@ -1,14 +1,14 @@
 /**
- * @name AccountTriggerValidation.cls
- * @description validation for AccountTrigger
+ * @name AccountTriggerService.cls
+ * @description service for AccountTrigger
  */
-public with sharing class AccountTriggerValidation implements ITriggerObserver {
+public with sharing class AccountTriggerService implements ITriggerObserver {
   // Custom Exception
   public class CustomException extends Exception {
   }
 
   // Constants
-  private static final String ERROR_MESSAGE_PHONE_REQUIRED = System.Label.ERROR_MESSAGE_PHONE_REQUIRED;
+  private static final String NAME_PREFIX_SAMPLE = System.Label.NAME_PREFIX_SAMPLE;
 
   // Logger Variable
   private final CommonLogger logger = CommonLogger.getInstance();
@@ -17,11 +17,11 @@ public with sharing class AccountTriggerValidation implements ITriggerObserver {
   private CommonTriggerHandler handler;
 
   /**
-   * @name AccountTriggerValidation
+   * @name AccountTriggerService
    * @description constructor with no parameter
    */
-  public AccountTriggerValidation() {
-    this.setMethodName('AccountTriggerValidation');
+  public AccountTriggerService() {
+    this.setMethodName('AccountTriggerService');
   }
 
   /**
@@ -29,34 +29,26 @@ public with sharing class AccountTriggerValidation implements ITriggerObserver {
    * @description set method name
    */
   private void setMethodName(String methodName) {
-    logger.setClassName(AccountTriggerValidation.class.getName());
+    logger.setClassName(AccountTriggerService.class.getName());
     logger.setMethodName(methodName);
   }
 
   /**
-   * @name validatePhone
-   * @description Fax(FAX)項目に値が入っており、かつ電話(Phone)項目に値が入っていない場合は
-   * 「FAXが入っている場合は電話番号も入力してください」というエラーにする。
+   * @name addPrefixToName
+   * @description 取引先名(Name)項目の先頭に[サンプル]という文字列を付ける。
    */
   @TestVisible
-  private void validatePhone(List<Account> accounts) {
-    this.setMethodName('validatePhone');
+  private void addPrefixToName(List<Account> accounts) {
+    this.setMethodName('addPrefixToName');
 
     if (null == accounts) {
       return;
     }
 
     for (Account account : accounts) {
-      Boolean hasFax = String.isNotEmpty(account.Fax);
-      Boolean hasPhone = String.isNotEmpty(account.Phone);
-
-      logger.stackDebugLog(LoggingLevel.DEBUG, 'hasFax: ' + hasFax);
-      logger.stackDebugLog(LoggingLevel.DEBUG, 'hasPhone: ' + hasPhone);
-
-      if (hasFax && !hasPhone) {
-        account.Phone.addError(ERROR_MESSAGE_PHONE_REQUIRED);
-        throw new CustomException(ERROR_MESSAGE_PHONE_REQUIRED);
-      }
+      logger.stackDebugLog(LoggingLevel.DEBUG, 'Name: ' + account.Name);
+      account.Name = NAME_PREFIX_SAMPLE + account.Name;
+      logger.stackDebugLog(LoggingLevel.DEBUG, 'Name: ' + account.Name);
     }
   }
 
@@ -82,7 +74,7 @@ public with sharing class AccountTriggerValidation implements ITriggerObserver {
       return;
     }
 
-    this.validatePhone((List<Account>) handler.newObjects);
+    this.addPrefixToName((List<Account>) handler.newObjects);
   }
 
   /**
@@ -90,13 +82,6 @@ public with sharing class AccountTriggerValidation implements ITriggerObserver {
    * @description custom action in case of before update
    */
   public void onBeforeUpdate() {
-    this.setMethodName('onBeforeUpdate');
-
-    if (null == handler) {
-      return;
-    }
-
-    this.validatePhone((List<Account>) handler.newObjects);
   }
 
   /**

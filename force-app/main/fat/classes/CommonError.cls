@@ -5,6 +5,7 @@
 public without sharing class CommonError {
   // Constants
   private static final String SYMBOL_DIVIDER = CommonConstants.SYMBOL_DIVIDER;
+  private static final String SYMBOL_EMPTY_OBJECT = CommonConstants.SYMBOL_EMPTY_OBJECT;
   private static final String SYMBOL_NEWLINE = CommonConstants.SYMBOL_NEWLINE;
 
   /**
@@ -23,7 +24,9 @@ public without sharing class CommonError {
 
   private static Boolean hasStackTrace(String stackTrace) {
     return 0 ==
-      stackTrace.replace(SYMBOL_NEWLINE, '').replace('()', '').length()
+      stackTrace.replace(SYMBOL_NEWLINE, '')
+        .replace(SYMBOL_EMPTY_OBJECT, '')
+        .length()
       ? false
       : true;
   }
@@ -50,10 +53,10 @@ public without sharing class CommonError {
     errorObj.cause = e.getCause();
     errorObj.lineNumber = e.getLineNumber();
     errorObj.message = e.getMessage();
-    errorObj.stackTrace = !hasStackTrace(e.getStackTraceString())
-      ? ''
-      : e.getStackTraceString().replace(SYMBOL_NEWLINE, SYMBOL_DIVIDER);
     errorObj.type = e.getTypeName();
+    errorObj.stackTrace = hasStackTrace(e.getStackTraceString())
+      ? e.getStackTraceString().replace(SYMBOL_NEWLINE, SYMBOL_DIVIDER)
+      : '';
 
     return JSON.serialize(errorObj);
   }

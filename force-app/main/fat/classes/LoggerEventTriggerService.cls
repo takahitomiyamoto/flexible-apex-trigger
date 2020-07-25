@@ -1,6 +1,6 @@
 /**
  * @name LoggerEventTriggerService.cls
- * @description handler for LoggerEventTrigger
+ * @description service for LoggerEventTrigger
  */
 public without sharing class LoggerEventTriggerService {
   /**

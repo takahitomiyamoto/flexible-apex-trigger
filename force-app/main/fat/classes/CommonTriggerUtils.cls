@@ -11,10 +11,6 @@ public without sharing class CommonTriggerUtils {
    * @description fetch TriggerObserver
    */
   public static ITriggerObserver fetchTriggerObserver(Type apexClass) {
-    logger.setClassName('CommonTriggerUtils');
-    logger.setMethodName('fetchTriggerObserver');
-    logger.stackDebugLog(LoggingLevel.FINE, '-');
-
     if (null == apexClass) {
       return null;
     }
@@ -29,10 +25,6 @@ public without sharing class CommonTriggerUtils {
   public static List<TriggerOperation> addActiveTriggerOperations(
     TriggerObserver__mdt triggerObserver
   ) {
-    logger.setClassName('CommonTriggerUtils');
-    logger.setMethodName('addActiveTriggerOperations');
-    logger.stackDebugLog(LoggingLevel.DEBUG, triggerObserver.ApexClass__c);
-
     if (!triggerObserver.Active__c) {
       return null;
     }
@@ -71,8 +63,6 @@ public without sharing class CommonTriggerUtils {
       return null;
     }
 
-    logger.setClassName('CommonTriggerUtils');
-    logger.setMethodName('addActiveTriggerOperations');
     logger.stackDebugLog(LoggingLevel.DEBUG, activeTriggerOperation);
     return activeTriggerOperation;
   }

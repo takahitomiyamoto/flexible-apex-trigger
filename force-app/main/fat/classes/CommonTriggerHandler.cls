@@ -39,9 +39,7 @@ public without sharing class CommonTriggerHandler {
    * @description constructor with parameters
    */
   public CommonTriggerHandler(String sObjectName) {
-    logger.setClassName('CommonTriggerHandler');
-    logger.setMethodName('CommonTriggerHandler');
-    logger.stackDebugLog(LoggingLevel.FINE, '-');
+    this.setMethodName('CommonTriggerHandler');
 
     this.sObjectName = sObjectName;
     this.oldObjects = Trigger.old;
@@ -54,13 +52,21 @@ public without sharing class CommonTriggerHandler {
   }
 
   /**
+   * @name setMethodName
+   * @description set method name
+   */
+  private void setMethodName(String methodName) {
+    logger.setClassName(CommonTriggerHandler.class.getName());
+    logger.setMethodName(methodName);
+  }
+
+  /**
    * @name onBeforeInsert
    * @description custom action in case of before insert
    */
   @TestVisible
   private void onBeforeInsert() {
-    logger.setClassName('CommonTriggerHandler');
-    logger.setMethodName('onBeforeInsert');
+    this.setMethodName('onBeforeInsert');
     logger.stackDebugLog(
       LoggingLevel.DEBUG,
       'beforeInsert: ' + beforeInsert.size()
@@ -76,8 +82,7 @@ public without sharing class CommonTriggerHandler {
    */
   @TestVisible
   private void onBeforeUpdate() {
-    logger.setClassName('CommonTriggerHandler');
-    logger.setMethodName('onBeforeUpdate');
+    this.setMethodName('onBeforeUpdate');
     logger.stackDebugLog(
       LoggingLevel.DEBUG,
       'beforeUpdate: ' + beforeUpdate.size()
@@ -93,8 +98,7 @@ public without sharing class CommonTriggerHandler {
    */
   @TestVisible
   private void onBeforeDelete() {
-    logger.setClassName('CommonTriggerHandler');
-    logger.setMethodName('onBeforeDelete');
+    this.setMethodName('onBeforeDelete');
     logger.stackDebugLog(
       LoggingLevel.DEBUG,
       'beforeDelete: ' + beforeDelete.size()
@@ -110,8 +114,7 @@ public without sharing class CommonTriggerHandler {
    */
   @TestVisible
   private void onAfterInsert() {
-    logger.setClassName('CommonTriggerHandler');
-    logger.setMethodName('onAfterInsert');
+    this.setMethodName('onAfterInsert');
     logger.stackDebugLog(
       LoggingLevel.DEBUG,
       'afterInsert: ' + afterInsert.size()
@@ -127,8 +130,7 @@ public without sharing class CommonTriggerHandler {
    */
   @TestVisible
   private void onAfterUpdate() {
-    logger.setClassName('CommonTriggerHandler');
-    logger.setMethodName('onAfterUpdate');
+    this.setMethodName('onAfterUpdate');
     logger.stackDebugLog(
       LoggingLevel.DEBUG,
       'afterUpdate: ' + afterUpdate.size()
@@ -144,8 +146,7 @@ public without sharing class CommonTriggerHandler {
    */
   @TestVisible
   private void onAfterDelete() {
-    logger.setClassName('CommonTriggerHandler');
-    logger.setMethodName('onAfterDelete');
+    this.setMethodName('onAfterDelete');
     logger.stackDebugLog(
       LoggingLevel.DEBUG,
       'afterDelete: ' + afterDelete.size()
@@ -161,8 +162,7 @@ public without sharing class CommonTriggerHandler {
    */
   @TestVisible
   private void onAfterUndelete() {
-    logger.setClassName('CommonTriggerHandler');
-    logger.setMethodName('onAfterUndelete');
+    this.setMethodName('onAfterUndelete');
     logger.stackDebugLog(
       LoggingLevel.DEBUG,
       'afterUndelete: ' + afterUndelete.size()
@@ -180,9 +180,7 @@ public without sharing class CommonTriggerHandler {
     List<TriggerOperation> triggerOperations,
     ITriggerObserver triggerObserver
   ) {
-    logger.setClassName('CommonTriggerHandler');
-    logger.setMethodName('addTriggerObserver');
-    logger.stackDebugLog(LoggingLevel.FINE, '-');
+    this.setMethodName('addTriggerObserver');
 
     if (null == triggerOperations) {
       return;
@@ -221,9 +219,7 @@ public without sharing class CommonTriggerHandler {
    * @description add observers
    */
   public void addTriggerObservers(String sObjectName) {
-    logger.setClassName('CommonTriggerHandler');
-    logger.setMethodName('addTriggerObservers');
-    logger.stackDebugLog(LoggingLevel.FINE, '-');
+    this.setMethodName('addTriggerObservers');
 
     for (TriggerObserver__mdt triggerObserver : [
       SELECT
@@ -265,8 +261,7 @@ public without sharing class CommonTriggerHandler {
    * @description validate whether this is recursive or not
    */
   private Boolean isRecursive() {
-    logger.setClassName('CommonTriggerHandler');
-    logger.setMethodName('isRecursive');
+    this.setMethodName('isRecursive');
     logger.stackDebugLog(LoggingLevel.DEBUG, 'firstRun: ' + firstRun);
 
     if (firstRun) {
@@ -283,8 +278,7 @@ public without sharing class CommonTriggerHandler {
    * @description invoke each custom action depending on the Apex DML operations
    */
   public void invoke() {
-    logger.setClassName('CommonTriggerHandler');
-    logger.setMethodName('invoke');
+    this.setMethodName('invoke');
     logger.stackDebugLog(
       LoggingLevel.DEBUG,
       'sObjectName: ' + this.sObjectName

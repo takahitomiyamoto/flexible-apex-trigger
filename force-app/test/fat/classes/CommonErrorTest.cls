@@ -4,22 +4,29 @@
  */
 @isTest(SeeAllData=false)
 private class CommonErrorTest {
-  @testSetup
-  static void setup() {
-  }
-
   @isTest
   static void handleError() {
     Test.startTest();
     Account account = new Account();
     Database.SaveResult result = Database.update(account, false);
     CommonError.handleError(result);
-    System.assertNotEquals(null, result);
     Test.stopTest();
+
+    System.assertEquals(false, result.isSuccess());
   }
 
   @isTest
-  static void createErrorMessage_Exception() {
+  static void hasStackTraceEmpty() {
+    Test.startTest();
+    String stackTrace = '()\n';
+    Boolean result = CommonError.hasStackTrace(stackTrace);
+    Test.stopTest();
+
+    System.assertEquals(false, result);
+  }
+
+  @isTest
+  static void createErrorMessageException() {
     Test.startTest();
     try {
       Account account = new Account();
@@ -32,7 +39,7 @@ private class CommonErrorTest {
   }
 
   @isTest
-  static void createErrorMessage_CustomException() {
+  static void createErrorMessageCustomException() {
     Test.startTest();
     try {
       throw new CommonUtils.CustomException();
@@ -40,15 +47,6 @@ private class CommonErrorTest {
       String message = CommonError.createErrorMessage(e);
       System.assertNotEquals('', message);
     }
-    Test.stopTest();
-  }
-
-  @isTest
-  static void hasStackTrace_empty() {
-    Test.startTest();
-    String stackTrace = '()\n';
-    Boolean result = CommonError.hasStackTrace(stackTrace);
-    System.assertEquals(false, result);
     Test.stopTest();
   }
 }

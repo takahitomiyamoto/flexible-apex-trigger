@@ -6,7 +6,7 @@
     </applicationVisibilities>
     <customMetadataTypeAccesses>
         <enabled>true</enabled>
-        <name>Logger__mdt</name>
+        <name>LoggerConfig__mdt</name>
     </customMetadataTypeAccesses>
     <description>View ApexLogger</description>
     <fieldPermissions>

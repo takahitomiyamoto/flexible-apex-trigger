@@ -5,7 +5,7 @@
 // You can also execute the entire file by running the command:
 //     SFDX: Execute Anonymous Apex with Editor Contents
 
-List<ApexLogger__c> oldApexLoggers = [
-  SELECT Id FROM ApexLogger__c ORDER BY CreatedDate ASC LIMIT 100
+List<Logger__c> oldLoggers = [
+  SELECT Id FROM Logger__c ORDER BY CreatedDate ASC LIMIT 100
 ];
-Database.delete(oldApexLoggers, false);
+Database.delete(oldLoggers, false);

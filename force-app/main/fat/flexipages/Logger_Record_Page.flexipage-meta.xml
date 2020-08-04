@@ -68,8 +68,8 @@
         <name>main</name>
         <type>Region</type>
     </flexiPageRegions>
-    <masterLabel>ApexLogger Record Page</masterLabel>
-    <sobjectType>ApexLogger__c</sobjectType>
+    <masterLabel>Logger Record Page</masterLabel>
+    <sobjectType>Logger__c</sobjectType>
     <template>
         <name>flexipage:recordHomeSingleColTemplateDesktop</name>
     </template>

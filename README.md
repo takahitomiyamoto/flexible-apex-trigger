@@ -13,7 +13,7 @@ This is a framework that makes our Apex Trigger development more flexible.
 
 ```sh
 sfdx force:package:install --package "flexible-apex-trigger@1.0.0"
-sfdx force:user:permset:assign -n ApexLogger_User
+sfdx force:user:permset:assign -n Logger_User
 ```
 
 # Acknowledgment

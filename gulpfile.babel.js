@@ -13,8 +13,8 @@ import cleanCache from './scripts/gulp/init/clean-cache';
 import cleanLogs from './scripts/gulp/init/clean-logs';
 
 // rest
-import queryApexLogger from './scripts/gulp/query/query-apex-logger';
+import queryLogger from './scripts/gulp/query/query-logger';
 
 // gulp tasks
 exports.init = series(cleanCache, upgradeDependencies, cleanLogs);
-exports.queryApexLogger = series(cleanLogs, loginJwt, queryApexLogger);
+exports.queryLogger = series(cleanLogs, loginJwt, queryLogger);

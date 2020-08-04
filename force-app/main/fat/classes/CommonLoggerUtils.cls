@@ -196,18 +196,18 @@ public without sharing class CommonLoggerUtils {
     this.setTimestampNow();
 
     LoggerConfig__mdt defaultLoggerConfig = this.getDefaultLoggerConfig();
-    String loggerObject = defaultLoggerConfig.LoggerObject__c;
-    SObject apexLogger = CommonUtils.createObject(loggerObject);
-    apexLogger.put(
+    String defaultLoggerObject = defaultLoggerConfig.LoggerObject__c;
+    SObject loggerObject = CommonUtils.createObject(defaultLoggerObject);
+    loggerObject.put(
       defaultLoggerConfig.LoggerObjectName__c,
       this.getTimestampNow()
     );
-    apexLogger.put(defaultLoggerConfig.LoggerObjectMessage__c, message);
-    apexLogger.put(
+    loggerObject.put(defaultLoggerConfig.LoggerObjectMessage__c, message);
+    loggerObject.put(
       defaultLoggerConfig.LoggerObjectLoggingLevel__c,
       defaultLoggerConfig.LoggingLevel__c
     );
-    apexLogger.put(
+    loggerObject.put(
       'RecordTypeId',
       CommonUtils.getRecordTypeId(
         defaultLoggerConfig.LoggerObject__c,
@@ -215,7 +215,7 @@ public without sharing class CommonLoggerUtils {
       )
     );
 
-    Database.SaveResult result = Database.insert(apexLogger, false);
+    Database.SaveResult result = Database.insert(loggerObject, false);
     CommonError.handleError(result);
   }
 

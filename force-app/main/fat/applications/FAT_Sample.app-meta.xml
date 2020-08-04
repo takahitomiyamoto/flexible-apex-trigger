@@ -4,21 +4,21 @@
         <actionName>View</actionName>
         <comment
     >Action override created by Lightning App Builder during activation.</comment>
-        <content>ApexLogger_Record_Page</content>
+        <content>Logger_Record_Page</content>
         <formFactor>Small</formFactor>
         <skipRecordTypeSelect>false</skipRecordTypeSelect>
         <type>Flexipage</type>
-        <pageOrSobjectType>ApexLogger__c</pageOrSobjectType>
+        <pageOrSobjectType>Logger__c</pageOrSobjectType>
     </actionOverrides>
     <actionOverrides>
         <actionName>View</actionName>
         <comment
     >Action override created by Lightning App Builder during activation.</comment>
-        <content>ApexLogger_Record_Page</content>
+        <content>Logger_Record_Page</content>
         <formFactor>Large</formFactor>
         <skipRecordTypeSelect>false</skipRecordTypeSelect>
         <type>Flexipage</type>
-        <pageOrSobjectType>ApexLogger__c</pageOrSobjectType>
+        <pageOrSobjectType>Logger__c</pageOrSobjectType>
     </actionOverrides>
     <brand>
         <headerColor>#0070D2</headerColor>
@@ -30,7 +30,7 @@
     <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
     <label>FAT Sample</label>
     <navType>Standard</navType>
-    <tabs>ApexLogger__c</tabs>
+    <tabs>Logger__c</tabs>
     <tabs>standard-Account</tabs>
     <tabs>standard-Contact</tabs>
     <tabs>standard-Case</tabs>

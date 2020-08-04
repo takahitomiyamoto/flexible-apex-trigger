@@ -11,6 +11,5 @@ trigger AccountTrigger on Account(
   after delete,
   after undelete
 ) {
-  String sObjectName = Account.class.getName();
-  new CommonTriggerHandler(sObjectName).invoke();
+  new CommonTriggerHandler(Account.class.getName()).invoke();
 }

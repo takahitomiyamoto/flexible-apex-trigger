@@ -153,12 +153,12 @@
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>Private</externalSharingModel>
-    <label>ApexLogger</label>
+    <label>Logger</label>
     <nameField>
-        <label>ApexLogger ID</label>
+        <label>Logger ID</label>
         <type>Text</type>
     </nameField>
-    <pluralLabel>ApexLoggers</pluralLabel>
+    <pluralLabel>Loggers</pluralLabel>
     <searchLayouts>
         <searchResultsAdditionalFields
     >LoggingLevel__c</searchResultsAdditionalFields>

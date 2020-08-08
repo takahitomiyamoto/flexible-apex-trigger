@@ -4,7 +4,7 @@
   "description": "This is a framework that makes our Apex Trigger development more flexible.",
   "scripts": {
     "gulp:init": "gulp init",
-    "gulp:logger:apex:query": "gulp queryLogger",
+    "gulp:logger:query": "gulp queryLogger",
     "prettier": "prettier \"**/*.{cls,cmp,component,css,html,js,json,md,page,trigger,xml,yaml,yml}\" --write --loglevel log",
     "lint": "npm run lint:lwc",
     "lint:lwc": "eslint force-app/main/default/lwc",
@@ -16,7 +16,7 @@
   },
   "devDependencies": {
     "@babel/cli": "7.10.5",
-    "@babel/core": "7.11.0",
+    "@babel/core": "7.11.1",
     "@babel/preset-env": "7.11.0",
     "@babel/register": "7.10.5",
     "@prettier/plugin-xml": "0.10.0",

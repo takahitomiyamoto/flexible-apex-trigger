@@ -36,11 +36,14 @@ ehthumbs.db
 $RECYCLE.BIN/
 
 # VS Code
-.vscode/
+# .vscode/
 
 # env
 .certificates/
 .secrets/
+
+# PMD
+.pmdCache
 
 # temp
 force-app/main/default/connectedApps/

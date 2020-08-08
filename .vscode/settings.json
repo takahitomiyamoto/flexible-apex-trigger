@@ -1,0 +1,29 @@
+{
+  // Core
+  "editor.fontSize": 14,
+  "editor.formatOnSave": true,
+  "editor.minimap.enabled": false,
+  "editor.mouseWheelZoom": true,
+  "editor.renderWhitespace": "all",
+  "editor.tabSize": 2,
+  "editor.wordWrap": "on",
+  "extensions.ignoreRecommendations": true,
+  "files.trimTrailingWhitespace": true,
+  "git.autofetch": true,
+  "git.confirmSync": false,
+  "terminal.integrated.fontSize": 14,
+  "terminal.integrated.shell.osx": "/bin/zsh",
+  // Extensions
+  "apexPMD.enableCache": true,
+  "apexPMD.runOnFileOpen": true,
+  "eslint.alwaysShowStatus": true,
+  "eslint.run": "onSave",
+  "git.showPushSuccessNotification": true,
+  "prettier.requireConfig": true,
+  "salesforcedx-vscode-apex.java.home": "/Library/Java/JavaVirtualMachines/zulu-11.jdk/Contents/Home",
+  "salesforcedx-vscode-core.retrieve-test-code-coverage": true,
+  "salesforcedx-vscode-core.show-cli-success-msg": true,
+  "todo-tree.tree.buttons.export": true,
+  "trailing-spaces.trimOnSave": true,
+  "xml.java.home": "/Library/Java/JavaVirtualMachines/zulu-11.jdk/Contents/Home"
+}

@@ -1,12 +1,14 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>LoggerObject__c</fullName>
     <externalId>false</externalId>
     <fieldManageability>SubscriberControlled</fieldManageability>
     <inlineHelpText>API Name of Custom Logger Object</inlineHelpText>
     <label>Logger Object</label>
-    <length>255</length>
+    <referenceTo>EntityDefinition</referenceTo>
+    <relationshipLabel>LoggerConfigs</relationshipLabel>
+    <relationshipName>LoggerConfigs</relationshipName>
     <required>false</required>
-    <type>Text</type>
+    <type>MetadataRelationship</type>
     <unique>false</unique>
 </CustomField>

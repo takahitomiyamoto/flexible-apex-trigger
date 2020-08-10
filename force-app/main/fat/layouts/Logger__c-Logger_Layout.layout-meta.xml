@@ -28,7 +28,7 @@
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Message__c</field>
+                <field>LogMessage__c</field>
             </layoutItems>
         </layoutColumns>
         <style>OneColumn</style>

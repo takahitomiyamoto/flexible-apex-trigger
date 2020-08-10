@@ -20,7 +20,7 @@ export default async function _queryLogger() {
   fields.push('Id');
   fields.push('Name');
   fields.push('LoggingLevel__c');
-  fields.push('Message__c');
+  fields.push('LogMessage__c');
 
   const _query = [];
   _query.push('SELECT');

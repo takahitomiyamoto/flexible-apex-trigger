@@ -75,12 +75,13 @@ public without sharing class CommonLoggerUtils {
    * @description get LoggerConfig__mdt
    */
   public LoggerConfig__mdt queryLoggerConfig(String developerName) {
+    // TODO: https://pmd.github.io/latest/pmd_rules_apex_security.html#apexcrudviolation
     return [
       SELECT
         Archive__c,
         LoggerObject__c,
         LoggerObjectLoggingLevel__c,
-        LoggerObjectMessage__c,
+        LoggerObjectLogMessage__c,
         LoggerObjectName__c,
         LoggerObjectRecordType__c,
         LoggingLevel__c
@@ -202,7 +203,7 @@ public without sharing class CommonLoggerUtils {
       defaultLoggerConfig.LoggerObjectName__c,
       this.getTimestampNow()
     );
-    loggerObject.put(defaultLoggerConfig.LoggerObjectMessage__c, message);
+    loggerObject.put(defaultLoggerConfig.LoggerObjectLogMessage__c, message);
     loggerObject.put(
       defaultLoggerConfig.LoggerObjectLoggingLevel__c,
       defaultLoggerConfig.LoggingLevel__c

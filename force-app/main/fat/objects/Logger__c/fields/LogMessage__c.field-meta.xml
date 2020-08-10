@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
-    <fullName>Message__c</fullName>
+    <fullName>LogMessage__c</fullName>
     <externalId>false</externalId>
-    <label>Message</label>
+    <label>Log Message</label>
     <length>3000</length>
     <trackTrending>false</trackTrending>
     <type>LongTextArea</type>

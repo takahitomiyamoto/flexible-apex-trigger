@@ -3,7 +3,7 @@
     <fullName>All</fullName>
     <columns>NAME</columns>
     <columns>LoggingLevel__c</columns>
-    <columns>Message__c</columns>
+    <columns>LogMessage__c</columns>
     <filterScope>Everything</filterScope>
     <label>All</label>
 </ListView>

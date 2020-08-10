@@ -163,7 +163,7 @@
         <searchResultsAdditionalFields
     >LoggingLevel__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields
-    >Message__c</searchResultsAdditionalFields>
+    >LogMessage__c</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>ReadWrite</sharingModel>
     <visibility>Public</visibility>

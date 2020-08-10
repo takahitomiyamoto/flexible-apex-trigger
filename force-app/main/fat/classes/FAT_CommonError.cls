@@ -37,7 +37,7 @@ public without sharing class FAT_CommonError {
   }
 
   /**
-   * @description create Error Message from Database.Error
+   * @description create error message from Database.Error
    * @param error
    * @return JSON.serialize(errorObj)
    */
@@ -51,7 +51,7 @@ public without sharing class FAT_CommonError {
   }
 
   /**
-   * @description create Error Message from Exception
+   * @description create error message from Exception
    * @param e
    * @return JSON.serialize(errorObj)
    */

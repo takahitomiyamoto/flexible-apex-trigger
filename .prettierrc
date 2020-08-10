@@ -15,6 +15,8 @@
   "proseWrap": "preserve",
   "htmlWhitespaceSensitivity": "css",
   "endOfLine": "lf",
+  "xmlSelfClosingSpace": true,
+  "xmlWhitespaceSensitivity": "strict",
   "overrides": [
     {
       "files": "**/lwc/**/*.html",

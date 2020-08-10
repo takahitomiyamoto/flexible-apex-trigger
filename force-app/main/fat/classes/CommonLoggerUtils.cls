@@ -75,8 +75,8 @@ public without sharing class CommonLoggerUtils {
    * @name queryLoggerConfig
    * @description get LoggerConfig__mdt
    */
+  @SuppressWarnings('PMD.ApexCRUDViolation')
   public LoggerConfig__mdt queryLoggerConfig(String developerName) {
-    // TODO: https://pmd.github.io/latest/pmd_rules_apex_security.html#apexcrudviolation
     return [
       SELECT
         Archive__c,
@@ -162,23 +162,28 @@ public without sharing class CommonLoggerUtils {
   }
 
   /**
+   * @name createDebugLogMessage
+   * @description create debugLog message
+   */
+  public String createDebugLogMessage(String methodName, Object message) {
+    return methodName + SYMBOL_DIVIDER + message;
+  }
+
+  /**
    * @name createDebugLog
    * @description create debugLog
    */
   public String createDebugLog(
     LoggingLevel level,
     String className,
-    String methodName,
-    Object message
+    Object logMessage
   ) {
     return className +
       SYMBOL_CLS +
       SYMBOL_DIVIDER +
       String.valueOf(level) +
       SYMBOL_DIVIDER +
-      methodName +
-      SYMBOL_DIVIDER +
-      message;
+      logMessage;
   }
 
   /**

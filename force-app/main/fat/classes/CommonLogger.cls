@@ -70,9 +70,9 @@ public without sharing class CommonLogger {
       return;
     }
     if (utils.isHigherLevel(level, defaultLevel)) {
-      this.debugLogs.add(
-        utils.createDebugLog(level, getClassName(), getMethodName(), message)
-      );
+      String logMessage = utils.createDebugLogMessage(getMethodName(), message);
+      String debugLog = utils.createDebugLog(level, getClassName(), logMessage);
+      this.debugLogs.add(debugLog);
     }
   }
 

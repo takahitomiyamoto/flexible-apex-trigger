@@ -21,7 +21,9 @@
         <pageOrSobjectType>Logger__c</pageOrSobjectType>
     </actionOverrides>
     <brand>
-        <headerColor>#0070D2</headerColor>
+        <headerColor>#FF6347</headerColor>
+        <logo>applogo</logo>
+        <logoVersion>1</logoVersion>
         <shouldOverrideOrgTheme>false</shouldOverrideOrgTheme>
     </brand>
     <formFactors>Small</formFactors>

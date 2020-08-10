@@ -41,7 +41,7 @@
                 <componentInstanceProperties>
                     <name>label</name>
                     <type>decorator</type>
-                    <value>List View</value>
+                    <value>Loggers</value>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>pageSize</name>

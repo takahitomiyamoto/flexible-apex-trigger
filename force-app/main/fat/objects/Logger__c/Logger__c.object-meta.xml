@@ -155,7 +155,7 @@
     <externalSharingModel>Private</externalSharingModel>
     <label>Logger</label>
     <nameField>
-        <label>Logger ID</label>
+        <label>Logger Name</label>
         <type>Text</type>
     </nameField>
     <pluralLabel>Loggers</pluralLabel>

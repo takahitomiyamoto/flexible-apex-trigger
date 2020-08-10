@@ -2,8 +2,11 @@
  * @name AccountTriggerService.cls
  * @description service for AccountTrigger
  */
-public with sharing class AccountTriggerService implements ITriggerObserver {
-  // Custom Exception
+@SuppressWarnings('PMD.EmptyStatementBlock')
+public with sharing class AccountTriggerService implements FAT_ITriggerObserver {
+  /**
+   * @description Custom Exception
+   */
   public class CustomException extends Exception {
   }
 
@@ -11,13 +14,12 @@ public with sharing class AccountTriggerService implements ITriggerObserver {
   private static final String NAME_PREFIX_SAMPLE = System.Label.NAME_PREFIX_SAMPLE;
 
   // Logger Variable
-  private final CommonLogger logger = CommonLogger.getInstance();
+  private final FAT_CommonLogger logger = FAT_CommonLogger.getInstance();
 
   // Instance Variables
-  private CommonTriggerHandler handler;
+  private FAT_CommonTriggerHandler handler;
 
   /**
-   * @name AccountTriggerService
    * @description constructor with no parameter
    */
   public AccountTriggerService() {
@@ -25,8 +27,8 @@ public with sharing class AccountTriggerService implements ITriggerObserver {
   }
 
   /**
-   * @name setMethodName
    * @description set method name
+   * @param methodName
    */
   private void setMethodName(String methodName) {
     logger.setClassName(AccountTriggerService.class.getName());
@@ -34,8 +36,8 @@ public with sharing class AccountTriggerService implements ITriggerObserver {
   }
 
   /**
-   * @name addPrefixToName
    * @description 取引先名(Name)項目の先頭に[サンプル]という文字列を付ける。
+   * @param accounts
    */
   @TestVisible
   private void addPrefixToName(List<Account> accounts) {
@@ -56,18 +58,20 @@ public with sharing class AccountTriggerService implements ITriggerObserver {
   }
 
   /**
-   * @name storeTriggerObserver
    * @description store TriggerObserver
+   * @param handler
+   * @return (FAT_ITriggerObserver) this
    */
-  public ITriggerObserver storeTriggerObserver(CommonTriggerHandler handler) {
+  public FAT_ITriggerObserver storeTriggerObserver(
+    FAT_CommonTriggerHandler handler
+  ) {
     this.setMethodName('storeTriggerObserver');
 
     this.handler = handler;
-    return (ITriggerObserver) this;
+    return (FAT_ITriggerObserver) this;
   }
 
   /**
-   * @name onBeforeInsert
    * @description custom action in case of before insert
    */
   public void onBeforeInsert() {
@@ -81,42 +85,36 @@ public with sharing class AccountTriggerService implements ITriggerObserver {
   }
 
   /**
-   * @name onBeforeUpdate
    * @description custom action in case of before update
    */
   public void onBeforeUpdate() {
   }
 
   /**
-   * @name onBeforeDelete
    * @description custom action in case of before delete
    */
   public void onBeforeDelete() {
   }
 
   /**
-   * @name onAfterInsert
    * @description custom action in case of after insert
    */
   public void onAfterInsert() {
   }
 
   /**
-   * @name onAfterUpdate
    * @description custom action in case of after update
    */
   public void onAfterUpdate() {
   }
 
   /**
-   * @name onAfterDelete
    * @description custom action in case of after delete
    */
   public void onAfterDelete() {
   }
 
   /**
-   * @name onAfterUndelete
    * @description custom action in case of after undelete
    */
   public void onAfterUndelete() {

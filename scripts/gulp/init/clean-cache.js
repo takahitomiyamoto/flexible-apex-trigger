@@ -5,7 +5,7 @@
 import { execute } from '../common/lib';
 
 /**
- * @name _cleanCache
+ * @description clean npm cache
  */
 export default function _cleanCache() {
   const commands = [];

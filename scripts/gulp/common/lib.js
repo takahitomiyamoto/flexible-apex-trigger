@@ -1,6 +1,6 @@
 /**
- * @name utils.js
- * @description utilities
+ * @name lib.js
+ * @description libraries
  */
 import gulp from 'gulp';
 import shell from 'gulp-shell';

@@ -9,43 +9,19 @@
                     <value>true</value>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
-                    <name>enableInlineEdit</name>
-                    <value>false</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>entityName</name>
-                    <value>Logger__c</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>filterName</name>
-                    <value>All</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
                     <name>height</name>
                     <type>decorator</type>
-                    <value>480</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>hideActionBar</name>
-                    <value>false</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>hideSearchBar</name>
-                    <value>false</value>
+                    <value>300</value>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>icon</name>
                     <type>decorator</type>
-                    <value>filter</value>
+                    <value>fallback</value>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>label</name>
                     <type>decorator</type>
-                    <value>Loggers</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>pageSize</name>
-                    <value>3</value>
+                    <value>Subscribe LoggerEvent</value>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>scrollable</name>
@@ -55,9 +31,9 @@
                 <componentInstanceProperties>
                     <name>width</name>
                     <type>decorator</type>
-                    <value>500</value>
+                    <value>340</value>
                 </componentInstanceProperties>
-                <componentName>flexipage:filterListCard</componentName>
+                <componentName>fatSubscribeLoggerEvent</componentName>
             </componentInstance>
         </itemInstances>
         <name>utilityItems</name>

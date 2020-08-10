@@ -5,7 +5,7 @@
 import { execute } from '../common/lib';
 
 /**
- * @name _cleanLogs
+ * @description clean logs
  */
 export default function _cleanLogs() {
   const commands = [];

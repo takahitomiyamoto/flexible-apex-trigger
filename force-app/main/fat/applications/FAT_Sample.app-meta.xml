@@ -4,25 +4,25 @@
         <actionName>View</actionName>
         <comment
     >Action override created by Lightning App Builder during activation.</comment>
-        <content>Logger_Record_Page</content>
+        <content>FAT_Logger_Record_Page</content>
         <formFactor>Small</formFactor>
         <skipRecordTypeSelect>false</skipRecordTypeSelect>
         <type>Flexipage</type>
-        <pageOrSobjectType>Logger__c</pageOrSobjectType>
+        <pageOrSobjectType>FAT_Logger__c</pageOrSobjectType>
     </actionOverrides>
     <actionOverrides>
         <actionName>View</actionName>
         <comment
     >Action override created by Lightning App Builder during activation.</comment>
-        <content>Logger_Record_Page</content>
+        <content>FAT_Logger_Record_Page</content>
         <formFactor>Large</formFactor>
         <skipRecordTypeSelect>false</skipRecordTypeSelect>
         <type>Flexipage</type>
-        <pageOrSobjectType>Logger__c</pageOrSobjectType>
+        <pageOrSobjectType>FAT_Logger__c</pageOrSobjectType>
     </actionOverrides>
     <brand>
         <headerColor>#FF6347</headerColor>
-        <logo>logoTop</logo>
+        <logo>FAT_logo</logo>
         <logoVersion>1</logoVersion>
         <shouldOverrideOrgTheme>false</shouldOverrideOrgTheme>
     </brand>
@@ -32,7 +32,7 @@
     <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
     <label>FAT Sample</label>
     <navType>Standard</navType>
-    <tabs>Logger__c</tabs>
+    <tabs>FAT_Logger__c</tabs>
     <tabs>standard-Account</tabs>
     <tabs>standard-Contact</tabs>
     <tabs>standard-Case</tabs>

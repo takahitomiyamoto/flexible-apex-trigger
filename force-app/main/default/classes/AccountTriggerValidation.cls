@@ -2,8 +2,11 @@
  * @name AccountTriggerValidation.cls
  * @description validation for AccountTrigger
  */
-public with sharing class AccountTriggerValidation implements ITriggerObserver {
-  // Custom Exception
+@SuppressWarnings('PMD.EmptyStatementBlock')
+public with sharing class AccountTriggerValidation implements FAT_ITriggerObserver {
+  /**
+   * @description Custom Exception
+   */
   public class CustomException extends Exception {
   }
 
@@ -11,13 +14,12 @@ public with sharing class AccountTriggerValidation implements ITriggerObserver {
   private static final String ERROR_MESSAGE_PHONE_REQUIRED = System.Label.ERROR_MESSAGE_PHONE_REQUIRED;
 
   // Logger Variable
-  private final CommonLogger logger = CommonLogger.getInstance();
+  private final FAT_CommonLogger logger = FAT_CommonLogger.getInstance();
 
   // Instance Variables
-  private CommonTriggerHandler handler;
+  private FAT_CommonTriggerHandler handler;
 
   /**
-   * @name AccountTriggerValidation
    * @description constructor with no parameter
    */
   public AccountTriggerValidation() {
@@ -25,8 +27,8 @@ public with sharing class AccountTriggerValidation implements ITriggerObserver {
   }
 
   /**
-   * @name setMethodName
    * @description set method name
+   * @param methodName
    */
   private void setMethodName(String methodName) {
     logger.setClassName(AccountTriggerValidation.class.getName());
@@ -34,9 +36,9 @@ public with sharing class AccountTriggerValidation implements ITriggerObserver {
   }
 
   /**
-   * @name validatePhone
    * @description Fax(FAX)項目に値が入っており、かつ電話(Phone)項目に値が入っていない場合は
    * 「FAXが入っている場合は電話番号も入力してください」というエラーにする。
+   * @param accounts
    */
   @TestVisible
   private void validatePhone(List<Account> accounts) {
@@ -61,18 +63,20 @@ public with sharing class AccountTriggerValidation implements ITriggerObserver {
   }
 
   /**
-   * @name storeTriggerObserver
    * @description store TriggerObserver
+   * @param handler
+   * @return (FAT_ITriggerObserver) this
    */
-  public ITriggerObserver storeTriggerObserver(CommonTriggerHandler handler) {
+  public FAT_ITriggerObserver storeTriggerObserver(
+    FAT_CommonTriggerHandler handler
+  ) {
     this.setMethodName('storeTriggerObserver');
 
     this.handler = handler;
-    return (ITriggerObserver) this;
+    return (FAT_ITriggerObserver) this;
   }
 
   /**
-   * @name onBeforeInsert
    * @description custom action in case of before insert
    */
   public void onBeforeInsert() {
@@ -86,7 +90,6 @@ public with sharing class AccountTriggerValidation implements ITriggerObserver {
   }
 
   /**
-   * @name onBeforeUpdate
    * @description custom action in case of before update
    */
   public void onBeforeUpdate() {
@@ -100,35 +103,30 @@ public with sharing class AccountTriggerValidation implements ITriggerObserver {
   }
 
   /**
-   * @name onBeforeDelete
    * @description custom action in case of before delete
    */
   public void onBeforeDelete() {
   }
 
   /**
-   * @name onAfterInsert
    * @description custom action in case of after insert
    */
   public void onAfterInsert() {
   }
 
   /**
-   * @name onAfterUpdate
    * @description custom action in case of after update
    */
   public void onAfterUpdate() {
   }
 
   /**
-   * @name onAfterDelete
    * @description custom action in case of after delete
    */
   public void onAfterDelete() {
   }
 
   /**
-   * @name onAfterUndelete
    * @description custom action in case of after undelete
    */
   public void onAfterUndelete() {

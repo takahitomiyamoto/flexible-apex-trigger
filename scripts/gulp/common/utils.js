@@ -7,7 +7,7 @@ import { path } from './lib';
 const ENVIRONMENT = '.secrets/environment.json';
 
 /**
- * @name getEnvironment
+ * @description get environment file
  */
 const getEnvironment = () => {
   const environment = require(path.join(

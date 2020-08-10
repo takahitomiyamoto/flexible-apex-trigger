@@ -5,7 +5,7 @@
 import { execute } from '../common/lib';
 
 /**
- * @name _upgradeDependencies
+ * @description upgrade Dependencies
  */
 export default function _upgradeDependencies() {
   const commands = [];
@@ -16,6 +16,7 @@ export default function _upgradeDependencies() {
   commands.push('@babel/register');
   commands.push('@prettier/plugin-xml');
   commands.push('@salesforce/eslint-config-lwc');
+  commands.push('@salesforce/eslint-plugin-aura');
   commands.push('eslint');
   commands.push('gulp');
   commands.push('gulp-babel');

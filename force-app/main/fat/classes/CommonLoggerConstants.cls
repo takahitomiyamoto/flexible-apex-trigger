@@ -4,6 +4,7 @@
  */
 public without sharing class CommonLoggerConstants {
   public static final Integer MAX_WIDTH = 3000;
+  public static final String FIELD_RECORD_TYPE_ID = 'RecordTypeId';
   public static final String LOGGER_DEFAULT = 'DEFAULT';
   public static final String PARTING_LINE = '------------------------------';
   public static final String SYMBOL_CLS = '.cls';

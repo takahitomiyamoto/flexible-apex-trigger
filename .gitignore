@@ -37,6 +37,7 @@ $RECYCLE.BIN/
 
 # VS Code
 # .vscode/
+.vscode/launch.json
 
 # env
 .certificates/

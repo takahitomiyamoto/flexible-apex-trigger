@@ -8,11 +8,19 @@ public without sharing class CommonUtils {
   }
 
   /**
+   * @name getSObjectType
+   * @description get SObjectType
+   */
+  public static Schema.SObjectType getSObjectType(String typeName) {
+    return Schema.getGlobalDescribe().get(typeName);
+  }
+
+  /**
    * @name createObject
    * @description create sObject
    */
   public static SObject createObject(String typeName) {
-    Schema.SObjectType targetType = Schema.getGlobalDescribe().get(typeName);
+    Schema.SObjectType targetType = getSObjectType(typeName);
     if (null == targetType) {
       String message = 'The sObject ' + typeName + ' is NOT FOUND.';
       throw new CustomException(message);
@@ -25,8 +33,7 @@ public without sharing class CommonUtils {
    * @description get recordTypeId
    */
   public static Id getRecordTypeId(String sObjectName, String developerName) {
-    return Schema.getGlobalDescribe()
-      .get(sObjectName)
+    return getSObjectType(sObjectName)
       .getDescribe()
       .getRecordTypeInfosByDeveloperName()
       .get(developerName)

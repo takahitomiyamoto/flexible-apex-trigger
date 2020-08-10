@@ -6,6 +6,7 @@ public without sharing class CommonLoggerUtils {
   // Constants
   private static final Integer MAX_WIDTH = CommonLoggerConstants.MAX_WIDTH;
   private static final String DATE_FORMAT = CommonLoggerConstants.DATE_FORMAT;
+  private static final String FIELD_RECORD_TYPE_ID = CommonLoggerConstants.FIELD_RECORD_TYPE_ID;
   private static final String LOGGER_DEFAULT = CommonLoggerConstants.LOGGER_DEFAULT;
   private static final String PARTING_LINE = CommonLoggerConstants.PARTING_LINE;
   private static final String SYMBOL_CLS = CommonLoggerConstants.SYMBOL_CLS;
@@ -79,10 +80,10 @@ public without sharing class CommonLoggerUtils {
     return [
       SELECT
         Archive__c,
-        LoggerObject__c,
-        LoggerObjectLoggingLevel__c,
-        LoggerObjectLogMessage__c,
-        LoggerObjectName__c,
+        LoggerObject__r.QualifiedApiName,
+        LoggerObjectLoggingLevel__r.QualifiedApiName,
+        LoggerObjectLogMessage__r.QualifiedApiName,
+        LoggerObjectName__r.QualifiedApiName,
         LoggerObjectRecordType__c,
         LoggingLevel__c
       FROM LoggerConfig__mdt
@@ -193,28 +194,31 @@ public without sharing class CommonLoggerUtils {
    * @name archiveLoggerObject
    * @description archive Logger Object
    */
-  public void archiveLoggerObject(String message) {
+  public void archiveLoggerObject(String logMessage) {
     this.setTimestampNow();
 
     LoggerConfig__mdt defaultLoggerConfig = this.getDefaultLoggerConfig();
-    String defaultLoggerObject = defaultLoggerConfig.LoggerObject__c;
-    SObject loggerObject = CommonUtils.createObject(defaultLoggerObject);
-    loggerObject.put(
-      defaultLoggerConfig.LoggerObjectName__c,
-      this.getTimestampNow()
+    final String OBJECT_LOGGER = defaultLoggerConfig.LoggerObject__r.QualifiedApiName;
+    final String FIELD_NAME = defaultLoggerConfig.LoggerObjectName__r.QualifiedApiName;
+    final String FIELD_LOGGING_LEVEL = defaultLoggerConfig.LoggerObjectLoggingLevel__r.QualifiedApiName;
+    final String FIELD_LOG_MESSAGE = defaultLoggerConfig.LoggerObjectLogMessage__r.QualifiedApiName;
+    SObject loggerObject = CommonUtils.createObject(OBJECT_LOGGER);
+
+    // Logger RecordTypeId
+    Id defaultLoggerRecordTypeId = CommonUtils.getRecordTypeId(
+      OBJECT_LOGGER,
+      defaultLoggerConfig.LoggerObjectRecordType__c
     );
-    loggerObject.put(defaultLoggerConfig.LoggerObjectLogMessage__c, message);
-    loggerObject.put(
-      defaultLoggerConfig.LoggerObjectLoggingLevel__c,
-      defaultLoggerConfig.LoggingLevel__c
-    );
-    loggerObject.put(
-      'RecordTypeId',
-      CommonUtils.getRecordTypeId(
-        defaultLoggerConfig.LoggerObject__c,
-        defaultLoggerConfig.LoggerObjectRecordType__c
-      )
-    );
+    loggerObject.put(FIELD_RECORD_TYPE_ID, defaultLoggerRecordTypeId);
+
+    // Logger Name
+    loggerObject.put(FIELD_NAME, this.getTimestampNow());
+
+    // Logging Level
+    loggerObject.put(FIELD_LOGGING_LEVEL, defaultLoggerConfig.LoggingLevel__c);
+
+    // Log Message
+    loggerObject.put(FIELD_LOG_MESSAGE, logMessage);
 
     Database.SaveResult result = Database.insert(loggerObject, false);
     CommonError.handleError(result);

@@ -63,10 +63,6 @@ public without sharing class FAT_CommonTriggerUtils {
       activeTriggerOperation.add(TriggerOperation.AFTER_UNDELETE);
     }
 
-    if (triggerObserver.TestOnly__c) {
-      return null;
-    }
-
     LOGGER.stackDebugLog(LoggingLevel.DEBUG, activeTriggerOperation);
     return activeTriggerOperation;
   }

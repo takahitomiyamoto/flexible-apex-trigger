@@ -82,11 +82,11 @@ public with sharing class AccountTriggerValidation implements FAT_ITriggerObserv
   public void onBeforeInsert() {
     this.setMethodName('onBeforeInsert');
 
-    if (null == handler) {
+    if (null == this.handler) {
       return;
     }
 
-    this.validatePhone((List<Account>) handler.newObjects);
+    this.validatePhone((List<Account>) this.handler.newObjects);
   }
 
   /**
@@ -95,11 +95,11 @@ public with sharing class AccountTriggerValidation implements FAT_ITriggerObserv
   public void onBeforeUpdate() {
     this.setMethodName('onBeforeUpdate');
 
-    if (null == handler) {
+    if (null == this.handler) {
       return;
     }
 
-    this.validatePhone((List<Account>) handler.newObjects);
+    this.validatePhone((List<Account>) this.handler.newObjects);
   }
 
   /**

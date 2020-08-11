@@ -4,7 +4,6 @@
     <columns>MasterLabel</columns>
     <columns>SObject__c</columns>
     <columns>Active__c</columns>
-    <columns>TestOnly__c</columns>
     <columns>BeforeInsert__c</columns>
     <columns>BeforeUpdate__c</columns>
     <columns>BeforeDelete__c</columns>

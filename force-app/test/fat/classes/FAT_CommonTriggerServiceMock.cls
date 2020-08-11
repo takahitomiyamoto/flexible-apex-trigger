@@ -1,17 +1,15 @@
 /**
- * @name AccountTriggerService.cls
- * @description service for AccountTrigger
+ * @name FAT_CommonTriggerServiceMock.cls
+ * @description service for FAT_CommonTrigger
  */
 @SuppressWarnings('PMD.EmptyStatementBlock')
-public with sharing class AccountTriggerService implements FAT_ITriggerObserver {
+@isTest(SeeAllData=false)
+public with sharing class FAT_CommonTriggerServiceMock implements FAT_ITriggerObserver {
   /**
    * @description Custom Exception
    */
   public class CustomException extends Exception {
   }
-
-  // Constants
-  private static final String NAME_PREFIX_SAMPLE = System.Label.NAME_PREFIX_SAMPLE;
 
   // Logger Variable
   private final FAT_CommonLogger logger = FAT_CommonLogger.getInstance();
@@ -22,8 +20,8 @@ public with sharing class AccountTriggerService implements FAT_ITriggerObserver 
   /**
    * @description constructor with no parameter
    */
-  public AccountTriggerService() {
-    this.setMethodName('AccountTriggerService');
+  public FAT_CommonTriggerServiceMock() {
+    this.setMethodName('FAT_CommonTriggerServiceMock');
   }
 
   /**
@@ -31,30 +29,8 @@ public with sharing class AccountTriggerService implements FAT_ITriggerObserver 
    * @param methodName
    */
   private void setMethodName(String methodName) {
-    logger.setClassName(AccountTriggerService.class.getName());
+    logger.setClassName(FAT_CommonTriggerServiceMock.class.getName());
     logger.setMethodName(methodName);
-  }
-
-  /**
-   * @description 取引先名(Name)項目の先頭に[サンプル]という文字列を付ける。
-   * @param accounts
-   */
-  @TestVisible
-  private void addPrefixToName(List<Account> accounts) {
-    this.setMethodName('addPrefixToName');
-
-    if (null == accounts) {
-      return;
-    }
-
-    for (Account account : accounts) {
-      logger.stackDebugLog(LoggingLevel.DEBUG, 'Name: ' + account.Name);
-      if (null == account.Name) {
-        continue;
-      }
-      account.Name = NAME_PREFIX_SAMPLE + account.Name;
-      logger.stackDebugLog(LoggingLevel.DEBUG, 'Name: ' + account.Name);
-    }
   }
 
   /**
@@ -75,13 +51,6 @@ public with sharing class AccountTriggerService implements FAT_ITriggerObserver 
    * @description custom action in case of before insert
    */
   public void onBeforeInsert() {
-    this.setMethodName('onBeforeInsert');
-
-    if (null == this.handler) {
-      return;
-    }
-
-    this.addPrefixToName((List<Account>) this.handler.newObjects);
   }
 
   /**

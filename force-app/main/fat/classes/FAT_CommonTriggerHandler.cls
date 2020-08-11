@@ -222,7 +222,6 @@ public without sharing class FAT_CommonTriggerHandler {
         DeveloperName,
         SObject__c,
         ApexClass__c,
-        TestOnly__c,
         Active__c,
         BeforeInsert__c,
         BeforeUpdate__c,

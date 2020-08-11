@@ -11,12 +11,12 @@
     <description>View FAT_Logger</description>
     <fieldPermissions>
         <editable>false</editable>
-        <field>FAT_Logger__c.LoggingLevel__c</field>
+        <field>FAT_Logger__c.LogMessage__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>FAT_Logger__c.LogMessage__c</field>
+        <field>FAT_Logger__c.LoggingLevel__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <hasActivationRequired>false</hasActivationRequired>

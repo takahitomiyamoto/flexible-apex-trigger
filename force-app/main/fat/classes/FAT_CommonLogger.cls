@@ -26,7 +26,7 @@ public without sharing class FAT_CommonLogger {
    * @param message
    */
   @TestVisible
-  private void stackDebugLog(
+  private void stackDefaultDebugLog(
     LoggingLevel defaultLevel,
     LoggingLevel level,
     Object message
@@ -88,7 +88,7 @@ public without sharing class FAT_CommonLogger {
    */
   public void stackDebugLog(LoggingLevel level, Object message) {
     LoggingLevel defaultLevel = utils.getDefaultLoggingLevel();
-    this.stackDebugLog(defaultLevel, level, message);
+    this.stackDefaultDebugLog(defaultLevel, level, message);
   }
 
   /**

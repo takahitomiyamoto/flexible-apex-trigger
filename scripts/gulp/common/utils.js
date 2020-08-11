@@ -5,6 +5,7 @@
 import { path } from './lib';
 
 const ENVIRONMENT = '.secrets/environment.json';
+const URL_SERVICE_SOAP_METADATA = 'my.salesforce.com/services/Soap/m';
 
 /**
  * @description get environment file
@@ -18,4 +19,4 @@ const getEnvironment = () => {
   return environment;
 };
 
-export { getEnvironment };
+export { getEnvironment, URL_SERVICE_SOAP_METADATA };

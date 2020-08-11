@@ -5,6 +5,7 @@
   "scripts": {
     "gulp:init": "gulp init",
     "gulp:logger:query": "gulp queryLogger",
+    "gulp:manifest:create": "gulp manifestCreate",
     "pmd:apex:summaryhtml": "sfdx sfpowerkit:source:pmd --format summaryhtml --report .reports/pmd.summary.html --ruleset pmd-ruleset.xml",
     "prettier": "prettier \"**/*.{cls,cmp,component,css,html,js,json,md,page,trigger,xml,yaml,yml}\" --write --loglevel log",
     "lint:app:html": "eslint force-app --format html --output-file .reports/eslint.html",
@@ -26,6 +27,7 @@
     "gulp-babel": "8.0.0",
     "gulp-shell": "0.8.0",
     "heat-sfdx-common": "0.1.14",
+    "heat-sfdx-metadata": "0.0.12",
     "prettier": "2.0.5",
     "prettier-plugin-apex": "1.6.0"
   }

@@ -41,6 +41,7 @@ $RECYCLE.BIN/
 .vscode/launch.json
 
 # env
+.assets/
 .certificates/
 .secrets/
 
@@ -48,5 +49,6 @@ $RECYCLE.BIN/
 .pmdCache
 
 # temp
+force-app/main/default/appMenus/
 force-app/main/default/connectedApps/
 force-app/main/default/profiles/

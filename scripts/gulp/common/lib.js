@@ -11,6 +11,7 @@ import {
   readFileSyncUtf8,
   writeFileSyncUtf8
 } from 'heat-sfdx-common';
+import { buildManifest } from 'heat-sfdx-metadata';
 
 const execute = (command) => {
   return gulp.src('.').pipe(
@@ -21,4 +22,12 @@ const execute = (command) => {
   );
 };
 
-export { path, loginJwt, query, readFileSyncUtf8, writeFileSyncUtf8, execute };
+export {
+  path,
+  loginJwt,
+  query,
+  readFileSyncUtf8,
+  writeFileSyncUtf8,
+  execute,
+  buildManifest
+};

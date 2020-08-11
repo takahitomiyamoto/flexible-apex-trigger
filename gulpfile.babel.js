@@ -15,6 +15,10 @@ import cleanLogs from './scripts/gulp/init/clean-logs';
 // rest
 import queryLogger from './scripts/gulp/query/query-logger';
 
+// metadata
+import buildManifest from './scripts/gulp/metadata/build-manifest';
+
 // gulp tasks
 exports.init = series(cleanCache, upgradeDependencies, cleanLogs);
 exports.queryLogger = series(cleanLogs, loginJwt, queryLogger);
+exports.manifestCreate = series(cleanLogs, loginJwt, buildManifest);

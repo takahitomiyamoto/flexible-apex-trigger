@@ -20,6 +20,28 @@ public without sharing class FAT_CommonLogger {
   }
 
   /**
+   * @description stack the debugLog with defaultLevel
+   * @param defaultLevel
+   * @param level
+   * @param message
+   */
+  @TestVisible
+  private void stackDebugLog(
+    LoggingLevel defaultLevel,
+    LoggingLevel level,
+    Object message
+  ) {
+    if (utils.notLogging(defaultLevel)) {
+      return;
+    }
+    if (utils.isHigherLevel(level, defaultLevel)) {
+      String logMessage = utils.createDebugLogMessage(getMethodName(), message);
+      String debugLog = utils.createDebugLog(level, getClassName(), logMessage);
+      this.debugLogs.add(debugLog);
+    }
+  }
+
+  /**
    * @description get the instance
    * @return FAT_CommonLogger
    */
@@ -66,14 +88,7 @@ public without sharing class FAT_CommonLogger {
    */
   public void stackDebugLog(LoggingLevel level, Object message) {
     LoggingLevel defaultLevel = utils.getDefaultLoggingLevel();
-    if (utils.notLogging(defaultLevel)) {
-      return;
-    }
-    if (utils.isHigherLevel(level, defaultLevel)) {
-      String logMessage = utils.createDebugLogMessage(getMethodName(), message);
-      String debugLog = utils.createDebugLog(level, getClassName(), logMessage);
-      this.debugLogs.add(debugLog);
-    }
+    this.stackDebugLog(defaultLevel, level, message);
   }
 
   /**

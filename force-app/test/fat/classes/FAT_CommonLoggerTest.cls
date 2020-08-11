@@ -27,6 +27,16 @@ private class FAT_CommonLoggerTest {
   }
 
   @isTest
+  static void stackDebugLogNotLogging() {
+    Test.startTest();
+    FAT_CommonLogger logger = FAT_CommonLogger.getInstance();
+    logger.stackDebugLog(LoggingLevel.NONE, LoggingLevel.DEBUG, '');
+    Test.stopTest();
+
+    System.assertNotEquals(null, logger, 'stackDebugLogNotLogging');
+  }
+
+  @isTest
   static void stackDebugLogNone() {
     Test.startTest();
     FAT_CommonLogger logger = FAT_CommonLogger.getInstance();

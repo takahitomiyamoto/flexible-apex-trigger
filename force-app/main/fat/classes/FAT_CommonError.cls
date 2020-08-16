@@ -39,33 +39,33 @@ public without sharing class FAT_CommonError {
   /**
    * @description create error message from Database.Error
    * @param error
-   * @return JSON.serialize(errorObj)
+   * @return JSON.serialize(errorMessage)
    */
   public static String createErrorMessage(Database.Error error) {
-    ErrorMessage errorObj = new ErrorMessage();
-    errorObj.fields = error.getFields();
-    errorObj.statusCode = error.getStatusCode();
-    errorObj.message = error.getMessage();
+    ErrorMessage errorMessage = new ErrorMessage();
+    errorMessage.fields = error.getFields();
+    errorMessage.statusCode = error.getStatusCode();
+    errorMessage.message = error.getMessage();
 
-    return JSON.serialize(errorObj);
+    return JSON.serialize(errorMessage);
   }
 
   /**
    * @description create error message from Exception
    * @param e
-   * @return JSON.serialize(errorObj)
+   * @return JSON.serialize(errorMessage)
    */
   public static String createErrorMessage(Exception e) {
-    ErrorMessage errorObj = new ErrorMessage();
-    errorObj.cause = e.getCause();
-    errorObj.lineNumber = e.getLineNumber();
-    errorObj.message = e.getMessage();
-    errorObj.type = e.getTypeName();
-    errorObj.stackTrace = hasStackTrace(e.getStackTraceString())
+    ErrorMessage errorMessage = new ErrorMessage();
+    errorMessage.cause = e.getCause();
+    errorMessage.lineNumber = e.getLineNumber();
+    errorMessage.message = e.getMessage();
+    errorMessage.type = e.getTypeName();
+    errorMessage.stackTrace = hasStackTrace(e.getStackTraceString())
       ? e.getStackTraceString().replace(SYMBOL_NEWLINE, SYMBOL_DIVIDER)
       : '';
 
-    return JSON.serialize(errorObj);
+    return JSON.serialize(errorMessage);
   }
 
   /**

@@ -3,13 +3,7 @@
  * @see https://developer.salesforce.com/docs/component-library/bundle/lightning-emp-api
  */
 import { LightningElement } from 'lwc';
-import {
-  subscribe,
-  unsubscribe,
-  onError
-  // setDebugFlag,
-  // isEmpEnabled
-} from 'lightning/empApi';
+import { subscribe, unsubscribe, onError } from 'lightning/empApi';
 
 export default class FatSubscribeLoggerEvent extends LightningElement {
   channelName = '/event/FAT_LoggerEvent__e';

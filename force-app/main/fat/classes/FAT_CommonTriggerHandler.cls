@@ -231,7 +231,7 @@ public without sharing class FAT_CommonTriggerHandler {
         AfterDelete__c,
         AfterUndelete__c
       FROM FAT_TriggerObserver__mdt
-      WHERE SObject__c = :sObjectName
+      WHERE SObject__c = :sObjectName AND Active__c = TRUE
       ORDER BY DeveloperName ASC
       LIMIT 50000
     ]) {

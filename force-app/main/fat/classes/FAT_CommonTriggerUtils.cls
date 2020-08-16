@@ -29,10 +29,6 @@ public without sharing class FAT_CommonTriggerUtils {
   public static List<TriggerOperation> addActiveTriggerOperations(
     FAT_TriggerObserver__mdt triggerObserver
   ) {
-    if (!triggerObserver.Active__c) {
-      return null;
-    }
-
     List<TriggerOperation> activeTriggerOperation = new List<TriggerOperation>();
 
     if (triggerObserver.BeforeInsert__c) {

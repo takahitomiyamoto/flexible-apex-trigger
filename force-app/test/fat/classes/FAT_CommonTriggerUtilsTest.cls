@@ -71,6 +71,10 @@ private class FAT_CommonTriggerUtilsTest {
     );
     Test.stopTest();
 
-    system.assertEquals(null, operations, 'addActiveTriggerOperationsInactive');
+    system.assertEquals(
+      new List<TriggerOperation>(),
+      operations,
+      'addActiveTriggerOperationsInactive'
+    );
   }
 }

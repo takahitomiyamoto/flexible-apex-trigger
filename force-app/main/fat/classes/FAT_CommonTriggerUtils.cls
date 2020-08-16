@@ -59,7 +59,7 @@ public without sharing class FAT_CommonTriggerUtils {
       activeTriggerOperation.add(TriggerOperation.AFTER_UNDELETE);
     }
 
-    LOGGER.stackDebugLog(LoggingLevel.DEBUG, activeTriggerOperation);
+    LOGGER.store(LoggingLevel.DEBUG, activeTriggerOperation);
     return activeTriggerOperation;
   }
 }

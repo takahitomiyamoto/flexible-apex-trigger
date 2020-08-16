@@ -48,12 +48,12 @@ public with sharing class AccountTriggerService implements FAT_ITriggerObserver 
     }
 
     for (Account account : accounts) {
-      logger.stackDebugLog(LoggingLevel.DEBUG, 'Name: ' + account.Name);
+      logger.store(LoggingLevel.DEBUG, 'Name: ' + account.Name);
       if (null == account.Name) {
         continue;
       }
       account.Name = NAME_PREFIX_SAMPLE + account.Name;
-      logger.stackDebugLog(LoggingLevel.DEBUG, 'Name: ' + account.Name);
+      logger.store(LoggingLevel.DEBUG, 'Name: ' + account.Name);
     }
   }
 

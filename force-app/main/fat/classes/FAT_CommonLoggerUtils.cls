@@ -8,7 +8,6 @@ public without sharing class FAT_CommonLoggerUtils {
   private static final String DATE_FORMAT = FAT_CommonLoggerConstants.DATE_FORMAT;
   private static final String FIELD_RECORD_TYPE_ID = FAT_CommonLoggerConstants.FIELD_RECORD_TYPE_ID;
   private static final String LOGGER_DEFAULT = FAT_CommonLoggerConstants.LOGGER_DEFAULT;
-  private static final String PARTING_LINE = FAT_CommonLoggerConstants.PARTING_LINE;
   private static final String SYMBOL_CLS = FAT_CommonLoggerConstants.SYMBOL_CLS;
   private static final String SYMBOL_DIVIDER = FAT_CommonLoggerConstants.SYMBOL_DIVIDER;
   private static final String SYMBOL_NEWLINE = FAT_CommonLoggerConstants.SYMBOL_NEWLINE;
@@ -169,7 +168,7 @@ public without sharing class FAT_CommonLoggerUtils {
    * @param message
    * @return methodName + SYMBOL_DIVIDER + message
    */
-  public String createDebugLogMessage(String methodName, Object message) {
+  public String createLogMessage(String methodName, Object message) {
     return methodName + SYMBOL_DIVIDER + message;
   }
 
@@ -247,10 +246,6 @@ public without sharing class FAT_CommonLoggerUtils {
     if (isLong) {
       logMessage = logMessage.abbreviate(MAX_WIDTH);
     }
-
-    System.debug(LoggingLevel.DEBUG, PARTING_LINE);
-    System.debug(LoggingLevel.DEBUG, logMessage);
-    System.debug(LoggingLevel.DEBUG, PARTING_LINE);
 
     return logMessage;
   }

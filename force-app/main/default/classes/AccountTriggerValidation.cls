@@ -52,8 +52,8 @@ public with sharing class AccountTriggerValidation implements FAT_ITriggerObserv
       Boolean hasFax = String.isNotEmpty(account.Fax);
       Boolean hasPhone = String.isNotEmpty(account.Phone);
 
-      logger.stackDebugLog(LoggingLevel.DEBUG, 'hasFax: ' + hasFax);
-      logger.stackDebugLog(LoggingLevel.DEBUG, 'hasPhone: ' + hasPhone);
+      logger.store(LoggingLevel.DEBUG, 'hasFax: ' + hasFax);
+      logger.store(LoggingLevel.DEBUG, 'hasPhone: ' + hasPhone);
 
       if (hasFax && !hasPhone) {
         account.Phone.addError(ERROR_MESSAGE_PHONE_REQUIRED);

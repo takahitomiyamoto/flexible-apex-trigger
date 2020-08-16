@@ -13,7 +13,7 @@ public without sharing class FAT_LoggerEventTriggerService {
         event.Logger__c,
         FAT_CommonLogger.class
       );
-      logger.fetchDebugLogs();
+      logger.fetch();
     }
   }
 }

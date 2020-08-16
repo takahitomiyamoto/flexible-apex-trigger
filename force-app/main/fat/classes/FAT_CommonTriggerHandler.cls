@@ -67,10 +67,7 @@ public without sharing class FAT_CommonTriggerHandler {
   @TestVisible
   private void onBeforeInsert() {
     this.setMethodName('onBeforeInsert');
-    logger.stackDebugLog(
-      LoggingLevel.DEBUG,
-      'beforeInsert: ' + beforeInsert.size()
-    );
+    logger.store(LoggingLevel.DEBUG, 'beforeInsert: ' + beforeInsert.size());
     for (FAT_ITriggerObserver triggerObserver : beforeInsert) {
       triggerObserver.onBeforeInsert();
     }
@@ -82,10 +79,7 @@ public without sharing class FAT_CommonTriggerHandler {
   @TestVisible
   private void onBeforeUpdate() {
     this.setMethodName('onBeforeUpdate');
-    logger.stackDebugLog(
-      LoggingLevel.DEBUG,
-      'beforeUpdate: ' + beforeUpdate.size()
-    );
+    logger.store(LoggingLevel.DEBUG, 'beforeUpdate: ' + beforeUpdate.size());
     for (FAT_ITriggerObserver triggerObserver : beforeUpdate) {
       triggerObserver.onBeforeUpdate();
     }
@@ -97,10 +91,7 @@ public without sharing class FAT_CommonTriggerHandler {
   @TestVisible
   private void onBeforeDelete() {
     this.setMethodName('onBeforeDelete');
-    logger.stackDebugLog(
-      LoggingLevel.DEBUG,
-      'beforeDelete: ' + beforeDelete.size()
-    );
+    logger.store(LoggingLevel.DEBUG, 'beforeDelete: ' + beforeDelete.size());
     for (FAT_ITriggerObserver triggerObserver : beforeDelete) {
       triggerObserver.onBeforeDelete();
     }
@@ -112,10 +103,7 @@ public without sharing class FAT_CommonTriggerHandler {
   @TestVisible
   private void onAfterInsert() {
     this.setMethodName('onAfterInsert');
-    logger.stackDebugLog(
-      LoggingLevel.DEBUG,
-      'afterInsert: ' + afterInsert.size()
-    );
+    logger.store(LoggingLevel.DEBUG, 'afterInsert: ' + afterInsert.size());
     for (FAT_ITriggerObserver triggerObserver : afterInsert) {
       triggerObserver.onAfterInsert();
     }
@@ -127,10 +115,7 @@ public without sharing class FAT_CommonTriggerHandler {
   @TestVisible
   private void onAfterUpdate() {
     this.setMethodName('onAfterUpdate');
-    logger.stackDebugLog(
-      LoggingLevel.DEBUG,
-      'afterUpdate: ' + afterUpdate.size()
-    );
+    logger.store(LoggingLevel.DEBUG, 'afterUpdate: ' + afterUpdate.size());
     for (FAT_ITriggerObserver triggerObserver : afterUpdate) {
       triggerObserver.onAfterUpdate();
     }
@@ -142,10 +127,7 @@ public without sharing class FAT_CommonTriggerHandler {
   @TestVisible
   private void onAfterDelete() {
     this.setMethodName('onAfterDelete');
-    logger.stackDebugLog(
-      LoggingLevel.DEBUG,
-      'afterDelete: ' + afterDelete.size()
-    );
+    logger.store(LoggingLevel.DEBUG, 'afterDelete: ' + afterDelete.size());
     for (FAT_ITriggerObserver triggerObserver : afterDelete) {
       triggerObserver.onAfterDelete();
     }
@@ -157,10 +139,7 @@ public without sharing class FAT_CommonTriggerHandler {
   @TestVisible
   private void onAfterUndelete() {
     this.setMethodName('onAfterUndelete');
-    logger.stackDebugLog(
-      LoggingLevel.DEBUG,
-      'afterUndelete: ' + afterUndelete.size()
-    );
+    logger.store(LoggingLevel.DEBUG, 'afterUndelete: ' + afterUndelete.size());
     for (FAT_ITriggerObserver triggerObserver : afterUndelete) {
       triggerObserver.onAfterUndelete();
     }
@@ -256,7 +235,7 @@ public without sharing class FAT_CommonTriggerHandler {
    */
   private Boolean isRecursive() {
     this.setMethodName('isRecursive');
-    logger.stackDebugLog(LoggingLevel.DEBUG, 'firstRun: ' + firstRun);
+    logger.store(LoggingLevel.DEBUG, 'firstRun: ' + firstRun);
 
     if (firstRun) {
       return false;
@@ -272,10 +251,7 @@ public without sharing class FAT_CommonTriggerHandler {
    */
   public void invoke() {
     this.setMethodName('invoke');
-    logger.stackDebugLog(
-      LoggingLevel.DEBUG,
-      'sObjectName: ' + this.sObjectName
-    );
+    logger.store(LoggingLevel.DEBUG, 'sObjectName: ' + this.sObjectName);
 
     try {
       if (this.isRecursive()) {
@@ -313,13 +289,10 @@ public without sharing class FAT_CommonTriggerHandler {
         }
       }
     } catch (Exception e) {
-      logger.stackDebugLog(
-        LoggingLevel.ERROR,
-        FAT_CommonError.createErrorMessage(e)
-      );
+      logger.store(LoggingLevel.ERROR, FAT_CommonError.createErrorMessage(e));
     } finally {
       logger.publish();
-      logger.clearDebugLogs();
+      logger.clear();
     }
   }
 }

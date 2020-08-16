@@ -26,7 +26,7 @@ public without sharing class FAT_CommonLogger {
    * @param message
    */
   @TestVisible
-  private void stackDefaultDebugLog(
+  private void storeDefaultDebugLog(
     LoggingLevel defaultLevel,
     LoggingLevel level,
     Object message
@@ -35,7 +35,7 @@ public without sharing class FAT_CommonLogger {
       return;
     }
     if (utils.isHigherLevel(level, defaultLevel)) {
-      String logMessage = utils.createDebugLogMessage(getMethodName(), message);
+      String logMessage = utils.createLogMessage(getMethodName(), message);
       String debugLog = utils.createDebugLog(level, getClassName(), logMessage);
       this.debugLogs.add(debugLog);
     }
@@ -82,26 +82,27 @@ public without sharing class FAT_CommonLogger {
   }
 
   /**
-   * @description stack the debugLog
+   * @description store the debugLog
    * @param level
    * @param message
    */
-  public void stackDebugLog(LoggingLevel level, Object message) {
+  public void store(LoggingLevel level, Object message) {
     LoggingLevel defaultLevel = utils.getDefaultLoggingLevel();
-    this.stackDefaultDebugLog(defaultLevel, level, message);
+    this.storeDefaultDebugLog(defaultLevel, level, message);
   }
 
   /**
    * @description fetch all debugLogs
    */
-  public void fetchDebugLogs() {
+  public void fetch() {
     Boolean isEmpty = 0 == this.debugLogs.size();
     if (isEmpty) {
       return;
     }
 
     if (utils.archivable()) {
-      utils.archiveLoggerObject(utils.createLogMessage(this.debugLogs));
+      String logMessage = utils.createLogMessage(this.debugLogs);
+      utils.archiveLoggerObject(logMessage);
     }
   }
 
@@ -119,7 +120,7 @@ public without sharing class FAT_CommonLogger {
   /**
    * @description clear all debugLogs
    */
-  public void clearDebugLogs() {
+  public void clear() {
     this.debugLogs.clear();
   }
 }

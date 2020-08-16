@@ -10,48 +10,48 @@ private class FAT_CommonLoggerTest {
   }
 
   @isTest
-  static void stackDebugLog() {
+  static void store() {
     Test.startTest();
     FAT_CommonLogger logger = FAT_CommonLogger.getInstance();
     String maxWidthMsg = '';
     for (Integer i = 0; i < FAT_CommonLoggerConstants.MAX_WIDTH; i++) {
       maxWidthMsg += 'a';
     }
-    logger.stackDebugLog(LoggingLevel.DEBUG, maxWidthMsg);
+    logger.store(LoggingLevel.DEBUG, maxWidthMsg);
     logger.publish();
-    logger.fetchDebugLogs();
-    logger.clearDebugLogs();
+    logger.fetch();
+    logger.clear();
     Test.stopTest();
 
     System.assertNotEquals(null, logger, 'stackDebugLog');
   }
 
   @isTest
-  static void stackDebugLogNotLogging() {
+  static void stackNotLogging() {
     Test.startTest();
     FAT_CommonLogger logger = FAT_CommonLogger.getInstance();
-    logger.stackDefaultDebugLog(LoggingLevel.NONE, LoggingLevel.DEBUG, '');
+    logger.storeDefaultDebugLog(LoggingLevel.NONE, LoggingLevel.DEBUG, '');
     Test.stopTest();
 
     System.assertNotEquals(null, logger, 'stackDebugLogNotLogging');
   }
 
   @isTest
-  static void stackDebugLogNone() {
+  static void stackNone() {
     Test.startTest();
     FAT_CommonLogger logger = FAT_CommonLogger.getInstance();
     String message = '';
-    logger.stackDebugLog(LoggingLevel.NONE, message);
+    logger.store(LoggingLevel.NONE, message);
     Test.stopTest();
 
     System.assertNotEquals(null, logger, 'stackDebugLogNone');
   }
 
   @isTest
-  static void fetchDebugLogsEmpty() {
+  static void fetchEmpty() {
     Test.startTest();
     FAT_CommonLogger logger = FAT_CommonLogger.getInstance();
-    logger.fetchDebugLogs();
+    logger.fetch();
     Test.stopTest();
 
     System.assertNotEquals(null, logger, 'fetchDebugLogsEmpty');

@@ -24,6 +24,28 @@ public without sharing class FAT_CommonTriggerHandler {
   public Map<Id, sObject> newObjectMap;
 
   /**
+   * @description constructor with parameters
+   * @param sObjectName
+   */
+  private FAT_CommonTriggerHandler(String sObjectName) {
+    this.setMethodName('FAT_CommonTriggerHandler');
+
+    this.sObjectName = sObjectName;
+    this.oldObjects = Trigger.old;
+    this.newObjects = Trigger.new;
+    this.oldObjectMap = Trigger.oldMap;
+    this.newObjectMap = Trigger.newMap;
+    this.triggerIsExecuting = Trigger.isExecuting;
+    this.triggerSize = Trigger.size;
+    this.triggerOperationType = Trigger.operationType;
+
+    logger.store(LoggingLevel.DEBUG, 'sObjectName: ' + this.sObjectName);
+    logger.store(LoggingLevel.DEBUG, 'IsExecuting: ' + this.triggerIsExecuting);
+    logger.store(LoggingLevel.DEBUG, 'Size: ' + this.triggerSize);
+    logger.store(LoggingLevel.DEBUG, 'Type: ' + this.triggerOperationType);
+  }
+
+  /**
    * @description set method name
    * @param methodName
    */
@@ -142,24 +164,12 @@ public without sharing class FAT_CommonTriggerHandler {
   }
 
   /**
-   * @description constructor with parameters
-   * @param sObjectName
+   * @description get the instance
+   * @param sObjectClass
+   * @return new FAT_CommonTriggerHandler(objectClass.getName())
    */
-  public FAT_CommonTriggerHandler(String sObjectName) {
-    this.setMethodName('FAT_CommonTriggerHandler');
-
-    this.sObjectName = sObjectName;
-    this.oldObjects = Trigger.old;
-    this.newObjects = Trigger.new;
-    this.oldObjectMap = Trigger.oldMap;
-    this.newObjectMap = Trigger.newMap;
-    this.triggerIsExecuting = Trigger.isExecuting;
-    this.triggerSize = Trigger.size;
-    this.triggerOperationType = Trigger.operationType;
-
-    logger.store(LoggingLevel.DEBUG, 'IsExecuting: ' + this.triggerIsExecuting);
-    logger.store(LoggingLevel.DEBUG, 'Size: ' + this.triggerSize);
-    logger.store(LoggingLevel.DEBUG, 'Type: ' + this.triggerOperationType);
+  public static FAT_CommonTriggerHandler create(Type sObjectClass) {
+    return new FAT_CommonTriggerHandler(sObjectClass.getName());
   }
 
   /**
@@ -167,7 +177,6 @@ public without sharing class FAT_CommonTriggerHandler {
    */
   public void invoke() {
     this.setMethodName('invoke');
-    logger.store(LoggingLevel.DEBUG, 'sObjectName: ' + this.sObjectName);
 
     try {
       if (this.isRecursive()) {

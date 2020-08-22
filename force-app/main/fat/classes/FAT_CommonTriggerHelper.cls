@@ -6,9 +6,6 @@ public without sharing class FAT_CommonTriggerHelper {
   // Logger Variable
   private final FAT_CommonLogger logger = FAT_CommonLogger.getInstance();
 
-  // Utils Variables
-  private final FAT_CommonTriggerUtils utils = FAT_CommonTriggerUtils.getInstance();
-
   // Class Variables
   private static FAT_CommonTriggerHelper singleton = new FAT_CommonTriggerHelper();
 
@@ -87,6 +84,63 @@ public without sharing class FAT_CommonTriggerHelper {
   }
 
   /**
+   * @description fetch TriggerObserver
+   * @param apexClass
+   * @return (FAT_ITriggerObserver) apexClass.newInstance()
+   */
+  @TestVisible
+  private FAT_ITriggerObserver fetchTriggerObserver(Type apexClass) {
+    if (null == apexClass) {
+      return null;
+    }
+
+    return (FAT_ITriggerObserver) apexClass.newInstance();
+  }
+
+  /**
+   * @description add some active TriggerOperations
+   * @param triggerObserver
+   * @return activeTriggerOperation
+   */
+  @TestVisible
+  private List<TriggerOperation> fetchActiveOperations(
+    FAT_TriggerObserver__mdt triggerObserver
+  ) {
+    List<TriggerOperation> activeTriggerOperation = new List<TriggerOperation>();
+
+    if (triggerObserver.BeforeInsert__c) {
+      activeTriggerOperation.add(TriggerOperation.BEFORE_INSERT);
+    }
+
+    if (triggerObserver.BeforeUpdate__c) {
+      activeTriggerOperation.add(TriggerOperation.BEFORE_UPDATE);
+    }
+
+    if (triggerObserver.BeforeDelete__c) {
+      activeTriggerOperation.add(TriggerOperation.BEFORE_DELETE);
+    }
+
+    if (triggerObserver.AfterInsert__c) {
+      activeTriggerOperation.add(TriggerOperation.AFTER_INSERT);
+    }
+
+    if (triggerObserver.AfterUpdate__c) {
+      activeTriggerOperation.add(TriggerOperation.AFTER_UPDATE);
+    }
+
+    if (triggerObserver.AfterDelete__c) {
+      activeTriggerOperation.add(TriggerOperation.AFTER_DELETE);
+    }
+
+    if (triggerObserver.AfterUndelete__c) {
+      activeTriggerOperation.add(TriggerOperation.AFTER_UNDELETE);
+    }
+
+    logger.store(LoggingLevel.DEBUG, activeTriggerOperation);
+    return activeTriggerOperation;
+  }
+
+  /**
    * @description set triggerObserver
    * @param triggerObserver
    */
@@ -96,7 +150,7 @@ public without sharing class FAT_CommonTriggerHelper {
       return;
     }
 
-    FAT_ITriggerObserver observer = utils.fetchTriggerObserver(
+    FAT_ITriggerObserver observer = this.fetchTriggerObserver(
       Type.forName(triggerObserver.ApexClass__c)
     );
 
@@ -104,7 +158,7 @@ public without sharing class FAT_CommonTriggerHelper {
       return;
     }
 
-    List<TriggerOperation> activeOperations = utils.fetchActiveOperations(
+    List<TriggerOperation> activeOperations = this.fetchActiveOperations(
       triggerObserver
     );
 

@@ -2,7 +2,6 @@
  * @name FAT_CommonTriggerServiceMock.cls
  * @description service for FAT_CommonTrigger
  */
-@SuppressWarnings('PMD.EmptyStatementBlock')
 @isTest(SeeAllData=false)
 public with sharing class FAT_CommonTriggerServiceMock implements FAT_ITriggerObserver {
   /**
@@ -35,6 +34,7 @@ public with sharing class FAT_CommonTriggerServiceMock implements FAT_ITriggerOb
    * @param handler
    */
   public void onBeforeInsert(FAT_CommonTriggerHandler handler) {
+    logger.setMethodName('onBeforeInsert');
   }
 
   /**
@@ -42,6 +42,7 @@ public with sharing class FAT_CommonTriggerServiceMock implements FAT_ITriggerOb
    * @param handler
    */
   public void onBeforeUpdate(FAT_CommonTriggerHandler handler) {
+    logger.setMethodName('onBeforeUpdate');
   }
 
   /**
@@ -49,6 +50,7 @@ public with sharing class FAT_CommonTriggerServiceMock implements FAT_ITriggerOb
    * @param handler
    */
   public void onBeforeDelete(FAT_CommonTriggerHandler handler) {
+    logger.setMethodName('onBeforeDelete');
   }
 
   /**
@@ -56,6 +58,7 @@ public with sharing class FAT_CommonTriggerServiceMock implements FAT_ITriggerOb
    * @param handler
    */
   public void onAfterInsert(FAT_CommonTriggerHandler handler) {
+    logger.setMethodName('onAfterInsert');
   }
 
   /**
@@ -63,6 +66,7 @@ public with sharing class FAT_CommonTriggerServiceMock implements FAT_ITriggerOb
    * @param handler
    */
   public void onAfterUpdate(FAT_CommonTriggerHandler handler) {
+    logger.setMethodName('onAfterUpdate');
   }
 
   /**
@@ -70,6 +74,7 @@ public with sharing class FAT_CommonTriggerServiceMock implements FAT_ITriggerOb
    * @param handler
    */
   public void onAfterDelete(FAT_CommonTriggerHandler handler) {
+    logger.setMethodName('onAfterDelete');
   }
 
   /**
@@ -77,5 +82,6 @@ public with sharing class FAT_CommonTriggerServiceMock implements FAT_ITriggerOb
    * @param handler
    */
   public void onAfterUndelete(FAT_CommonTriggerHandler handler) {
+    logger.setMethodName('onAfterDelete');
   }
 }

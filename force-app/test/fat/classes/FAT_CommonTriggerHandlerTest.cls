@@ -4,8 +4,8 @@
  */
 @isTest(SeeAllData=false)
 private class FAT_CommonTriggerHandlerTest {
-  private static FAT_CommonTriggerHandler handler = new FAT_CommonTriggerHandler(
-    FAT_CommonTriggerServiceMock.class.getName()
+  private static FAT_CommonTriggerHandler handler = FAT_CommonTriggerHandler.create(
+    FAT_CommonTriggerServiceMock.class
   );
 
   private static FAT_ITriggerObserver triggerObserver = (FAT_ITriggerObserver) FAT_CommonTriggerServiceMock.class

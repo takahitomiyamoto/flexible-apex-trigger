@@ -11,5 +11,8 @@ trigger AccountTrigger on Account(
   after delete,
   after undelete
 ) {
-  new FAT_CommonTriggerHandler(Account.class.getName()).invoke();
+  FAT_CommonTriggerHandler handler = FAT_CommonTriggerHandler.create(
+    Account.class
+  );
+  handler.invoke();
 }

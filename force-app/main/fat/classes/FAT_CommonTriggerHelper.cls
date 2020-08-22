@@ -29,7 +29,7 @@ public without sharing class FAT_CommonTriggerHelper {
    * @description private constructor with no parameter
    */
   private FAT_CommonTriggerHelper() {
-    System.debug(LoggingLevel.FINEST, 'FAT_CommonTriggerHelper');
+    this.setMethodName('FAT_CommonTriggerHelper');
   }
 
   /**
@@ -90,6 +90,8 @@ public without sharing class FAT_CommonTriggerHelper {
    */
   @TestVisible
   private FAT_ITriggerObserver fetchTriggerObserverClass(Type apexClass) {
+    this.setMethodName('fetchTriggerObserverClass');
+
     if (null == apexClass) {
       return null;
     }
@@ -106,6 +108,8 @@ public without sharing class FAT_CommonTriggerHelper {
   private List<TriggerOperation> fetchActiveTriggerOperations(
     FAT_TriggerObserver__mdt triggerObserver
   ) {
+    this.setMethodName('fetchActiveTriggerOperations');
+
     List<TriggerOperation> activeTriggerOperation = new List<TriggerOperation>();
 
     if (triggerObserver.BeforeInsert__c) {
@@ -146,6 +150,8 @@ public without sharing class FAT_CommonTriggerHelper {
    */
   @TestVisible
   private void addTriggerObserver(FAT_TriggerObserver__mdt triggerObserver) {
+    this.setMethodName('addTriggerObserver');
+
     if (null == triggerObserver || null == triggerObserver.ApexClass__c) {
       return;
     }

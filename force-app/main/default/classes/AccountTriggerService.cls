@@ -2,7 +2,6 @@
  * @name AccountTriggerService.cls
  * @description service for AccountTrigger
  */
-@SuppressWarnings('PMD.EmptyStatementBlock')
 public with sharing class AccountTriggerService implements FAT_ITriggerObserver {
   /**
    * @description Custom Exception
@@ -15,16 +14,6 @@ public with sharing class AccountTriggerService implements FAT_ITriggerObserver 
 
   // Logger Variable
   private final FAT_CommonLogger logger = FAT_CommonLogger.getInstance();
-
-  // Instance Variables
-  private FAT_CommonTriggerHandler handler;
-
-  /**
-   * @description constructor with no parameter
-   */
-  public AccountTriggerService() {
-    this.setMethodName('AccountTriggerService');
-  }
 
   /**
    * @description set method name
@@ -58,65 +47,71 @@ public with sharing class AccountTriggerService implements FAT_ITriggerObserver 
   }
 
   /**
-   * @description store TriggerObserver
-   * @param handler
-   * @return (FAT_ITriggerObserver) this
+   * @description constructor with no parameter
    */
-  public FAT_ITriggerObserver storeTriggerObserver(
-    FAT_CommonTriggerHandler handler
-  ) {
-    this.setMethodName('storeTriggerObserver');
-
-    this.handler = handler;
-    return (FAT_ITriggerObserver) this;
+  public AccountTriggerService() {
+    this.setMethodName('AccountTriggerService');
   }
 
   /**
    * @description custom action in case of before insert
+   * @param handler
    */
-  public void onBeforeInsert() {
+  public void onBeforeInsert(FAT_CommonTriggerHandler handler) {
     this.setMethodName('onBeforeInsert');
 
-    if (null == this.handler) {
+    if (null == handler) {
       return;
     }
 
-    this.addPrefixToName((List<Account>) this.handler.newObjects);
+    this.addPrefixToName((List<Account>) handler.newObjects);
   }
 
   /**
    * @description custom action in case of before update
+   * @param handler
    */
-  public void onBeforeUpdate() {
+  public void onBeforeUpdate(FAT_CommonTriggerHandler handler) {
+    this.setMethodName('onBeforeUpdate');
   }
 
   /**
    * @description custom action in case of before delete
+   * @param handler
    */
-  public void onBeforeDelete() {
+  public void onBeforeDelete(FAT_CommonTriggerHandler handler) {
+    this.setMethodName('onBeforeDelete');
   }
 
   /**
    * @description custom action in case of after insert
+   * @param handler
    */
-  public void onAfterInsert() {
+  public void onAfterInsert(FAT_CommonTriggerHandler handler) {
+    this.setMethodName('onAfterInsert');
   }
 
   /**
    * @description custom action in case of after update
+   * @param handler
    */
-  public void onAfterUpdate() {
+  public void onAfterUpdate(FAT_CommonTriggerHandler handler) {
+    this.setMethodName('onAfterUpdate');
   }
 
   /**
    * @description custom action in case of after delete
+   * @param handler
    */
-  public void onAfterDelete() {
+  public void onAfterDelete(FAT_CommonTriggerHandler handler) {
+    this.setMethodName('onAfterDelete');
   }
 
   /**
    * @description custom action in case of after undelete
+   * @param handler
    */
-  public void onAfterUndelete() {
+  public void onAfterUndelete(FAT_CommonTriggerHandler handler) {
+    this.setMethodName('onAfterUndelete');
   }
 }

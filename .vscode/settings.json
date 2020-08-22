@@ -22,7 +22,7 @@
   "prettier.requireConfig": true,
   "salesforcedx-vscode-apex.java.home": "/Library/Java/JavaVirtualMachines/zulu-11.jdk/Contents/Home",
   "salesforcedx-vscode-core.retrieve-test-code-coverage": true,
-  "salesforcedx-vscode-core.show-cli-success-msg": true,
+  "salesforcedx-vscode-core.show-cli-success-msg": false,
   "todo-tree.tree.buttons.export": true,
   "trailing-spaces.trimOnSave": true,
   "xml.java.home": "/Library/Java/JavaVirtualMachines/zulu-11.jdk/Contents/Home"

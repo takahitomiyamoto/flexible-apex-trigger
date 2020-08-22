@@ -8,13 +8,14 @@ public without sharing class FAT_CommonTriggerHandler {
   private final FAT_CommonLogger logger = FAT_CommonLogger.getInstance();
 
   // Class Variables
-  public static Boolean firstRun = true;
+  @TestVisible
+  private static Boolean firstRun = true;
 
   // Instance Variables
   public List<sObject> oldObjects;
   public List<sObject> newObjects;
-  public Map<ID, sObject> oldObjectMap;
-  public Map<ID, sObject> newObjectMap;
+  public Map<Id, sObject> oldObjectMap;
+  public Map<Id, sObject> newObjectMap;
   private String sObjectName;
   private Boolean triggerIsExecuting;
   private Integer triggerSize;
@@ -146,10 +147,29 @@ public without sharing class FAT_CommonTriggerHandler {
   }
 
   /**
+   * @description validate whether this is recursive or not
+   * @return Boolean
+   */
+  @TestVisible
+  private Boolean isRecursive() {
+    this.setMethodName('isRecursive');
+    logger.store(LoggingLevel.DEBUG, 'firstRun: ' + firstRun);
+
+    if (firstRun) {
+      return false;
+    } else if (TriggerOperation.AFTER_UNDELETE === this.triggerOperationType) {
+      return false;
+    } else {
+      return true;
+    }
+  }
+
+  /**
    * @description add an observer
    * @param triggerOperations
    * @param triggerObserver
    */
+  @TestVisible
   private void addTriggerObserver(
     List<TriggerOperation> triggerOperations,
     FAT_ITriggerObserver triggerObserver
@@ -189,11 +209,36 @@ public without sharing class FAT_CommonTriggerHandler {
   }
 
   /**
-   * @description add observers
+   * @description set triggerObserver
+   * @param triggerObserver
+   */
+  @TestVisible
+  private void setTriggerObserver(FAT_TriggerObserver__mdt triggerObserver) {
+    if (null == triggerObserver) {
+      return;
+    }
+
+    FAT_ITriggerObserver observer = FAT_CommonTriggerUtils.fetchTriggerObserver(
+      Type.forName(triggerObserver.ApexClass__c)
+    );
+
+    if (null == observer) {
+      return;
+    }
+
+    this.addTriggerObserver(
+      FAT_CommonTriggerUtils.addActiveTriggerOperations(triggerObserver),
+      observer.storeTriggerObserver(this)
+    );
+  }
+
+  /**
+   * @description set triggerObservers
    * @param sObjectName
    */
-  public void addTriggerObservers(String sObjectName) {
-    this.setMethodName('addTriggerObservers');
+  @TestVisible
+  private void setTriggerObservers(String sObjectName) {
+    this.setMethodName('setTriggerObservers');
 
     for (FAT_TriggerObserver__mdt triggerObserver : [
       SELECT
@@ -214,35 +259,7 @@ public without sharing class FAT_CommonTriggerHandler {
       ORDER BY DeveloperName ASC
       LIMIT 50000
     ]) {
-      FAT_ITriggerObserver observer = FAT_CommonTriggerUtils.fetchTriggerObserver(
-        Type.forName(triggerObserver.ApexClass__c)
-      );
-
-      if (null == observer) {
-        return;
-      }
-
-      this.addTriggerObserver(
-        FAT_CommonTriggerUtils.addActiveTriggerOperations(triggerObserver),
-        observer.storeTriggerObserver(this)
-      );
-    }
-  }
-
-  /**
-   * @description validate whether this is recursive or not
-   * @return Boolean
-   */
-  private Boolean isRecursive() {
-    this.setMethodName('isRecursive');
-    logger.store(LoggingLevel.DEBUG, 'firstRun: ' + firstRun);
-
-    if (firstRun) {
-      return false;
-    } else if (TriggerOperation.AFTER_UNDELETE === this.triggerOperationType) {
-      return false;
-    } else {
-      return true;
+      this.setTriggerObserver(triggerObserver);
     }
   }
 
@@ -258,7 +275,7 @@ public without sharing class FAT_CommonTriggerHandler {
         return;
       }
 
-      this.addTriggerObservers(this.sObjectName);
+      this.setTriggerObservers(this.sObjectName);
 
       switch on Trigger.operationType {
         when BEFORE_INSERT {

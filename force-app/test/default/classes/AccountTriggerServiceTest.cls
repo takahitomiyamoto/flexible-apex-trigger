@@ -8,13 +8,13 @@ private class AccountTriggerServiceTest {
 
   @testSetup
   static void setup() {
-    List<Account> accounts = FAT_CommonTestUtils.createNormalAccounts();
-    FAT_CommonTestUtils.insertAccounts(accounts);
+    List<Account> accounts = AccountTestUtils.createNormalAccounts();
+    AccountTestUtils.insertAccounts(accounts);
   }
 
   @isTest
   static void addPrefixToName() {
-    List<Account> accounts = FAT_CommonTestUtils.selectAccounts();
+    List<Account> accounts = AccountTestUtils.selectAccounts();
 
     Test.startTest();
     service.addPrefixToName(accounts);

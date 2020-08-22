@@ -4,10 +4,34 @@
  */
 @isTest(SeeAllData=false)
 private class FAT_CommonTriggerHelperTest {
-  private static FAT_ITriggerObserver triggerObserver = (FAT_ITriggerObserver) FAT_CommonTriggerServiceMock.class
+  private static FAT_ITriggerObserver triggerObserverMock = (FAT_ITriggerObserver) FAT_CommonTriggerServiceMock.class
     .newInstance();
 
   private static FAT_CommonTriggerHelper helper = FAT_CommonTriggerHelper.getInstance();
+
+  @isTest
+  static void addTriggerObserversNull() {
+    Test.startTest();
+    helper.addTriggerObservers(null);
+    Test.stopTest();
+
+    System.assertNotEquals(null, helper, 'addTriggerObserversNull');
+  }
+
+  @isTest
+  static void addTriggerObserver() {
+    FAT_TriggerObserver__mdt triggerObserver = FAT_CommonTestUtils.selectTriggerServiceMock();
+
+    Test.startTest();
+    helper.addTriggerObserver(triggerObserver);
+    Test.stopTest();
+
+    System.assertEquals(
+      'FAT_CommonTriggerServiceMock',
+      triggerObserver.ApexClass__c,
+      'addTriggerObserver'
+    );
+  }
 
   @isTest
   static void addTriggerObserverNull() {
@@ -44,7 +68,7 @@ private class FAT_CommonTriggerHelperTest {
     TriggerOperation triggerOperation = TriggerOperation.BEFORE_INSERT;
 
     Test.startTest();
-    helper.addObserver(triggerOperation, triggerObserver);
+    helper.addObserver(triggerOperation, triggerObserverMock);
     Test.stopTest();
 
     System.assertEquals(
@@ -59,7 +83,7 @@ private class FAT_CommonTriggerHelperTest {
     TriggerOperation triggerOperation = TriggerOperation.BEFORE_UPDATE;
 
     Test.startTest();
-    helper.addObserver(triggerOperation, triggerObserver);
+    helper.addObserver(triggerOperation, triggerObserverMock);
     Test.stopTest();
 
     System.assertEquals(
@@ -74,7 +98,7 @@ private class FAT_CommonTriggerHelperTest {
     TriggerOperation triggerOperation = TriggerOperation.BEFORE_DELETE;
 
     Test.startTest();
-    helper.addObserver(triggerOperation, triggerObserver);
+    helper.addObserver(triggerOperation, triggerObserverMock);
     Test.stopTest();
 
     System.assertEquals(
@@ -89,7 +113,7 @@ private class FAT_CommonTriggerHelperTest {
     TriggerOperation triggerOperation = TriggerOperation.AFTER_INSERT;
 
     Test.startTest();
-    helper.addObserver(triggerOperation, triggerObserver);
+    helper.addObserver(triggerOperation, triggerObserverMock);
     Test.stopTest();
 
     System.assertEquals(
@@ -104,7 +128,7 @@ private class FAT_CommonTriggerHelperTest {
     TriggerOperation triggerOperation = TriggerOperation.AFTER_UPDATE;
 
     Test.startTest();
-    helper.addObserver(triggerOperation, triggerObserver);
+    helper.addObserver(triggerOperation, triggerObserverMock);
     Test.stopTest();
 
     System.assertEquals(
@@ -119,7 +143,7 @@ private class FAT_CommonTriggerHelperTest {
     TriggerOperation triggerOperation = TriggerOperation.AFTER_DELETE;
 
     Test.startTest();
-    helper.addObserver(triggerOperation, triggerObserver);
+    helper.addObserver(triggerOperation, triggerObserverMock);
     Test.stopTest();
 
     System.assertEquals(
@@ -134,7 +158,7 @@ private class FAT_CommonTriggerHelperTest {
     TriggerOperation triggerOperation = TriggerOperation.AFTER_UNDELETE;
 
     Test.startTest();
-    helper.addObserver(triggerOperation, triggerObserver);
+    helper.addObserver(triggerOperation, triggerObserverMock);
     Test.stopTest();
 
     System.assertEquals(
@@ -175,15 +199,7 @@ private class FAT_CommonTriggerHelperTest {
 
   @isTest
   static void fetchActiveTriggerOperations() {
-    FAT_TriggerObserver__mdt triggerObserver = new FAT_TriggerObserver__mdt();
-    triggerObserver.Active__c = true;
-    triggerObserver.BeforeInsert__c = true;
-    triggerObserver.BeforeUpdate__c = true;
-    triggerObserver.BeforeDelete__c = true;
-    triggerObserver.AfterInsert__c = true;
-    triggerObserver.AfterUpdate__c = true;
-    triggerObserver.AfterDelete__c = true;
-    triggerObserver.AfterUndelete__c = true;
+    FAT_TriggerObserver__mdt triggerObserver = FAT_CommonTestUtils.selectTriggerServiceMock();
 
     List<TriggerOperation> allTriggerOperations = new List<TriggerOperation>();
     allTriggerOperations.add(TriggerOperation.BEFORE_INSERT);

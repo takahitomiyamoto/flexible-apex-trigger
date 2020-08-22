@@ -13,14 +13,17 @@ private class FAT_CommonTriggerHandlerTest {
 
   private static FAT_CommonTriggerHelper helper = FAT_CommonTriggerHelper.getInstance();
 
-  @testSetup
-  static void setup() {
-    List<Account> accounts = FAT_CommonTestUtils.createNormalAccounts();
-    FAT_CommonTestUtils.insertAccounts(accounts);
+  @isTest
+  static void invoke() {
+    Test.startTest();
+    handler.invoke();
+    Test.stopTest();
+
+    System.assertEquals(false, FAT_CommonTriggerHandler.firstRun, 'invoke');
   }
 
   @isTest
-  static void invokeIsRecursive() {
+  static void invokeIsRecursiveFalse() {
     FAT_CommonTriggerHandler.firstRun = false;
 
     Test.startTest();
@@ -32,40 +35,6 @@ private class FAT_CommonTriggerHandlerTest {
       FAT_CommonTriggerHandler.firstRun,
       'invokeIsRecursive'
     );
-  }
-
-  @isTest
-  static void invokeUpdate() {
-    List<Account> accounts = FAT_CommonTestUtils.selectAccounts();
-
-    Test.startTest();
-    FAT_CommonTestUtils.updateAccounts(accounts);
-    Test.stopTest();
-
-    System.assertNotEquals(0, accounts.size(), 'invokeUpdate');
-  }
-
-  @isTest
-  static void invokeDelete() {
-    List<Account> accounts = FAT_CommonTestUtils.selectAccounts();
-    FAT_CommonTestUtils.deleteAccounts(accounts);
-
-    Test.startTest();
-    FAT_CommonTestUtils.undeleteAccounts(accounts);
-    Test.stopTest();
-
-    System.assertNotEquals(0, accounts.size(), 'invokeDelete');
-  }
-
-  @isTest
-  static void invokeException() {
-    List<Account> accounts = FAT_CommonTestUtils.createAbnormalAccounts();
-
-    Test.startTest();
-    FAT_CommonTestUtils.insertAccounts(accounts);
-    Test.stopTest();
-
-    System.assertNotEquals(0, accounts.size(), 'invokeException');
   }
 
   @isTest

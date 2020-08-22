@@ -1,25 +1,9 @@
 /**
- * @name FAT_CommonTestUtils.cls
- * @description test utilities
+ * @name AccountTestUtils.cls
+ * @description test utilities for Account
  */
 @isTest(SeeAllData=false)
-public with sharing class FAT_CommonTestUtils {
-  /**
-   * @description create FAT_TriggerObserver__mdt - ApexClass__c = null
-   * @return observers
-   */
-  private static List<FAT_TriggerObserver__mdt> createNullTriggerObserver() {
-    List<FAT_TriggerObserver__mdt> observers = new List<FAT_TriggerObserver__mdt>();
-
-    FAT_TriggerObserver__mdt triggerObserverNull = new FAT_TriggerObserver__mdt();
-    triggerObserverNull.SObject__c = 'Account';
-    triggerObserverNull.Active__c = true;
-    triggerObserverNull.ApexClass__c = null;
-    observers.add(triggerObserverNull);
-
-    return observers;
-  }
-
+public with sharing class AccountTestUtils {
   /**
    * @description create normal accounts
    * @return accounts

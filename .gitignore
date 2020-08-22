@@ -47,8 +47,3 @@ $RECYCLE.BIN/
 
 # PMD
 .pmdCache
-
-# temp
-force-app/main/default/appMenus/
-force-app/main/default/connectedApps/
-force-app/main/default/profiles/

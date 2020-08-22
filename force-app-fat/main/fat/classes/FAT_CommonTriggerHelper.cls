@@ -140,6 +140,7 @@ public without sharing class FAT_CommonTriggerHelper {
       activeTriggerOperation.add(TriggerOperation.AFTER_UNDELETE);
     }
 
+    logger.store(LoggingLevel.DEBUG, triggerObserver.ApexClass__c);
     logger.store(LoggingLevel.DEBUG, activeTriggerOperation);
     return activeTriggerOperation;
   }

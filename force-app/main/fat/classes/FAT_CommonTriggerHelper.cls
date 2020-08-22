@@ -158,11 +158,11 @@ public without sharing class FAT_CommonTriggerHelper {
       return;
     }
 
-    List<TriggerOperation> activeOperations = this.fetchActiveTriggerOperations(
+    List<TriggerOperation> activeTriggerOperations = this.fetchActiveTriggerOperations(
       triggerObserver
     );
 
-    for (TriggerOperation operation : activeOperations) {
+    for (TriggerOperation operation : activeTriggerOperations) {
       this.addObserver(operation, observer);
     }
   }

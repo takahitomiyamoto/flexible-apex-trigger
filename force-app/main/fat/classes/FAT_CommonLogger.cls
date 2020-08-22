@@ -38,7 +38,11 @@ public without sharing class FAT_CommonLogger {
     }
     if (helper.isHigherLevel(level, defaultLevel)) {
       String logMessage = helper.createLogMessage(getMethodName(), message);
-      String debugLog = helper.createDebugLog(level, getClassName(), logMessage);
+      String debugLog = helper.createDebugLog(
+        level,
+        getClassName(),
+        logMessage
+      );
       this.debugLogs.add(debugLog);
     }
   }

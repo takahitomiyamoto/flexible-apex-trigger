@@ -4,13 +4,6 @@
  */
 public interface FAT_ITriggerObserver {
   /**
-   * @description store FAT_ITriggerObserver
-   * @return FAT_ITriggerObserver
-   */
-  // FAT_ITriggerObserver storeTriggerObserver(FAT_CommonTriggerHandler handler);
-  // FAT_ITriggerObserver storeTriggerObserver();
-
-  /**
    * @description custom action in case of before insert
    * @param handler
    */

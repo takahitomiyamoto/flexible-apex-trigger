@@ -6,8 +6,8 @@ public without sharing class FAT_CommonLogger {
   // Logger Variable
   private static FAT_CommonLogger singleton = new FAT_CommonLogger();
 
-  // Utils Variable
-  private final FAT_CommonLoggerUtils utils = FAT_CommonLoggerUtils.getInstance();
+  // Helper Variable
+  private final FAT_CommonLoggerHelper helper = FAT_CommonLoggerHelper.getInstance();
 
   // Instance Variables
   private String className;
@@ -33,12 +33,12 @@ public without sharing class FAT_CommonLogger {
     LoggingLevel level,
     Object message
   ) {
-    if (utils.notLogging(defaultLevel)) {
+    if (helper.notLogging(defaultLevel)) {
       return;
     }
-    if (utils.isHigherLevel(level, defaultLevel)) {
-      String logMessage = utils.createLogMessage(getMethodName(), message);
-      String debugLog = utils.createDebugLog(level, getClassName(), logMessage);
+    if (helper.isHigherLevel(level, defaultLevel)) {
+      String logMessage = helper.createLogMessage(getMethodName(), message);
+      String debugLog = helper.createDebugLog(level, getClassName(), logMessage);
       this.debugLogs.add(debugLog);
     }
   }
@@ -89,7 +89,7 @@ public without sharing class FAT_CommonLogger {
    * @param message
    */
   public void store(LoggingLevel level, Object message) {
-    LoggingLevel defaultLevel = utils.getDefaultLoggingLevel();
+    LoggingLevel defaultLevel = helper.getDefaultLoggingLevel();
     this.storeDefaultDebugLog(defaultLevel, level, message);
   }
 
@@ -102,9 +102,9 @@ public without sharing class FAT_CommonLogger {
       return;
     }
 
-    if (utils.archivable()) {
-      String logMessage = utils.createLogMessage(this.debugLogs);
-      utils.archiveLoggerObject(logMessage);
+    if (helper.archivable()) {
+      String logMessage = helper.createLogMessage(this.debugLogs);
+      helper.archiveLoggerObject(logMessage);
     }
   }
 
@@ -112,7 +112,7 @@ public without sharing class FAT_CommonLogger {
    * @description publish FAT_LoggerEvent__e
    */
   public void publish() {
-    List<FAT_LoggerEvent__e> events = utils.createLoggerEvent(this);
+    List<FAT_LoggerEvent__e> events = helper.createLoggerEvent(this);
     List<Database.SaveResult> results = EventBus.publish(events);
     FAT_CommonError.handleErrors(results);
   }

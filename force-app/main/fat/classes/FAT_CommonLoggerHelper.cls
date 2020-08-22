@@ -1,8 +1,8 @@
 /**
- * @name FAT_CommonLoggerUtils.cls
+ * @name FAT_CommonLoggerHelper.cls
  * @description utilities for FAT_CommonLogger
  */
-public without sharing class FAT_CommonLoggerUtils {
+public without sharing class FAT_CommonLoggerHelper {
   // Constants
   private static final Integer MAX_WIDTH = FAT_CommonLoggerConstants.MAX_WIDTH;
   private static final String DATE_FORMAT = FAT_CommonLoggerConstants.DATE_FORMAT;
@@ -14,7 +14,7 @@ public without sharing class FAT_CommonLoggerUtils {
   private static final String TIMEZONE_JST = FAT_CommonLoggerConstants.TIMEZONE_JST;
 
   // Class Variables
-  private static FAT_CommonLoggerUtils singleton = new FAT_CommonLoggerUtils();
+  private static FAT_CommonLoggerHelper singleton = new FAT_CommonLoggerHelper();
 
   // Instance Variables
   private String timestampNow;
@@ -23,7 +23,7 @@ public without sharing class FAT_CommonLoggerUtils {
   /**
    * @description private constructor with no parameter
    */
-  private FAT_CommonLoggerUtils() {
+  private FAT_CommonLoggerHelper() {
     this.setDefaultLoggerConfig();
   }
 
@@ -63,7 +63,7 @@ public without sharing class FAT_CommonLoggerUtils {
    * @description get the instance
    * @return singleton
    */
-  public static FAT_CommonLoggerUtils getInstance() {
+  public static FAT_CommonLoggerHelper getInstance() {
     return singleton;
   }
 

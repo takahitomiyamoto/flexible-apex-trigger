@@ -10,32 +10,32 @@ private class FAT_CommonTriggerHelperTest {
   private static FAT_CommonTriggerHelper helper = FAT_CommonTriggerHelper.getInstance();
 
   @isTest
-  static void setTriggerObserverNull() {
+  static void addTriggerObserverNull() {
     FAT_TriggerObserver__mdt triggerObserver = null;
     FAT_TriggerObserver__mdt triggerObserverApexClass = new FAT_TriggerObserver__mdt();
     triggerObserverApexClass.ApexClass__c = null;
 
     Test.startTest();
-    helper.setTriggerObserver(triggerObserver);
-    helper.setTriggerObserver(triggerObserverApexClass);
+    helper.addTriggerObserver(triggerObserver);
+    helper.addTriggerObserver(triggerObserverApexClass);
     Test.stopTest();
 
-    System.assertEquals(null, triggerObserver, 'setTriggerObserverNull');
+    System.assertEquals(null, triggerObserver, 'addTriggerObserverNull');
   }
 
   @isTest
-  static void setTriggerObserverApexClassNull() {
+  static void addTriggerObserverApexClassNull() {
     FAT_TriggerObserver__mdt triggerObserver = new FAT_TriggerObserver__mdt();
     triggerObserver.ApexClass__c = 'FAT_Temp';
 
     Test.startTest();
-    helper.setTriggerObserver(triggerObserver);
+    helper.addTriggerObserver(triggerObserver);
     Test.stopTest();
 
     System.assertEquals(
       'FAT_Temp',
       triggerObserver.ApexClass__c,
-      'setTriggerObserverApexClassNull'
+      'addTriggerObserverApexClassNull'
     );
   }
 
@@ -154,27 +154,27 @@ private class FAT_CommonTriggerHelperTest {
   }
 
   @isTest
-  static void fetchTriggerObserver() {
+  static void fetchTriggerObserverClass() {
     Test.startTest();
-    FAT_ITriggerObserver observer = helper.fetchTriggerObserver(
+    FAT_ITriggerObserver observer = helper.fetchTriggerObserverClass(
       FAT_CommonTriggerServiceMock.class
     );
     Test.stopTest();
 
-    System.assertNotEquals(null, observer, 'fetchTriggerObserver');
+    System.assertNotEquals(null, observer, 'fetchTriggerObserverClass');
   }
 
   @isTest
-  static void fetchTriggerObserverNull() {
+  static void fetchTriggerObserverClassNull() {
     Test.startTest();
-    FAT_ITriggerObserver observer = helper.fetchTriggerObserver(null);
+    FAT_ITriggerObserver observer = helper.fetchTriggerObserverClass(null);
     Test.stopTest();
 
-    System.assertEquals(null, observer, 'fetchTriggerObserverNull');
+    System.assertEquals(null, observer, 'fetchTriggerObserverClassNull');
   }
 
   @isTest
-  static void fetchActiveOperations() {
+  static void fetchActiveTriggerOperations() {
     FAT_TriggerObserver__mdt triggerObserver = new FAT_TriggerObserver__mdt();
     triggerObserver.Active__c = true;
     triggerObserver.BeforeInsert__c = true;
@@ -195,7 +195,7 @@ private class FAT_CommonTriggerHelperTest {
     allTriggerOperations.add(TriggerOperation.AFTER_UNDELETE);
 
     Test.startTest();
-    List<TriggerOperation> operations = helper.fetchActiveOperations(
+    List<TriggerOperation> operations = helper.fetchActiveTriggerOperations(
       triggerObserver
     );
     Test.stopTest();
@@ -213,7 +213,7 @@ private class FAT_CommonTriggerHelperTest {
     triggerObserver.Active__c = false;
 
     Test.startTest();
-    List<TriggerOperation> operations = helper.fetchActiveOperations(
+    List<TriggerOperation> operations = helper.fetchActiveTriggerOperations(
       triggerObserver
     );
     Test.stopTest();

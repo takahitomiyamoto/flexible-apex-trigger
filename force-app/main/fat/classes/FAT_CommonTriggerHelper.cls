@@ -89,7 +89,7 @@ public without sharing class FAT_CommonTriggerHelper {
    * @return (FAT_ITriggerObserver) apexClass.newInstance()
    */
   @TestVisible
-  private FAT_ITriggerObserver fetchTriggerObserver(Type apexClass) {
+  private FAT_ITriggerObserver fetchTriggerObserverClass(Type apexClass) {
     if (null == apexClass) {
       return null;
     }
@@ -103,7 +103,7 @@ public without sharing class FAT_CommonTriggerHelper {
    * @return activeTriggerOperation
    */
   @TestVisible
-  private List<TriggerOperation> fetchActiveOperations(
+  private List<TriggerOperation> fetchActiveTriggerOperations(
     FAT_TriggerObserver__mdt triggerObserver
   ) {
     List<TriggerOperation> activeTriggerOperation = new List<TriggerOperation>();
@@ -141,16 +141,16 @@ public without sharing class FAT_CommonTriggerHelper {
   }
 
   /**
-   * @description set triggerObserver
+   * @description add TriggerObserver
    * @param triggerObserver
    */
   @TestVisible
-  private void setTriggerObserver(FAT_TriggerObserver__mdt triggerObserver) {
+  private void addTriggerObserver(FAT_TriggerObserver__mdt triggerObserver) {
     if (null == triggerObserver || null == triggerObserver.ApexClass__c) {
       return;
     }
 
-    FAT_ITriggerObserver observer = this.fetchTriggerObserver(
+    FAT_ITriggerObserver observer = this.fetchTriggerObserverClass(
       Type.forName(triggerObserver.ApexClass__c)
     );
 
@@ -158,7 +158,7 @@ public without sharing class FAT_CommonTriggerHelper {
       return;
     }
 
-    List<TriggerOperation> activeOperations = this.fetchActiveOperations(
+    List<TriggerOperation> activeOperations = this.fetchActiveTriggerOperations(
       triggerObserver
     );
 
@@ -257,7 +257,7 @@ public without sharing class FAT_CommonTriggerHelper {
       ORDER BY DeveloperName ASC
       LIMIT 50000
     ]) {
-      this.setTriggerObserver(triggerObserver);
+      this.addTriggerObserver(triggerObserver);
     }
   }
 }

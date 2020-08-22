@@ -9,8 +9,8 @@ private class FAT_LoggerEventTriggerServiceTest {
     FAT_CommonLogger logger = FAT_CommonLogger.getInstance();
     logger.store(LoggingLevel.DEBUG, 'test');
 
-    FAT_CommonLoggerUtils utils = FAT_CommonLoggerUtils.getInstance();
-    List<FAT_LoggerEvent__e> events = utils.createLoggerEvent(logger);
+    FAT_CommonLoggerHelper helper = FAT_CommonLoggerHelper.getInstance();
+    List<FAT_LoggerEvent__e> events = helper.createLoggerEvent(logger);
 
     Test.startTest();
     List<Database.SaveResult> results = EventBus.publish(events);

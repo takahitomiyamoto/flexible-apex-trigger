@@ -1,15 +1,15 @@
 /**
- * @name FAT_CommonLoggerUtilsTest.cls
- * @description test class for FAT_CommonLoggerUtils
+ * @name FAT_CommonLoggerHelperTest.cls
+ * @description test class for FAT_CommonLoggerHelper
  */
 @isTest(SeeAllData=false)
-private class FAT_CommonLoggerUtilsTest {
-  private static FAT_CommonLoggerUtils utils = FAT_CommonLoggerUtils.getInstance();
+private class FAT_CommonLoggerHelperTest {
+  private static FAT_CommonLoggerHelper helper = FAT_CommonLoggerHelper.getInstance();
 
   @isTest
   static void getLoggingLevelNone() {
     Test.startTest();
-    LoggingLevel level = utils.getLoggingLevel('NONE');
+    LoggingLevel level = helper.getLoggingLevel('NONE');
     Test.stopTest();
 
     System.assertEquals(LoggingLevel.NONE, level, 'getLoggingLevelNone');
@@ -18,7 +18,7 @@ private class FAT_CommonLoggerUtilsTest {
   @isTest
   static void getLoggingLevelError() {
     Test.startTest();
-    LoggingLevel level = utils.getLoggingLevel('ERROR');
+    LoggingLevel level = helper.getLoggingLevel('ERROR');
     Test.stopTest();
 
     System.assertEquals(LoggingLevel.ERROR, level, 'getLoggingLevelNone');
@@ -27,7 +27,7 @@ private class FAT_CommonLoggerUtilsTest {
   @isTest
   static void getLoggingLevelWarn() {
     Test.startTest();
-    LoggingLevel level = utils.getLoggingLevel('WARN');
+    LoggingLevel level = helper.getLoggingLevel('WARN');
     Test.stopTest();
 
     System.assertEquals(LoggingLevel.WARN, level, 'getLoggingLevelNone');
@@ -36,7 +36,7 @@ private class FAT_CommonLoggerUtilsTest {
   @isTest
   static void getLoggingLevelInfo() {
     Test.startTest();
-    LoggingLevel level = utils.getLoggingLevel('INFO');
+    LoggingLevel level = helper.getLoggingLevel('INFO');
     Test.stopTest();
 
     System.assertEquals(LoggingLevel.INFO, level, 'getLoggingLevelNone');
@@ -45,7 +45,7 @@ private class FAT_CommonLoggerUtilsTest {
   @isTest
   static void getLoggingLevelFine() {
     Test.startTest();
-    LoggingLevel level = utils.getLoggingLevel('FINE');
+    LoggingLevel level = helper.getLoggingLevel('FINE');
     Test.stopTest();
 
     System.assertEquals(LoggingLevel.FINE, level, 'getLoggingLevelNone');
@@ -54,7 +54,7 @@ private class FAT_CommonLoggerUtilsTest {
   @isTest
   static void getLoggingLevelFiner() {
     Test.startTest();
-    LoggingLevel level = utils.getLoggingLevel('FINER');
+    LoggingLevel level = helper.getLoggingLevel('FINER');
     Test.stopTest();
 
     System.assertEquals(LoggingLevel.FINER, level, 'getLoggingLevelNone');
@@ -63,7 +63,7 @@ private class FAT_CommonLoggerUtilsTest {
   @isTest
   static void getLoggingLevelFinest() {
     Test.startTest();
-    LoggingLevel level = utils.getLoggingLevel('FINEST');
+    LoggingLevel level = helper.getLoggingLevel('FINEST');
     Test.stopTest();
 
     System.assertEquals(LoggingLevel.FINEST, level, 'getLoggingLevelNone');
@@ -72,7 +72,7 @@ private class FAT_CommonLoggerUtilsTest {
   @isTest
   static void getLoggingLevelOthers() {
     Test.startTest();
-    LoggingLevel level = utils.getLoggingLevel('OTHERS');
+    LoggingLevel level = helper.getLoggingLevel('OTHERS');
     Test.stopTest();
 
     System.assertEquals(LoggingLevel.DEBUG, level, 'getLoggingLevelNone');

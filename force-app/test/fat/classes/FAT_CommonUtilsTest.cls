@@ -20,13 +20,8 @@ private class FAT_CommonUtilsTest {
     }
     Test.stopTest();
 
-    system.assertNotEquals(
-      null,
-      exceptions,
-      'expected at least one exception to have occured'
-    );
     for (Boolean b : exceptions) {
-      system.assertEquals(true, b, 'createObjectException');
+      System.assertEquals(true, b, 'createObjectException');
     }
   }
 }

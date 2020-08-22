@@ -5,14 +5,25 @@
 @isTest(SeeAllData=false)
 private class FAT_CommonErrorTest {
   @isTest
-  static void handleError() {
+  static void handleErrorNull() {
+    Database.SaveResult result = null;
+
     Test.startTest();
-    Account account = new Account();
-    Database.SaveResult result = Database.update(account, false);
     FAT_CommonError.handleError(result);
     Test.stopTest();
 
-    System.assertEquals(false, result.isSuccess(), 'handleError');
+    System.assertEquals(null, result, 'handleErrorNull');
+  }
+
+  @isTest
+  static void handleErrorsNull() {
+    List<Database.SaveResult> result = null;
+
+    Test.startTest();
+    FAT_CommonError.handleErrors(result);
+    Test.stopTest();
+
+    System.assertEquals(null, result, 'handleErrorsNull');
   }
 
   @isTest
@@ -39,13 +50,8 @@ private class FAT_CommonErrorTest {
     }
     Test.stopTest();
 
-    system.assertNotEquals(
-      null,
-      exceptions,
-      'expected at least one exception to have occured'
-    );
     for (Boolean b : exceptions) {
-      system.assertEquals(true, b, 'createErrorMessageException');
+      System.assertEquals(true, b, 'createErrorMessageException');
     }
   }
 
@@ -62,13 +68,8 @@ private class FAT_CommonErrorTest {
     }
     Test.stopTest();
 
-    system.assertNotEquals(
-      null,
-      exceptions,
-      'expected at least one exception to have occured'
-    );
     for (Boolean b : exceptions) {
-      system.assertEquals(true, b, 'createErrorMessageCustomException');
+      System.assertEquals(true, b, 'createErrorMessageCustomException');
     }
   }
 }

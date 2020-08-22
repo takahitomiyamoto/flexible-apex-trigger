@@ -4,6 +4,8 @@
  */
 @isTest(SeeAllData=false)
 private class FAT_CommonLoggerTest {
+  private static FAT_CommonLogger logger = FAT_CommonLogger.getInstance();
+
   @testSetup
   static void setup() {
     System.debug(LoggingLevel.FINEST, 'setup');
@@ -12,7 +14,6 @@ private class FAT_CommonLoggerTest {
   @isTest
   static void store() {
     Test.startTest();
-    FAT_CommonLogger logger = FAT_CommonLogger.getInstance();
     String maxWidthMsg = '';
     for (Integer i = 0; i < FAT_CommonLoggerConstants.MAX_WIDTH; i++) {
       maxWidthMsg += 'a';
@@ -29,7 +30,6 @@ private class FAT_CommonLoggerTest {
   @isTest
   static void stackNotLogging() {
     Test.startTest();
-    FAT_CommonLogger logger = FAT_CommonLogger.getInstance();
     logger.storeDefaultDebugLog(LoggingLevel.NONE, LoggingLevel.DEBUG, '');
     Test.stopTest();
 
@@ -39,7 +39,6 @@ private class FAT_CommonLoggerTest {
   @isTest
   static void stackNone() {
     Test.startTest();
-    FAT_CommonLogger logger = FAT_CommonLogger.getInstance();
     String message = '';
     logger.store(LoggingLevel.NONE, message);
     Test.stopTest();
@@ -50,7 +49,6 @@ private class FAT_CommonLoggerTest {
   @isTest
   static void fetchEmpty() {
     Test.startTest();
-    FAT_CommonLogger logger = FAT_CommonLogger.getInstance();
     logger.fetch();
     Test.stopTest();
 

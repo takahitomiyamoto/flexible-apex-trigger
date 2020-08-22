@@ -6,11 +6,11 @@ public without sharing class FAT_CommonTriggerHelper {
   // Logger Variable
   private final FAT_CommonLogger logger = FAT_CommonLogger.getInstance();
 
+  // Utils Variables
+  private final FAT_CommonTriggerUtils utils = FAT_CommonTriggerUtils.getInstance();
+
   // Class Variables
   private static FAT_CommonTriggerHelper singleton = new FAT_CommonTriggerHelper();
-
-  // Instance Variables
-  private final FAT_CommonTriggerUtils utils = FAT_CommonTriggerUtils.getInstance();
 
   // Observer Variables
   @TestVisible

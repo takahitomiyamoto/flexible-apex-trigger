@@ -14,16 +14,6 @@ public with sharing class FAT_CommonTriggerServiceMock implements FAT_ITriggerOb
   // Logger Variable
   private final FAT_CommonLogger logger = FAT_CommonLogger.getInstance();
 
-  // Instance Variables
-  private FAT_CommonTriggerHandler handler;
-
-  /**
-   * @description constructor with no parameter
-   */
-  public FAT_CommonTriggerServiceMock() {
-    this.setMethodName('FAT_CommonTriggerServiceMock');
-  }
-
   /**
    * @description set method name
    * @param methodName
@@ -34,58 +24,58 @@ public with sharing class FAT_CommonTriggerServiceMock implements FAT_ITriggerOb
   }
 
   /**
-   * @description store TriggerObserver
-   * @param handler
-   * @return (FAT_ITriggerObserver) this
+   * @description constructor with no parameter
    */
-  public FAT_ITriggerObserver storeTriggerObserver(
-    FAT_CommonTriggerHandler handler
-  ) {
-    this.setMethodName('storeTriggerObserver');
-
-    this.handler = handler;
-    return (FAT_ITriggerObserver) this;
+  public FAT_CommonTriggerServiceMock() {
+    this.setMethodName('FAT_CommonTriggerServiceMock');
   }
 
   /**
    * @description custom action in case of before insert
+   * @param handler
    */
-  public void onBeforeInsert() {
+  public void onBeforeInsert(FAT_CommonTriggerHandler handler) {
   }
 
   /**
    * @description custom action in case of before update
+   * @param handler
    */
-  public void onBeforeUpdate() {
+  public void onBeforeUpdate(FAT_CommonTriggerHandler handler) {
   }
 
   /**
    * @description custom action in case of before delete
+   * @param handler
    */
-  public void onBeforeDelete() {
+  public void onBeforeDelete(FAT_CommonTriggerHandler handler) {
   }
 
   /**
    * @description custom action in case of after insert
+   * @param handler
    */
-  public void onAfterInsert() {
+  public void onAfterInsert(FAT_CommonTriggerHandler handler) {
   }
 
   /**
    * @description custom action in case of after update
+   * @param handler
    */
-  public void onAfterUpdate() {
+  public void onAfterUpdate(FAT_CommonTriggerHandler handler) {
   }
 
   /**
    * @description custom action in case of after delete
+   * @param handler
    */
-  public void onAfterDelete() {
+  public void onAfterDelete(FAT_CommonTriggerHandler handler) {
   }
 
   /**
    * @description custom action in case of after undelete
+   * @param handler
    */
-  public void onAfterUndelete() {
+  public void onAfterUndelete(FAT_CommonTriggerHandler handler) {
   }
 }

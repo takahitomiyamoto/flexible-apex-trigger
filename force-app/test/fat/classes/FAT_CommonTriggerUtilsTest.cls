@@ -4,30 +4,30 @@
  */
 @isTest(SeeAllData=false)
 private class FAT_CommonTriggerUtilsTest {
+  private static FAT_CommonTriggerUtils utils = FAT_CommonTriggerUtils.getInstance();
+
   @isTest
   static void fetchTriggerObserver() {
     Test.startTest();
-    FAT_ITriggerObserver observer = FAT_CommonTriggerUtils.fetchTriggerObserver(
+    FAT_ITriggerObserver observer = utils.fetchTriggerObserver(
       FAT_CommonTriggerServiceMock.class
     );
     Test.stopTest();
 
-    system.assertNotEquals(null, observer, 'fetchTriggerObserver');
+    System.assertNotEquals(null, observer, 'fetchTriggerObserver');
   }
 
   @isTest
   static void fetchTriggerObserverNull() {
     Test.startTest();
-    FAT_ITriggerObserver observer = FAT_CommonTriggerUtils.fetchTriggerObserver(
-      null
-    );
+    FAT_ITriggerObserver observer = utils.fetchTriggerObserver(null);
     Test.stopTest();
 
-    system.assertEquals(null, observer, 'fetchTriggerObserverNull');
+    System.assertEquals(null, observer, 'fetchTriggerObserverNull');
   }
 
   @isTest
-  static void addActiveTriggerOperations() {
+  static void fetchActiveOperations() {
     FAT_TriggerObserver__mdt triggerObserver = new FAT_TriggerObserver__mdt();
     triggerObserver.Active__c = true;
     triggerObserver.BeforeInsert__c = true;
@@ -48,12 +48,12 @@ private class FAT_CommonTriggerUtilsTest {
     allTriggerOperations.add(TriggerOperation.AFTER_UNDELETE);
 
     Test.startTest();
-    List<TriggerOperation> operations = FAT_CommonTriggerUtils.addActiveTriggerOperations(
+    List<TriggerOperation> operations = utils.fetchActiveOperations(
       triggerObserver
     );
     Test.stopTest();
 
-    system.assertEquals(
+    System.assertEquals(
       allTriggerOperations,
       operations,
       'addActiveTriggerOperations'
@@ -66,12 +66,12 @@ private class FAT_CommonTriggerUtilsTest {
     triggerObserver.Active__c = false;
 
     Test.startTest();
-    List<TriggerOperation> operations = FAT_CommonTriggerUtils.addActiveTriggerOperations(
+    List<TriggerOperation> operations = utils.fetchActiveOperations(
       triggerObserver
     );
     Test.stopTest();
 
-    system.assertEquals(
+    System.assertEquals(
       new List<TriggerOperation>(),
       operations,
       'addActiveTriggerOperationsInactive'

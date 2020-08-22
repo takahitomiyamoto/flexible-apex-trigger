@@ -6,11 +6,13 @@ public without sharing class FAT_CommonLogger {
   // Logger Variable
   private static FAT_CommonLogger singleton = new FAT_CommonLogger();
 
+  // Utils Variable
+  private final FAT_CommonLoggerUtils utils = FAT_CommonLoggerUtils.getInstance();
+
   // Instance Variables
   private String className;
   private String methodName;
   private List<String> debugLogs = new List<String>();
-  private final FAT_CommonLoggerUtils utils = FAT_CommonLoggerUtils.getInstance();
 
   /**
    * @description private constructor with no parameter

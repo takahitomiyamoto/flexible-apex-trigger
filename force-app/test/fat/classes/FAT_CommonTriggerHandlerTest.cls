@@ -7,8 +7,11 @@ private class FAT_CommonTriggerHandlerTest {
   private static FAT_CommonTriggerHandler handler = new FAT_CommonTriggerHandler(
     FAT_CommonTriggerServiceMock.class.getName()
   );
+
   private static FAT_ITriggerObserver triggerObserver = (FAT_ITriggerObserver) FAT_CommonTriggerServiceMock.class
     .newInstance();
+
+  private static FAT_CommonTriggerHelper helper = FAT_CommonTriggerHelper.getInstance();
 
   @testSetup
   static void setup() {
@@ -24,7 +27,7 @@ private class FAT_CommonTriggerHandlerTest {
     handler.invoke();
     Test.stopTest();
 
-    system.assertEquals(
+    System.assertEquals(
       false,
       FAT_CommonTriggerHandler.firstRun,
       'invokeIsRecursive'
@@ -39,7 +42,7 @@ private class FAT_CommonTriggerHandlerTest {
     FAT_CommonTestUtils.updateAccounts(accounts);
     Test.stopTest();
 
-    system.assertNotEquals(0, accounts.size(), 'invokeUpdate');
+    System.assertNotEquals(0, accounts.size(), 'invokeUpdate');
   }
 
   @isTest
@@ -51,7 +54,7 @@ private class FAT_CommonTriggerHandlerTest {
     FAT_CommonTestUtils.undeleteAccounts(accounts);
     Test.stopTest();
 
-    system.assertNotEquals(0, accounts.size(), 'invokeDelete');
+    System.assertNotEquals(0, accounts.size(), 'invokeDelete');
   }
 
   @isTest
@@ -62,120 +65,83 @@ private class FAT_CommonTriggerHandlerTest {
     FAT_CommonTestUtils.insertAccounts(accounts);
     Test.stopTest();
 
-    system.assertNotEquals(0, accounts.size(), 'invokeException');
+    System.assertNotEquals(0, accounts.size(), 'invokeException');
   }
 
-  // @isTest
-  // static void onBeforeInsert() {
-  //   handler.beforeInsert.add(triggerObserver);
+  @isTest
+  static void onBeforeInsert() {
+    helper.beforeInserts.add(triggerObserver);
 
-  //   Test.startTest();
-  //   handler.onBeforeInsert();
-  //   Test.stopTest();
+    Test.startTest();
+    handler.onBeforeInsert();
+    Test.stopTest();
 
-  //   system.assertEquals(1, handler.beforeInsert.size(), 'onBeforeInsert');
-  // }
+    System.assertEquals(1, helper.beforeInserts.size(), 'onBeforeInsert');
+  }
 
-  // @isTest
-  // static void onBeforeUpdate() {
-  //   handler.beforeUpdate.add(triggerObserver);
+  @isTest
+  static void onBeforeUpdate() {
+    helper.beforeUpdates.add(triggerObserver);
 
-  //   Test.startTest();
-  //   handler.onBeforeUpdate();
-  //   Test.stopTest();
+    Test.startTest();
+    handler.onBeforeUpdate();
+    Test.stopTest();
 
-  //   system.assertEquals(1, handler.beforeUpdate.size(), 'onBeforeUpdate');
-  // }
+    System.assertEquals(1, helper.beforeUpdates.size(), 'onBeforeUpdate');
+  }
 
-  // @isTest
-  // static void onBeforeDelete() {
-  //   handler.beforeDelete.add(triggerObserver);
+  @isTest
+  static void onBeforeDelete() {
+    helper.beforeDeletes.add(triggerObserver);
 
-  //   Test.startTest();
-  //   handler.onBeforeDelete();
-  //   Test.stopTest();
+    Test.startTest();
+    handler.onBeforeDelete();
+    Test.stopTest();
 
-  //   system.assertEquals(1, handler.beforeDelete.size(), 'onBeforeDelete');
-  // }
+    System.assertEquals(1, helper.beforeDeletes.size(), 'onBeforeDelete');
+  }
 
-  // @isTest
-  // static void onAfterInsert() {
-  //   handler.afterInsert.add(triggerObserver);
+  @isTest
+  static void onAfterInsert() {
+    helper.afterInserts.add(triggerObserver);
 
-  //   Test.startTest();
-  //   handler.onAfterInsert();
-  //   Test.stopTest();
+    Test.startTest();
+    handler.onAfterInsert();
+    Test.stopTest();
 
-  //   system.assertEquals(1, handler.afterInsert.size(), 'onAfterInsert');
-  // }
+    System.assertEquals(1, helper.afterInserts.size(), 'onAfterInsert');
+  }
 
-  // @isTest
-  // static void onAfterUpdate() {
-  //   handler.afterUpdate.add(triggerObserver);
+  @isTest
+  static void onAfterUpdate() {
+    helper.afterUpdates.add(triggerObserver);
 
-  //   Test.startTest();
-  //   handler.onAfterUpdate();
-  //   Test.stopTest();
+    Test.startTest();
+    handler.onAfterUpdate();
+    Test.stopTest();
 
-  //   system.assertEquals(1, handler.afterUpdate.size(), 'onAfterUpdate');
-  // }
+    System.assertEquals(1, helper.afterUpdates.size(), 'onAfterUpdate');
+  }
 
-  // @isTest
-  // static void onAfterDelete() {
-  //   handler.afterDelete.add(triggerObserver);
+  @isTest
+  static void onAfterDelete() {
+    helper.afterDeletes.add(triggerObserver);
 
-  //   Test.startTest();
-  //   handler.onAfterDelete();
-  //   Test.stopTest();
+    Test.startTest();
+    handler.onAfterDelete();
+    Test.stopTest();
 
-  //   system.assertEquals(1, handler.afterDelete.size(), 'onAfterDelete');
-  // }
+    System.assertEquals(1, helper.afterDeletes.size(), 'onAfterDelete');
+  }
 
-  // @isTest
-  // static void onAfterUndelete() {
-  //   handler.afterUndelete.add(triggerObserver);
+  @isTest
+  static void onAfterUndelete() {
+    helper.afterUndeletes.add(triggerObserver);
 
-  //   Test.startTest();
-  //   handler.onAfterUndelete();
-  //   Test.stopTest();
+    Test.startTest();
+    handler.onAfterUndelete();
+    Test.stopTest();
 
-  //   system.assertEquals(1, handler.afterUndelete.size(), 'onAfterUndelete');
-  // }
-
-  // @isTest
-  // static void addTriggerObserver() {
-  //   List<TriggerOperation> triggerOperations = new List<TriggerOperation>{
-  //     TriggerOperation.BEFORE_INSERT,
-  //     TriggerOperation.BEFORE_UPDATE,
-  //     TriggerOperation.BEFORE_DELETE,
-  //     TriggerOperation.AFTER_INSERT,
-  //     TriggerOperation.AFTER_UPDATE,
-  //     TriggerOperation.AFTER_DELETE,
-  //     TriggerOperation.AFTER_UNDELETE
-  //   };
-
-  //   Test.startTest();
-  //   handler.addTriggerObserver(triggerOperations, triggerObserver);
-  //   Test.stopTest();
-
-  //   system.assertEquals(7, triggerOperations.size(), 'addTriggerObserver');
-  // }
-
-  // @isTest
-  // static void setTriggerObserversNull() {
-  //   Test.startTest();
-  //   handler.setTriggerObservers(null);
-  //   Test.stopTest();
-
-  //   system.assertNotEquals(null, handler, 'setTriggerObserversNull');
-  // }
-
-  // @isTest
-  // static void addTriggerObserverNull() {
-  //   Test.startTest();
-  //   handler.addTriggerObserver(null, null);
-  //   Test.stopTest();
-
-  //   system.assertNotEquals(null, handler, 'addTriggerObserverNull');
-  // }
+    System.assertEquals(1, helper.afterUndeletes.size(), 'onAfterUndelete');
+  }
 }

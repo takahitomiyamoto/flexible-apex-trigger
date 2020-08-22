@@ -31,6 +31,10 @@ public with sharing class FAT_CommonTestUtils {
     normalAccount0.Name = 'Normal Account 0';
     accounts.add(normalAccount0);
 
+    Account normalAccount1 = new Account();
+    normalAccount1.Name = null;
+    accounts.add(normalAccount1);
+
     return accounts;
   }
 

@@ -27,7 +27,9 @@ public without sharing class FAT_CommonUtils {
     Schema.SObjectType targetType = getSObjectType(typeName);
     if (null == targetType) {
       String message = 'The sObject ' + typeName + ' is NOT FOUND.';
-      throw new CustomException(message);
+      CustomException e = new CustomException();
+      e.setMessage(message);
+      throw e;
     }
     return targetType.newSObject();
   }

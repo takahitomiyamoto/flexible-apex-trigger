@@ -3,14 +3,14 @@
  * @description common logger
  */
 public without sharing class FAT_CommonLogger {
-  // Class Variables
-  private static FAT_CommonLogger singletonCommonLogger = new FAT_CommonLogger();
-  private final FAT_CommonLoggerUtils utils = FAT_CommonLoggerUtils.getInstance();
+  // Logger Variable
+  private static FAT_CommonLogger singleton = new FAT_CommonLogger();
 
   // Instance Variables
   private String className;
   private String methodName;
   private List<String> debugLogs = new List<String>();
+  private final FAT_CommonLoggerUtils utils = FAT_CommonLoggerUtils.getInstance();
 
   /**
    * @description private constructor with no parameter
@@ -46,7 +46,7 @@ public without sharing class FAT_CommonLogger {
    * @return FAT_CommonLogger
    */
   public static FAT_CommonLogger getInstance() {
-    return singletonCommonLogger;
+    return singleton;
   }
 
   /**
@@ -112,9 +112,7 @@ public without sharing class FAT_CommonLogger {
   public void publish() {
     List<FAT_LoggerEvent__e> events = utils.createLoggerEvent(this);
     List<Database.SaveResult> results = EventBus.publish(events);
-    for (Database.SaveResult result : results) {
-      FAT_CommonError.handleError(result);
-    }
+    FAT_CommonError.handleErrors(results);
   }
 
   /**

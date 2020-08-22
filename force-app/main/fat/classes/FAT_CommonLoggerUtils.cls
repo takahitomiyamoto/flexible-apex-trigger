@@ -14,7 +14,7 @@ public without sharing class FAT_CommonLoggerUtils {
   private static final String TIMEZONE_JST = FAT_CommonLoggerConstants.TIMEZONE_JST;
 
   // Class Variables
-  private static FAT_CommonLoggerUtils singletonCommonLoggerUtils = new FAT_CommonLoggerUtils();
+  private static FAT_CommonLoggerUtils singleton = new FAT_CommonLoggerUtils();
 
   // Instance Variables
   private String timestampNow;
@@ -61,10 +61,10 @@ public without sharing class FAT_CommonLoggerUtils {
 
   /**
    * @description get the instance
-   * @return singletonCommonLoggerUtils
+   * @return singleton
    */
   public static FAT_CommonLoggerUtils getInstance() {
-    return singletonCommonLoggerUtils;
+    return singleton;
   }
 
   /**

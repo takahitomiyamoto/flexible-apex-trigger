@@ -9,11 +9,19 @@ public without sharing class FAT_CommonError {
   private static final String SYMBOL_NEWLINE = FAT_CommonConstants.SYMBOL_NEWLINE;
 
   /**
+   * @description Database.Error
+   */
+  private class DatabaseError {
+    String[] fields;
+    String message;
+    StatusCode statusCode;
+  }
+
+  /**
    * @description error message
    */
   private class ErrorMessage {
-    List<String> fields;
-    StatusCode statusCode;
+    DatabaseError databaseError;
     Exception cause;
     Integer lineNumber;
     String message;
@@ -42,10 +50,13 @@ public without sharing class FAT_CommonError {
    * @return JSON.serialize(errorMessage)
    */
   public static String createErrorMessage(Database.Error error) {
+    DatabaseError databaseError = new DatabaseError();
+    databaseError.fields = error.getFields();
+    databaseError.statusCode = error.getStatusCode();
+    databaseError.message = error.getMessage();
+
     ErrorMessage errorMessage = new ErrorMessage();
-    errorMessage.fields = error.getFields();
-    errorMessage.statusCode = error.getStatusCode();
-    errorMessage.message = error.getMessage();
+    errorMessage.databaseError = databaseError;
 
     return JSON.serialize(errorMessage);
   }
@@ -57,26 +68,48 @@ public without sharing class FAT_CommonError {
    */
   public static String createErrorMessage(Exception e) {
     ErrorMessage errorMessage = new ErrorMessage();
+    String stackTraceString = e.getStackTraceString();
+    if (hasStackTrace(stackTraceString)) {
+      errorMessage.stackTrace = stackTraceString.replace(
+        SYMBOL_NEWLINE,
+        SYMBOL_DIVIDER
+      );
+    }
     errorMessage.cause = e.getCause();
     errorMessage.lineNumber = e.getLineNumber();
     errorMessage.message = e.getMessage();
     errorMessage.type = e.getTypeName();
-    errorMessage.stackTrace = hasStackTrace(e.getStackTraceString())
-      ? e.getStackTraceString().replace(SYMBOL_NEWLINE, SYMBOL_DIVIDER)
-      : '';
 
     return JSON.serialize(errorMessage);
   }
 
   /**
-   * @description get recordTypeId
+   * @description handle Database.Error
    * @param result
    */
   public static void handleError(Database.SaveResult result) {
+    if (null == result) {
+      return;
+    }
+
     if (!result.isSuccess()) {
       for (Database.Error error : result.getErrors()) {
         System.debug(LoggingLevel.ERROR, createErrorMessage(error));
       }
+    }
+  }
+
+  /**
+   * @description handle List<Database.Error>
+   * @param results
+   */
+  public static void handleErrors(List<Database.SaveResult> results) {
+    if (null == results) {
+      return;
+    }
+
+    for (Database.SaveResult result : results) {
+      handleError(result);
     }
   }
 }

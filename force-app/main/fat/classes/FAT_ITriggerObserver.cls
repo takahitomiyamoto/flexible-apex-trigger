@@ -5,43 +5,50 @@
 public interface FAT_ITriggerObserver {
   /**
    * @description store FAT_ITriggerObserver
-   * @param handler
    * @return FAT_ITriggerObserver
    */
-  FAT_ITriggerObserver storeTriggerObserver(FAT_CommonTriggerHandler handler);
+  // FAT_ITriggerObserver storeTriggerObserver(FAT_CommonTriggerHandler handler);
+  // FAT_ITriggerObserver storeTriggerObserver();
 
   /**
    * @description custom action in case of before insert
+   * @param handler
    */
-  void onBeforeInsert();
+  void onBeforeInsert(FAT_CommonTriggerHandler handler);
 
   /**
    * @description custom action in case of before update
+   * @param handler
    */
-  void onBeforeUpdate();
+  void onBeforeUpdate(FAT_CommonTriggerHandler handler);
 
   /**
    * @description custom action in case of before delete
+   * @param handler
    */
-  void onBeforeDelete();
+  void onBeforeDelete(FAT_CommonTriggerHandler handler);
 
   /**
    * @description custom action in case of after insert
+   * @param handler
    */
-  void onAfterInsert();
+  void onAfterInsert(FAT_CommonTriggerHandler handler);
 
   /**
    * @description custom action in case of after update
+   * @param handler
    */
-  void onAfterUpdate();
+  void onAfterUpdate(FAT_CommonTriggerHandler handler);
 
   /**
    * @description custom action in case of after delete
+   * @param handler
    */
-  void onAfterDelete();
+  void onAfterDelete(FAT_CommonTriggerHandler handler);
 
   /**
    * @description custom action in case of after undelete
+   * @param handler
    */
-  void onAfterUndelete();
+  void onAfterUndelete(FAT_CommonTriggerHandler handler);
 }

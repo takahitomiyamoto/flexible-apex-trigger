@@ -2,56 +2,26 @@
  * @name FAT_CommonTriggerHandler.cls
  * @description base for all trigger handlers
  */
-@SuppressWarnings('PMD.TooManyFields')
 public without sharing class FAT_CommonTriggerHandler {
   // Logger Variable
   private final FAT_CommonLogger logger = FAT_CommonLogger.getInstance();
+
+  // Helper Variable
+  private final FAT_CommonTriggerHelper helper = FAT_CommonTriggerHelper.getInstance();
 
   // Class Variables
   @TestVisible
   private static Boolean firstRun = true;
 
   // Instance Variables
-  public List<sObject> oldObjects;
-  public List<sObject> newObjects;
-  public Map<Id, sObject> oldObjectMap;
-  public Map<Id, sObject> newObjectMap;
   private String sObjectName;
   private Boolean triggerIsExecuting;
   private Integer triggerSize;
   private TriggerOperation triggerOperationType;
-
-  @TestVisible
-  private List<FAT_ITriggerObserver> beforeInsert = new List<FAT_ITriggerObserver>();
-  @TestVisible
-  private List<FAT_ITriggerObserver> beforeUpdate = new List<FAT_ITriggerObserver>();
-  @TestVisible
-  private List<FAT_ITriggerObserver> beforeDelete = new List<FAT_ITriggerObserver>();
-  @TestVisible
-  private List<FAT_ITriggerObserver> afterInsert = new List<FAT_ITriggerObserver>();
-  @TestVisible
-  private List<FAT_ITriggerObserver> afterUpdate = new List<FAT_ITriggerObserver>();
-  @TestVisible
-  private List<FAT_ITriggerObserver> afterDelete = new List<FAT_ITriggerObserver>();
-  @TestVisible
-  private List<FAT_ITriggerObserver> afterUndelete = new List<FAT_ITriggerObserver>();
-
-  /**
-   * @description constructor with parameters
-   * @param sObjectName
-   */
-  public FAT_CommonTriggerHandler(String sObjectName) {
-    this.setMethodName('FAT_CommonTriggerHandler');
-
-    this.sObjectName = sObjectName;
-    this.oldObjects = Trigger.old;
-    this.newObjects = Trigger.new;
-    this.oldObjectMap = Trigger.oldMap;
-    this.newObjectMap = Trigger.newMap;
-    this.triggerIsExecuting = Trigger.isExecuting;
-    this.triggerSize = Trigger.size;
-    this.triggerOperationType = Trigger.operationType;
-  }
+  public List<sObject> oldObjects;
+  public List<sObject> newObjects;
+  public Map<Id, sObject> oldObjectMap;
+  public Map<Id, sObject> newObjectMap;
 
   /**
    * @description set method name
@@ -63,86 +33,93 @@ public without sharing class FAT_CommonTriggerHandler {
   }
 
   /**
-   * @description custom action in case of before insert
+   * @description notifyObservers for before insert
    */
   @TestVisible
   private void onBeforeInsert() {
     this.setMethodName('onBeforeInsert');
-    logger.store(LoggingLevel.DEBUG, 'beforeInsert: ' + beforeInsert.size());
-    for (FAT_ITriggerObserver triggerObserver : beforeInsert) {
-      triggerObserver.onBeforeInsert();
+    List<FAT_ITriggerObserver> beforeInserts = helper.getBeforeInserts();
+    logger.store(LoggingLevel.DEBUG, 'size: ' + beforeInserts.size());
+    for (FAT_ITriggerObserver triggerObserver : beforeInserts) {
+      triggerObserver.onBeforeInsert(this);
     }
   }
 
   /**
-   * @description custom action in case of before update
+   * @description notifyObservers for before update
    */
   @TestVisible
   private void onBeforeUpdate() {
     this.setMethodName('onBeforeUpdate');
-    logger.store(LoggingLevel.DEBUG, 'beforeUpdate: ' + beforeUpdate.size());
-    for (FAT_ITriggerObserver triggerObserver : beforeUpdate) {
-      triggerObserver.onBeforeUpdate();
+    List<FAT_ITriggerObserver> beforeUpdates = helper.getBeforeUpdates();
+    logger.store(LoggingLevel.DEBUG, 'size: ' + beforeUpdates.size());
+    for (FAT_ITriggerObserver triggerObserver : beforeUpdates) {
+      triggerObserver.onBeforeUpdate(this);
     }
   }
 
   /**
-   * @description custom action in case of before delete
+   * @description notifyObservers for before delete
    */
   @TestVisible
   private void onBeforeDelete() {
     this.setMethodName('onBeforeDelete');
-    logger.store(LoggingLevel.DEBUG, 'beforeDelete: ' + beforeDelete.size());
-    for (FAT_ITriggerObserver triggerObserver : beforeDelete) {
-      triggerObserver.onBeforeDelete();
+    List<FAT_ITriggerObserver> beforeDeletes = helper.getBeforeDeletes();
+    logger.store(LoggingLevel.DEBUG, 'size: ' + beforeDeletes.size());
+    for (FAT_ITriggerObserver triggerObserver : beforeDeletes) {
+      triggerObserver.onBeforeDelete(this);
     }
   }
 
   /**
-   * @description custom action in case of after insert
+   * @description notifyObservers for after insert
    */
   @TestVisible
   private void onAfterInsert() {
     this.setMethodName('onAfterInsert');
-    logger.store(LoggingLevel.DEBUG, 'afterInsert: ' + afterInsert.size());
-    for (FAT_ITriggerObserver triggerObserver : afterInsert) {
-      triggerObserver.onAfterInsert();
+    List<FAT_ITriggerObserver> afterInserts = helper.getAfterInserts();
+    logger.store(LoggingLevel.DEBUG, 'size: ' + afterInserts.size());
+    for (FAT_ITriggerObserver triggerObserver : afterInserts) {
+      triggerObserver.onAfterInsert(this);
     }
   }
 
   /**
-   * @description custom action in case of after update
+   * @description notifyObservers for after update
    */
   @TestVisible
   private void onAfterUpdate() {
     this.setMethodName('onAfterUpdate');
-    logger.store(LoggingLevel.DEBUG, 'afterUpdate: ' + afterUpdate.size());
-    for (FAT_ITriggerObserver triggerObserver : afterUpdate) {
-      triggerObserver.onAfterUpdate();
+    List<FAT_ITriggerObserver> afterUpdates = helper.getAfterUpdates();
+    logger.store(LoggingLevel.DEBUG, 'size: ' + afterUpdates.size());
+    for (FAT_ITriggerObserver triggerObserver : afterUpdates) {
+      triggerObserver.onAfterUpdate(this);
     }
   }
 
   /**
-   * @description custom action in case of after delete
+   * @description notifyObservers for after delete
    */
   @TestVisible
   private void onAfterDelete() {
     this.setMethodName('onAfterDelete');
-    logger.store(LoggingLevel.DEBUG, 'afterDelete: ' + afterDelete.size());
-    for (FAT_ITriggerObserver triggerObserver : afterDelete) {
-      triggerObserver.onAfterDelete();
+    List<FAT_ITriggerObserver> afterDeletes = helper.getAfterDeletes();
+    logger.store(LoggingLevel.DEBUG, 'size: ' + afterDeletes.size());
+    for (FAT_ITriggerObserver triggerObserver : afterDeletes) {
+      triggerObserver.onAfterDelete(this);
     }
   }
 
   /**
-   * @description custom action in case of after undelete
+   * @description notifyObservers for after undelete
    */
   @TestVisible
   private void onAfterUndelete() {
     this.setMethodName('onAfterUndelete');
-    logger.store(LoggingLevel.DEBUG, 'afterUndelete: ' + afterUndelete.size());
-    for (FAT_ITriggerObserver triggerObserver : afterUndelete) {
-      triggerObserver.onAfterUndelete();
+    List<FAT_ITriggerObserver> afterUndeletes = helper.getAfterUndeletes();
+    logger.store(LoggingLevel.DEBUG, 'size: ' + afterUndeletes.size());
+    for (FAT_ITriggerObserver triggerObserver : afterUndeletes) {
+      triggerObserver.onAfterUndelete(this);
     }
   }
 
@@ -165,102 +142,24 @@ public without sharing class FAT_CommonTriggerHandler {
   }
 
   /**
-   * @description add an observer
-   * @param triggerOperations
-   * @param triggerObserver
-   */
-  @TestVisible
-  private void addTriggerObserver(
-    List<TriggerOperation> triggerOperations,
-    FAT_ITriggerObserver triggerObserver
-  ) {
-    this.setMethodName('addTriggerObserver');
-
-    if (null == triggerOperations) {
-      return;
-    }
-
-    for (TriggerOperation triggerOperation : triggerOperations) {
-      switch on triggerOperation {
-        when BEFORE_INSERT {
-          beforeInsert.add(triggerObserver);
-        }
-        when BEFORE_UPDATE {
-          beforeUpdate.add(triggerObserver);
-        }
-        when BEFORE_DELETE {
-          beforeDelete.add(triggerObserver);
-        }
-        when AFTER_INSERT {
-          afterInsert.add(triggerObserver);
-        }
-        when AFTER_UPDATE {
-          afterUpdate.add(triggerObserver);
-        }
-        when AFTER_DELETE {
-          afterDelete.add(triggerObserver);
-        }
-        // AFTER_UNDELETE
-        when else {
-          afterUndelete.add(triggerObserver);
-        }
-      }
-    }
-  }
-
-  /**
-   * @description set triggerObserver
-   * @param triggerObserver
-   */
-  @TestVisible
-  private void setTriggerObserver(FAT_TriggerObserver__mdt triggerObserver) {
-    if (null == triggerObserver) {
-      return;
-    }
-
-    FAT_ITriggerObserver observer = FAT_CommonTriggerUtils.fetchTriggerObserver(
-      Type.forName(triggerObserver.ApexClass__c)
-    );
-
-    if (null == observer) {
-      return;
-    }
-
-    this.addTriggerObserver(
-      FAT_CommonTriggerUtils.addActiveTriggerOperations(triggerObserver),
-      observer.storeTriggerObserver(this)
-    );
-  }
-
-  /**
-   * @description set triggerObservers
+   * @description constructor with parameters
    * @param sObjectName
    */
-  @TestVisible
-  private void setTriggerObservers(String sObjectName) {
-    this.setMethodName('setTriggerObservers');
+  public FAT_CommonTriggerHandler(String sObjectName) {
+    this.setMethodName('FAT_CommonTriggerHandler');
 
-    for (FAT_TriggerObserver__mdt triggerObserver : [
-      SELECT
-        Id,
-        DeveloperName,
-        SObject__c,
-        ApexClass__c,
-        Active__c,
-        BeforeInsert__c,
-        BeforeUpdate__c,
-        BeforeDelete__c,
-        AfterInsert__c,
-        AfterUpdate__c,
-        AfterDelete__c,
-        AfterUndelete__c
-      FROM FAT_TriggerObserver__mdt
-      WHERE SObject__c = :sObjectName AND Active__c = TRUE
-      ORDER BY DeveloperName ASC
-      LIMIT 50000
-    ]) {
-      this.setTriggerObserver(triggerObserver);
-    }
+    this.sObjectName = sObjectName;
+    this.oldObjects = Trigger.old;
+    this.newObjects = Trigger.new;
+    this.oldObjectMap = Trigger.oldMap;
+    this.newObjectMap = Trigger.newMap;
+    this.triggerIsExecuting = Trigger.isExecuting;
+    this.triggerSize = Trigger.size;
+    this.triggerOperationType = Trigger.operationType;
+
+    logger.store(LoggingLevel.DEBUG, 'IsExecuting: ' + this.triggerIsExecuting);
+    logger.store(LoggingLevel.DEBUG, 'Size: ' + this.triggerSize);
+    logger.store(LoggingLevel.DEBUG, 'Type: ' + this.triggerOperationType);
   }
 
   /**
@@ -275,7 +174,7 @@ public without sharing class FAT_CommonTriggerHandler {
         return;
       }
 
-      this.setTriggerObservers(this.sObjectName);
+      helper.addTriggerObservers(this.sObjectName);
 
       switch on Trigger.operationType {
         when BEFORE_INSERT {

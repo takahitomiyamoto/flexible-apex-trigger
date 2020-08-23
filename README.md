@@ -32,6 +32,8 @@ sfdx force:org:open -p lightning/setup/ImportedPackage/home -u [targetusername]
 
 - [Dependency Injection Sample for Apex Trigger](https://github.com/takahitomiyamoto/di-sample-apex-trigger)
 
+---
+
 # Appendix
 
 ## Create a package

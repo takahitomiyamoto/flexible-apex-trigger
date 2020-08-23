@@ -30,11 +30,16 @@ sfdx force:source:deploy -p force-app/main/default/labels/ -u [targetusername]
 sfdx force:source:deploy -p force-app/main/default/classes/ -u [targetusername]
 ```
 
+- [Custom Labels](https://github.com/takahitomiyamoto/flexible-apex-trigger/tree/master/force-app/main/default/labels)
+- [Apex Classes](https://github.com/takahitomiyamoto/flexible-apex-trigger/tree/master/force-app/main/default/classes)
+
 ## 4. create Apex triggers
 
 ```sh
 sfdx force:source:deploy -p force-app/main/default/triggers/ -u [targetusername]
 ```
+
+- [Apex Triggers](https://github.com/takahitomiyamoto/flexible-apex-trigger/tree/master/force-app/main/default/triggers)
 
 ## 5. associate Apex classes with Apex Trigger operations
 
@@ -42,11 +47,15 @@ sfdx force:source:deploy -p force-app/main/default/triggers/ -u [targetusername]
 sfdx force:source:deploy -p force-app/main/default/customMetadata/ -u [targetusername]
 ```
 
+- [Custom Metadata types](https://github.com/takahitomiyamoto/flexible-apex-trigger/tree/master/force-app/main/default/customMetadata)
+
 ## 6. create Apex test classes
 
 ```sh
 sfdx force:source:deploy -p force-app/test/default/classes/ -u [targetusername]
 ```
+
+- [Apex Test Classes](https://github.com/takahitomiyamoto/flexible-apex-trigger/tree/master/force-app/test/default/classes)
 
 # Acknowledgment
 

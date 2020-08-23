@@ -9,23 +9,43 @@ This is a framework that makes our Apex Trigger development more flexible.
 
 # How to use
 
-## install on your org
+## 1. install the framework on your org
 
 ```sh
 sfdx force:package:install -p flexible-apex-trigger@1.0.1.0 -s AllUsers -u [targetusername]
 sfdx force:package:install:report -i 0HfXXXXXXXXXXXXXXX -u [targetusername]
+sfdx force:org:open -p lightning/setup/ImportedPackage/home -u [targetusername]
 ```
 
-## assign a permission set to one or more users of an org
+## 2. assign the permission set to one or more users of your org
 
 ```sh
 sfdx force:user:permset:assign -n FAT_Logger_User -u [targetusername]
 ```
 
-## open an org in your browser
+## 3. create Apex classes
 
 ```sh
-sfdx force:org:open -p lightning/setup/ImportedPackage/home -u [targetusername]
+sfdx force:source:deploy -p force-app/main/default/labels/ -u [targetusername]
+sfdx force:source:deploy -p force-app/main/default/classes/ -u [targetusername]
+```
+
+## 4. create Apex triggers
+
+```sh
+sfdx force:source:deploy -p force-app/main/default/triggers/ -u [targetusername]
+```
+
+## 5. associate Apex classes with Apex Trigger operations
+
+```sh
+sfdx force:source:deploy -p force-app/main/default/customMetadata/ -u [targetusername]
+```
+
+## 6. create Apex test classes
+
+```sh
+sfdx force:source:deploy -p force-app/test/default/classes/ -u [targetusername]
 ```
 
 # Acknowledgment

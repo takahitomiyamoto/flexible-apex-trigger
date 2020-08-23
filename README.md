@@ -12,10 +12,96 @@ This is a framework that makes our Apex Trigger development more flexible.
 ## Install on your org
 
 ```sh
-sfdx force:package:install --package "flexible-apex-trigger@1.0.0"
-sfdx force:user:permset:assign -n FAT_Logger_User
+sfdx force:package:install -p flexible-apex-trigger@1.0.1.0 -s AllUsers -u インストール先の組織
+sfdx force:package:install:report -i 0HfXXXXXXXXXXXXXXX -u インストール先の組織
+sfdx force:user:permset:assign -n FAT_Logger_User -u インストール先の組織
+sfdx force:org:open -p lightning/setup/ImportedPackage/home -u インストール先の組織
 ```
 
 # Acknowledgment
 
 - [Dependency Injection Sample for Apex Trigger](https://github.com/takahitomiyamoto/di-sample-apex-trigger)
+
+# Appendix
+
+## Create a package
+
+### create a package
+
+```sh
+sfdx force:package:create -d "This is a framework that makes our Apex Trigger development more flexible." -e -n "flexible-apex-trigger" -r force-app-fat -t Unlocked -v DevHub
+```
+
+### create a package version
+
+```sh
+sfdx force:package:version:create -a "Summer '20" -b "master" -c -e "Summer '20 (API version 49.0)" -f config/project-scratch-def.json -n 1.0.0.0 -p 0HoXXXXXXXXXXXXXXX -t v49.0 -v DevHub -x --postinstallurl "https://github.com/takahitomiyamoto/flexible-apex-trigger" --releasenotesurl "https://github.com/takahitomiyamoto/flexible-apex-trigger/releases"
+```
+
+### retrieve details about a package version creation request
+
+```sh
+sfdx force:package:version:create:report -i 08cXXXXXXXXXXXXXXX -v DevHub
+```
+
+### list package version creation requests
+
+```sh
+sfdx force:package:version:create:list -s Success -v DevHub
+```
+
+### promote a package version to released
+
+```sh
+sfdx force:package:version:promote -p 04tXXXXXXXXXXXXXXX -v DevHub
+```
+
+### retrieve details about a package version in the Dev Hub org
+
+```sh
+sfdx force:package:version:report -p 04tXXXXXXXXXXXXXXX -v DevHub --verbose
+```
+
+### list all packages in the Dev Hub org
+
+```sh
+sfdx force:package:list -v DevHub --verbose
+```
+
+### list all package versions in the Dev Hub org
+
+```sh
+sfdx force:package:version:list -p flexible-apex-trigger -v DevHub --verbose
+```
+
+## Update a package
+
+### create a package version
+
+```sh
+sfdx force:package:version:create -a "Summer '20" -b "master" -c -e "Summer '20 (API version 49.0)" -f config/project-scratch-def.json -n 1.0.1.0 -p 0HoXXXXXXXXXXXXXXX -t v49.0 -v DevHub-FAT -x --postinstallurl "https://github.com/takahitomiyamoto/flexible-apex-trigger" --releasenotesurl "https://github.com/takahitomiyamoto/flexible-apex-trigger/releases"
+```
+
+### retrieve details about a package version creation request
+
+```sh
+sfdx force:package:version:create:report -i 08cXXXXXXXXXXXXXXX -v DevHub-FAT
+```
+
+### update a package version
+
+```sh
+sfdx force:package:version:update -a "Summer '20" -b "master" -e "Summer '20 (API version 49.0)" -p 04tXXXXXXXXXXXXXXX -t v49.0 -v DevHub-FAT
+```
+
+### promote a package version to released
+
+```sh
+sfdx force:package:version:promote -p 04tXXXXXXXXXXXXXXX -v DevHub-FAT
+```
+
+### list all package versions in the Dev Hub org
+
+```sh
+sfdx force:package:version:list -p flexible-apex-trigger -v DevHub-FAT --verbose
+```

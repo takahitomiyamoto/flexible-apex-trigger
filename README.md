@@ -9,13 +9,23 @@ This is a framework that makes our Apex Trigger development more flexible.
 
 # How to use
 
-## Install on your org
+## install on your org
 
 ```sh
-sfdx force:package:install -p flexible-apex-trigger@1.0.1.0 -s AllUsers -u インストール先の組織
-sfdx force:package:install:report -i 0HfXXXXXXXXXXXXXXX -u インストール先の組織
-sfdx force:user:permset:assign -n FAT_Logger_User -u インストール先の組織
-sfdx force:org:open -p lightning/setup/ImportedPackage/home -u インストール先の組織
+sfdx force:package:install -p flexible-apex-trigger@1.0.1.0 -s AllUsers -u [targetusername]
+sfdx force:package:install:report -i 0HfXXXXXXXXXXXXXXX -u [targetusername]
+```
+
+## assign a permission set to one or more users of an org
+
+```sh
+sfdx force:user:permset:assign -n FAT_Logger_User -u [targetusername]
+```
+
+## open an org in your browser
+
+```sh
+sfdx force:org:open -p lightning/setup/ImportedPackage/home -u [targetusername]
 ```
 
 # Acknowledgment

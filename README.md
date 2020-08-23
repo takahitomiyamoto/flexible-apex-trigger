@@ -7,9 +7,13 @@
 
 This is a framework that makes our Apex Trigger development more flexible.
 
-# How to use
+## Tutorial
 
-## 1. install the framework on your org
+- [Apex Trigger Intermediate](https://takahitomiyamoto.github.io/apex-trigger-intermediate/)
+
+## How to use
+
+### 1. install the framework on your org
 
 ```sh
 sfdx force:package:install -p flexible-apex-trigger@1.0.1.0 -s AllUsers -u [targetusername]
@@ -17,13 +21,13 @@ sfdx force:package:install:report -i 0HfXXXXXXXXXXXXXXX -u [targetusername]
 sfdx force:org:open -p lightning/setup/ImportedPackage/home -u [targetusername]
 ```
 
-## 2. assign the permission set to one or more users of your org
+### 2. assign the permission set to one or more users of your org
 
 ```sh
 sfdx force:user:permset:assign -n FAT_Logger_User -u [targetusername]
 ```
 
-## 3. create Apex classes
+### 3. create Apex classes
 
 ```sh
 sfdx force:source:deploy -p force-app/main/default/labels/ -u [targetusername]
@@ -33,7 +37,7 @@ sfdx force:source:deploy -p force-app/main/default/classes/ -u [targetusername]
 - [Custom Labels](https://github.com/takahitomiyamoto/flexible-apex-trigger/tree/master/force-app/main/default/labels)
 - [Apex Classes](https://github.com/takahitomiyamoto/flexible-apex-trigger/tree/master/force-app/main/default/classes)
 
-## 4. create Apex triggers
+### 4. create Apex triggers
 
 ```sh
 sfdx force:source:deploy -p force-app/main/default/triggers/ -u [targetusername]
@@ -41,7 +45,7 @@ sfdx force:source:deploy -p force-app/main/default/triggers/ -u [targetusername]
 
 - [Apex Triggers](https://github.com/takahitomiyamoto/flexible-apex-trigger/tree/master/force-app/main/default/triggers)
 
-## 5. associate Apex classes with Apex Trigger operations
+### 5. associate Apex classes with Apex Trigger operations
 
 ```sh
 sfdx force:source:deploy -p force-app/main/default/customMetadata/ -u [targetusername]
@@ -49,7 +53,7 @@ sfdx force:source:deploy -p force-app/main/default/customMetadata/ -u [targetuse
 
 - [Custom Metadata types](https://github.com/takahitomiyamoto/flexible-apex-trigger/tree/master/force-app/main/default/customMetadata)
 
-## 6. create Apex test classes
+### 6. create Apex test classes
 
 ```sh
 sfdx force:source:deploy -p force-app/test/default/classes/ -u [targetusername]
@@ -57,15 +61,13 @@ sfdx force:source:deploy -p force-app/test/default/classes/ -u [targetusername]
 
 - [Apex Test Classes](https://github.com/takahitomiyamoto/flexible-apex-trigger/tree/master/force-app/test/default/classes)
 
-# Acknowledgment
+## Acknowledgment
 
 - [Dependency Injection Sample for Apex Trigger](https://github.com/takahitomiyamoto/di-sample-apex-trigger)
 
 ---
 
-# Appendix
-
-## How to create a package
+## Appendix: How to create a package
 
 ### 1. create a package
 
@@ -115,7 +117,7 @@ sfdx force:package:list -v DevHub --verbose
 sfdx force:package:version:list -p flexible-apex-trigger -v DevHub --verbose
 ```
 
-## How to update a package
+## Appendix: How to update a package
 
 ### 1. create a package version
 

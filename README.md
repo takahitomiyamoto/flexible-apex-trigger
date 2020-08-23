@@ -115,7 +115,7 @@ sfdx force:package:list -v DevHub --verbose
 sfdx force:package:version:list -p flexible-apex-trigger -v DevHub --verbose
 ```
 
-## 2. How to update a package
+## How to update a package
 
 ### 1. create a package version
 

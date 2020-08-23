@@ -65,83 +65,83 @@ sfdx force:source:deploy -p force-app/test/default/classes/ -u [targetusername]
 
 # Appendix
 
-## 1. Create a package
+## How to create a package
 
-### 1.1. create a package
+### 1. create a package
 
 ```sh
 sfdx force:package:create -d "This is a framework that makes our Apex Trigger development more flexible." -e -n "flexible-apex-trigger" -r force-app-fat -t Unlocked -v DevHub
 ```
 
-### 1.2. create a package version
+### 2. create a package version
 
 ```sh
 sfdx force:package:version:create -a "Summer '20" -b "master" -c -e "Summer '20 (API version 49.0)" -f config/project-scratch-def.json -n 1.0.0.0 -p 0HoXXXXXXXXXXXXXXX -t v49.0 -v DevHub -x --postinstallurl "https://github.com/takahitomiyamoto/flexible-apex-trigger" --releasenotesurl "https://github.com/takahitomiyamoto/flexible-apex-trigger/releases"
 ```
 
-### 1.3. retrieve details about a package version creation request
+### 3. retrieve details about a package version creation request
 
 ```sh
 sfdx force:package:version:create:report -i 08cXXXXXXXXXXXXXXX -v DevHub
 ```
 
-### 1.4. list package version creation requests
+### 4. list package version creation requests
 
 ```sh
 sfdx force:package:version:create:list -s Success -v DevHub
 ```
 
-### 1.5. promote a package version to released
+### 5. promote a package version to released
 
 ```sh
 sfdx force:package:version:promote -p 04tXXXXXXXXXXXXXXX -v DevHub
 ```
 
-### 1.6. retrieve details about a package version in the Dev Hub org
+### 6. retrieve details about a package version in the Dev Hub org
 
 ```sh
 sfdx force:package:version:report -p 04tXXXXXXXXXXXXXXX -v DevHub --verbose
 ```
 
-### 1.7. list all packages in the Dev Hub org
+### 7. list all packages in the Dev Hub org
 
 ```sh
 sfdx force:package:list -v DevHub --verbose
 ```
 
-### 1.8. list all package versions in the Dev Hub org
+### 8. list all package versions in the Dev Hub org
 
 ```sh
 sfdx force:package:version:list -p flexible-apex-trigger -v DevHub --verbose
 ```
 
-## 2. Update a package
+## 2. How to update a package
 
-### 2.1. create a package version
+### 1. create a package version
 
 ```sh
 sfdx force:package:version:create -a "Summer '20" -b "master" -c -e "Summer '20 (API version 49.0)" -f config/project-scratch-def.json -n 1.0.1.0 -p 0HoXXXXXXXXXXXXXXX -t v49.0 -v DevHub-FAT -x --postinstallurl "https://github.com/takahitomiyamoto/flexible-apex-trigger" --releasenotesurl "https://github.com/takahitomiyamoto/flexible-apex-trigger/releases"
 ```
 
-### 2.2. retrieve details about a package version creation request
+### 2. retrieve details about a package version creation request
 
 ```sh
 sfdx force:package:version:create:report -i 08cXXXXXXXXXXXXXXX -v DevHub-FAT
 ```
 
-### 2.3. update a package version
+### 3. update a package version
 
 ```sh
 sfdx force:package:version:update -a "Summer '20" -b "master" -e "Summer '20 (API version 49.0)" -p 04tXXXXXXXXXXXXXXX -t v49.0 -v DevHub-FAT
 ```
 
-### 2.4. promote a package version to released
+### 4. promote a package version to released
 
 ```sh
 sfdx force:package:version:promote -p 04tXXXXXXXXXXXXXXX -v DevHub-FAT
 ```
 
-### 2.5. list all package versions in the Dev Hub org
+### 5. list all package versions in the Dev Hub org
 
 ```sh
 sfdx force:package:version:list -p flexible-apex-trigger -v DevHub-FAT --verbose

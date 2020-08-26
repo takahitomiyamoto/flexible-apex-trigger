@@ -28,7 +28,7 @@
     "gulp-shell": "0.8.0",
     "heat-sfdx-common": "0.1.14",
     "heat-sfdx-metadata": "0.0.12",
-    "prettier": "2.0.5",
+    "prettier": "2.1.1",
     "prettier-plugin-apex": "1.6.0"
   }
 }

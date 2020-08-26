@@ -2,6 +2,7 @@
   "name": "flexible-apex-trigger",
   "version": "1.0.0",
   "description": "This is a framework that makes our Apex Trigger development more flexible.",
+  "license": "MIT",
   "scripts": {
     "gulp:init": "gulp init",
     "gulp:logger:query": "gulp queryLogger",

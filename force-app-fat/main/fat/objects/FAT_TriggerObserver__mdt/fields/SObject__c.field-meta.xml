@@ -4,10 +4,8 @@
     <externalId>false</externalId>
     <fieldManageability>SubscriberControlled</fieldManageability>
     <label>sObject</label>
-    <referenceTo>EntityDefinition</referenceTo>
-    <relationshipLabel>FAT_Trigger_Observers</relationshipLabel>
-    <relationshipName>FAT_Trigger_Observers</relationshipName>
+    <length>40</length>
     <required>false</required>
-    <type>MetadataRelationship</type>
+    <type>Text</type>
     <unique>false</unique>
 </CustomField>

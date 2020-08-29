@@ -3,7 +3,7 @@
     <fullName>LogMessage__c</fullName>
     <externalId>false</externalId>
     <label>Log Message</label>
-    <length>3000</length>
+    <length>30000</length>
     <trackTrending>false</trackTrending>
     <type>LongTextArea</type>
     <visibleLines>5</visibleLines>

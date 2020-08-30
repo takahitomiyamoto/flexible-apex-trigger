@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>SObject__c</fullName>
+    <description>API Name of sObject</description>
     <externalId>false</externalId>
     <fieldManageability>SubscriberControlled</fieldManageability>
+    <inlineHelpText>API Name of sObject. Don&apos;t forget to include suffix like __c or __e when you use custom object or platform event respectively.</inlineHelpText>
     <label>sObject</label>
     <length>40</length>
     <required>false</required>

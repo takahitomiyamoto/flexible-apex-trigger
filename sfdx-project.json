@@ -10,7 +10,7 @@
       "package": "flexible-apex-trigger",
       "versionName": "Summer '20",
       "versionDescription": "Summer '20 (API version 49.0)",
-      "versionNumber": "1.0.2.0",
+      "versionNumber": "1.0.3.0",
       "definitionFile": "config/project-scratch-def.json",
       "releaseNotesUrl": "https://github.com/takahitomiyamoto/flexible-apex-trigger/releases",
       "postInstallUrl": "https://github.com/takahitomiyamoto/flexible-apex-trigger"

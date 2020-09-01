@@ -4,7 +4,8 @@
     <description>API Name of sObject</description>
     <externalId>false</externalId>
     <fieldManageability>SubscriberControlled</fieldManageability>
-    <inlineHelpText>API Name of sObject. Don&apos;t forget to include suffix like __c or __e when you use custom object or platform event respectively.</inlineHelpText>
+    <inlineHelpText
+  >API Name of sObject. Don&apos;t forget to include suffix like __c or __e when you use custom object or platform event respectively.</inlineHelpText>
     <label>sObject</label>
     <length>40</length>
     <required>false</required>

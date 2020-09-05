@@ -6,7 +6,7 @@
     <isNameField>false</isNameField>
     <isSortingDisabled>false</isSortingDisabled>
     <label>Logger</label>
-    <length>3000</length>
+    <length>30000</length>
     <type>LongTextArea</type>
     <visibleLines>5</visibleLines>
 </CustomField>

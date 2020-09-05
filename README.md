@@ -6,7 +6,8 @@
 ![GitHub forks](https://img.shields.io/github/forks/takahitomiyamoto/flexible-apex-trigger)
 ![GitHub stars](https://img.shields.io/github/stars/takahitomiyamoto/flexible-apex-trigger)
 ![GitHub license](https://img.shields.io/github/license/takahitomiyamoto/flexible-apex-trigger?color=blue)
-![Twitter](https://img.shields.io/twitter/url?url=https%3A%2F%2Fgithub.com%2Ftakahitomiyamoto%2Fflexible-apex-trigger)
+
+<a href="https://twitter.com/intent/tweet?text=Happy Coding!!&url=https%3A%2F%2Fgithub.com%2Ftakahitomiyamoto%2Fflexible-apex-trigger"><img alt="Twitter" src="https://img.shields.io/twitter/url?style=social&url=https%3A%2F%2Fgithub.com%2Ftakahitomiyamoto%2Fflexible-apex-trigger"></a>
 
 # Flexible Apex Trigger
 

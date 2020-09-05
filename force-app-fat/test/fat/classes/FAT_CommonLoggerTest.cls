@@ -5,6 +5,7 @@
 @isTest(SeeAllData=false)
 private class FAT_CommonLoggerTest {
   private static FAT_CommonLogger logger = FAT_CommonLogger.getInstance();
+  private static FAT_CommonLoggerHelper helper = FAT_CommonLoggerHelper.getInstance();
 
   @testSetup
   static void setup() {
@@ -15,7 +16,7 @@ private class FAT_CommonLoggerTest {
   static void store() {
     Test.startTest();
     String maxWidthMsg = '';
-    for (Integer i = 0; i < FAT_CommonLoggerConstants.MAX_WIDTH; i++) {
+    for (Integer i = 0; i < helper.getMaxLength(); i++) {
       maxWidthMsg += 'a';
     }
     logger.store(LoggingLevel.DEBUG, maxWidthMsg);

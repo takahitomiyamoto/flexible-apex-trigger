@@ -3,6 +3,8 @@
     <fullName>LoggerObjectLoggingLevel__c</fullName>
     <externalId>false</externalId>
     <fieldManageability>SubscriberControlled</fieldManageability>
+    <description
+  >API Name of Logging Level Field on Custom Logger Object</description>
     <inlineHelpText
   >API Name of Logging Level Field on Custom Logger Object</inlineHelpText>
     <label>Logger Object : Logging Level</label>

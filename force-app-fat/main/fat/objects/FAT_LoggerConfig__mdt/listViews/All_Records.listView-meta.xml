@@ -5,6 +5,7 @@
     <columns>LoggingLevel__c</columns>
     <columns>Archive__c</columns>
     <columns>LoggerObject__c</columns>
+    <columns>MaxLength__c</columns>
     <columns>LoggerObjectRecordType__c</columns>
     <filterScope>Everything</filterScope>
     <label>All Records</label>

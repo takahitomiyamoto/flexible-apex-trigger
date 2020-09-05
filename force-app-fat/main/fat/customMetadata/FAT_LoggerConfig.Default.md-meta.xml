@@ -34,4 +34,8 @@
         <field>LoggingLevel__c</field>
         <value xsi:type="xsd:string">DEBUG</value>
     </values>
+    <values>
+        <field>MaxLength__c</field>
+        <value xsi:type="xsd:double">30000.0</value>
+    </values>
 </CustomMetadata>

@@ -3,11 +3,11 @@
     <fullName>Archive__c</fullName>
     <defaultValue>true</defaultValue>
     <description
-  >Determines whether the logger saves custom logs to the custom object.</description>
+  >Determines whether the logger saves custom logs to the custom object</description>
     <externalId>false</externalId>
     <fieldManageability>SubscriberControlled</fieldManageability>
     <inlineHelpText
-  >Check if you want to save custom logs to the custom object</inlineHelpText>
+  >Turn on if you want to save custom logs to the custom object</inlineHelpText>
     <label>Archive</label>
     <type>Checkbox</type>
 </CustomField>

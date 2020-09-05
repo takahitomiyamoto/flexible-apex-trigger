@@ -107,7 +107,7 @@ public without sharing class FAT_CommonLogger {
     }
 
     if (helper.archivable()) {
-      String logMessage = helper.createLogMessage(this.debugLogs);
+      String logMessage = helper.createDebugLogMessage(this.debugLogs);
       helper.archiveLoggerObject(logMessage);
     }
   }

@@ -35,6 +35,7 @@
     <tabs>FAT_Logger__c</tabs>
     <tabs>standard-Account</tabs>
     <tabs>standard-Contact</tabs>
+    <tabs>standard-Opportunity</tabs>
     <tabs>standard-Case</tabs>
     <uiType>Lightning</uiType>
     <utilityBar>FAT_Sample_UtilityBar</utilityBar>

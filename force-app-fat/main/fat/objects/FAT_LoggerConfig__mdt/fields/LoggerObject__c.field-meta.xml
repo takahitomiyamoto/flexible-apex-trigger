@@ -3,6 +3,7 @@
     <fullName>LoggerObject__c</fullName>
     <externalId>false</externalId>
     <fieldManageability>SubscriberControlled</fieldManageability>
+    <description>API Name of Custom Logger Object</description>
     <inlineHelpText>API Name of Custom Logger Object</inlineHelpText>
     <label>Logger Object</label>
     <referenceTo>EntityDefinition</referenceTo>

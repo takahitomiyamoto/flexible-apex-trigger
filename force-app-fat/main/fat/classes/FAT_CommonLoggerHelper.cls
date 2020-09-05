@@ -4,7 +4,6 @@
  */
 public without sharing class FAT_CommonLoggerHelper {
   // Constants
-  private static final Integer MAX_WIDTH = FAT_CommonLoggerConstants.MAX_WIDTH;
   private static final String DATE_FORMAT = FAT_CommonLoggerConstants.DATE_FORMAT;
   private static final String FIELD_RECORD_TYPE_ID = FAT_CommonLoggerConstants.FIELD_RECORD_TYPE_ID;
   private static final String LOGGER_DEFAULT = FAT_CommonLoggerConstants.LOGGER_DEFAULT;
@@ -25,6 +24,28 @@ public without sharing class FAT_CommonLoggerHelper {
    */
   private FAT_CommonLoggerHelper() {
     this.setDefaultLoggerConfig();
+  }
+
+  /**
+   * @description get FAT_LoggerConfig__mdt
+   * @param developerName
+   * @return FAT_LoggerConfig__mdt
+   */
+  private FAT_LoggerConfig__mdt queryLoggerConfig(String developerName) {
+    return [
+      SELECT
+        Archive__c,
+        LoggerObject__r.QualifiedApiName,
+        LoggerObjectLoggingLevel__r.QualifiedApiName,
+        LoggerObjectLogMessage__r.QualifiedApiName,
+        LoggerObjectName__r.QualifiedApiName,
+        LoggerObjectRecordType__c,
+        LoggingLevel__c,
+        MaxLength__c
+      FROM FAT_LoggerConfig__mdt
+      WHERE DeveloperName = :developerName
+      WITH SECURITY_ENFORCED
+    ];
   }
 
   /**
@@ -60,49 +81,29 @@ public without sharing class FAT_CommonLoggerHelper {
   }
 
   /**
-   * @description get the instance
-   * @return singleton
-   */
-  public static FAT_CommonLoggerHelper getInstance() {
-    return singleton;
-  }
-
-  /**
-   * @description get FAT_LoggerConfig__mdt
-   * @param developerName
-   * @return FAT_LoggerConfig__mdt
-   */
-  @SuppressWarnings('PMD.ApexCRUDViolation')
-  public FAT_LoggerConfig__mdt queryLoggerConfig(String developerName) {
-    return [
-      SELECT
-        Archive__c,
-        LoggerObject__r.QualifiedApiName,
-        LoggerObjectLoggingLevel__r.QualifiedApiName,
-        LoggerObjectLogMessage__r.QualifiedApiName,
-        LoggerObjectName__r.QualifiedApiName,
-        LoggerObjectRecordType__c,
-        LoggingLevel__c
-      FROM FAT_LoggerConfig__mdt
-      WHERE DeveloperName = :developerName
-    ];
-  }
-
-  /**
    * @description get default LoggingLevel
    * @return defaultLoggerConfig.LoggingLevel__c
    */
-  public String getDefaultLoggingLevelValue() {
+  private String getDefaultLoggingLevelValue() {
     FAT_LoggerConfig__mdt defaultLoggerConfig = this.getDefaultLoggerConfig();
     return defaultLoggerConfig.LoggingLevel__c;
   }
 
   /**
+   * @description get maxLength
+   * @return this.defaultLoggerConfig.MaxLength__c
+   */
+  @TestVisible
+  private Integer getMaxLength() {
+    return Integer.valueOf(this.defaultLoggerConfig.MaxLength__c);
+  }
+  /**
    * @description get LoggingLevel
    * @param value
    * @return LoggingLevel
    */
-  public LoggingLevel getLoggingLevel(String value) {
+  @TestVisible
+  private LoggingLevel getLoggingLevel(String value) {
     switch on value {
       when 'NONE' {
         return LoggingLevel.NONE;
@@ -132,6 +133,14 @@ public without sharing class FAT_CommonLoggerHelper {
         return LoggingLevel.DEBUG;
       }
     }
+  }
+
+  /**
+   * @description get the instance
+   * @return singleton
+   */
+  public static FAT_CommonLoggerHelper getInstance() {
+    return singleton;
   }
 
   /**
@@ -236,15 +245,16 @@ public without sharing class FAT_CommonLoggerHelper {
   }
 
   /**
-   * @description create logMessage
+   * @description create debug log message
    * @param debugLogs
    * @return logMessage
    */
-  public String createLogMessage(List<String> debugLogs) {
+  public String createDebugLogMessage(List<String> debugLogs) {
     String logMessage = String.join(debugLogs, SYMBOL_NEWLINE);
-    Boolean isLong = (MAX_WIDTH < logMessage.length());
+    Integer maxLength = this.getMaxLength();
+    Boolean isLong = (maxLength < logMessage.length());
     if (isLong) {
-      logMessage = logMessage.abbreviate(MAX_WIDTH);
+      logMessage = logMessage.abbreviate(maxLength);
     }
 
     return logMessage;

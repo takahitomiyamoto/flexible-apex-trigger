@@ -3,6 +3,8 @@
     <fullName>LoggingLevel__c</fullName>
     <externalId>false</externalId>
     <fieldManageability>SubscriberControlled</fieldManageability>
+    <description>Logging Level on the logger</description>
+    <inlineHelpText>Logging Level on the logger</inlineHelpText>
     <label>Logging Level</label>
     <required>false</required>
     <type>Picklist</type>

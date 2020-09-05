@@ -1,7 +1,12 @@
-![MIT License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)
 [![dependencies status](https://david-dm.org/takahitomiyamoto/flexible-apex-trigger.svg)](https://david-dm.org/takahitomiyamoto/flexible-apex-trigger)
 [![devDependency status](https://david-dm.org/takahitomiyamoto/flexible-apex-trigger/dev-status.svg)](https://david-dm.org/takahitomiyamoto/flexible-apex-trigger#info=devDependencies)
 [![Code Climate](https://codeclimate.com/github/takahitomiyamoto/flexible-apex-trigger.svg)](https://codeclimate.com/github/takahitomiyamoto/flexible-apex-trigger)
+
+![GitHub issues](https://img.shields.io/github/issues/takahitomiyamoto/flexible-apex-trigger)
+![GitHub forks](https://img.shields.io/github/forks/takahitomiyamoto/flexible-apex-trigger)
+![GitHub stars](https://img.shields.io/github/stars/takahitomiyamoto/flexible-apex-trigger)
+![GitHub license](https://img.shields.io/github/license/takahitomiyamoto/flexible-apex-trigger?color=blue)
+![Twitter](https://img.shields.io/twitter/url?url=https%3A%2F%2Fgithub.com%2Ftakahitomiyamoto%2Fflexible-apex-trigger)
 
 # Flexible Apex Trigger
 

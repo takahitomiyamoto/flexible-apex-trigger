@@ -267,4 +267,17 @@ public without sharing class FAT_CommonTriggerHelper {
       this.addTriggerObserver(triggerObserver);
     }
   }
+
+  /**
+   * @description clear all observers
+   */
+  public void clearObservers() {
+    this.beforeInserts.clear();
+    this.beforeUpdates.clear();
+    this.beforeDeletes.clear();
+    this.afterInserts.clear();
+    this.afterUpdates.clear();
+    this.afterDeletes.clear();
+    this.afterUndeletes.clear();
+  }
 }

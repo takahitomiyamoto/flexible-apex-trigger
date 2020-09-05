@@ -10,7 +10,7 @@
       "package": "flexible-apex-trigger",
       "versionName": "Summer '20",
       "versionDescription": "Summer '20 (API version 49.0)",
-      "versionNumber": "1.0.5.0",
+      "versionNumber": "1.0.6.0",
       "definitionFile": "config/project-scratch-def.json",
       "releaseNotesUrl": "https://github.com/takahitomiyamoto/flexible-apex-trigger/releases",
       "postInstallUrl": "https://github.com/takahitomiyamoto/flexible-apex-trigger"
@@ -26,6 +26,7 @@
     "flexible-apex-trigger@1.0.2.0": "04t2x000003ugk5AAA",
     "flexible-apex-trigger@1.0.3.0": "04t2x000003ul4xAAA",
     "flexible-apex-trigger@1.0.4.0": "04t2x000003uv9jAAA",
-    "flexible-apex-trigger@1.0.5.0": "04t2x000003uvI4AAI"
+    "flexible-apex-trigger@1.0.5.0": "04t2x000003uvI4AAI",
+    "flexible-apex-trigger@1.0.6.0": "04t2x000003uvUXAAY"
   }
 }

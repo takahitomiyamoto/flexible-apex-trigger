@@ -216,6 +216,7 @@ public without sharing class FAT_CommonTriggerHandler {
     } catch (Exception e) {
       logger.store(LoggingLevel.ERROR, FAT_CommonError.createErrorMessage(e));
     } finally {
+      helper.clearObservers();
       logger.publish();
       logger.clear();
     }

@@ -23,7 +23,7 @@ This is a framework that makes our Apex Trigger development more flexible.
 
 ```sh
 sfdx force:package:install -p event-based-apex-logger@1.0.0.0 -s AllUsers -u [targetusername]
-sfdx force:package:install -p flexible-apex-trigger@1.0.7.0 -s AllUsers -u [targetusername]
+sfdx force:package:install -p flexible-apex-trigger@1.0.8.0 -s AllUsers -u [targetusername]
 sfdx force:package:install:report -i 0HfXXXXXXXXXXXXXXX -u [targetusername]
 sfdx force:org:open -p lightning/setup/ImportedPackage/home -u [targetusername]
 ```

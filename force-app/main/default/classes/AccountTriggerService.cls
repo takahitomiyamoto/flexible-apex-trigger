@@ -59,12 +59,7 @@ public with sharing class AccountTriggerService implements FAT_ITriggerObserver 
    */
   public void onBeforeInsert(FAT_CommonTriggerHandler handler) {
     this.setMethodName('onBeforeInsert');
-
-    if (null == handler) {
-      return;
-    }
-
-    this.addPrefixToName((List<Account>) handler.newObjects);
+    this.addPrefixToName((List<Account>) handler?.newObjects);
   }
 
   /**

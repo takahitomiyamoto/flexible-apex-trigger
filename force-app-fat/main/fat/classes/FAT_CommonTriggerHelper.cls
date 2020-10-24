@@ -91,12 +91,7 @@ public without sharing class FAT_CommonTriggerHelper {
   @TestVisible
   private FAT_ITriggerObserver fetchTriggerObserverClass(Type apexClass) {
     this.setMethodName('fetchTriggerObserverClass');
-
-    if (null == apexClass) {
-      return null;
-    }
-
-    return (FAT_ITriggerObserver) apexClass.newInstance();
+    return (FAT_ITriggerObserver) apexClass?.newInstance();
   }
 
   /**
@@ -153,7 +148,7 @@ public without sharing class FAT_CommonTriggerHelper {
   private void addTriggerObserver(FAT_TriggerObserver__mdt triggerObserver) {
     this.setMethodName('addTriggerObserver');
 
-    if (null == triggerObserver || null == triggerObserver.ApexClass__c) {
+    if (String.isEmpty(triggerObserver?.ApexClass__c)) {
       return;
     }
 

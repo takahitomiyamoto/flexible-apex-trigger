@@ -70,6 +70,7 @@ sfdx force:source:deploy -p force-app/test/default/classes/ -u [targetusername]
 
 ## Acknowledgments
 
+- [Event-based Apex Logger](https://github.com/takahitomiyamoto/event-based-apex-logger)
 - [Dependency Injection Sample for Apex Trigger](https://github.com/takahitomiyamoto/di-sample-apex-trigger)
 
 ---

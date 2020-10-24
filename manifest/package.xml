@@ -1,42 +1,44 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
   <types>
+    <members>AccountTestUtils</members>
     <members>AccountTriggerService</members>
     <members>AccountTriggerServiceTest</members>
+    <members>AccountTriggerTest</members>
     <members>AccountTriggerValidation</members>
     <members>AccountTriggerValidationTest</members>
-    <members>FAT_CommonConstants</members>
-    <members>FAT_CommonError</members>
-    <members>FAT_CommonErrorTest</members>
-    <members>FAT_CommonLogger</members>
-    <members>FAT_CommonLoggerConstants</members>
-    <members>FAT_CommonLoggerHelper</members>
-    <members>FAT_CommonLoggerHelperTest</members>
-    <members>FAT_CommonLoggerTest</members>
+    <members>EAL_CommonConstants</members>
+    <members>EAL_CommonError</members>
+    <members>EAL_CommonErrorTest</members>
+    <members>EAL_CommonUtils</members>
+    <members>EAL_CommonUtilsTest</members>
+    <members>EAL_Logger</members>
+    <members>EAL_LoggerConstants</members>
+    <members>EAL_LoggerEventTriggerService</members>
+    <members>EAL_LoggerEventTriggerServiceTest</members>
+    <members>EAL_LoggerHelper</members>
+    <members>EAL_LoggerHelperTest</members>
+    <members>EAL_LoggerTest</members>
     <members>FAT_CommonTestUtils</members>
     <members>FAT_CommonTriggerHandler</members>
     <members>FAT_CommonTriggerHandlerTest</members>
     <members>FAT_CommonTriggerHelper</members>
     <members>FAT_CommonTriggerHelperTest</members>
     <members>FAT_CommonTriggerServiceMock</members>
-    <members>FAT_CommonUtils</members>
-    <members>FAT_CommonUtilsTest</members>
     <members>FAT_ITriggerObserver</members>
-    <members>FAT_LoggerEventTriggerService</members>
-    <members>FAT_LoggerEventTriggerServiceTest</members>
     <name>ApexClass</name>
   </types>
   <types>
     <members>AccountTrigger</members>
-    <members>FAT_LoggerEventTrigger</members>
+    <members>EAL_LoggerEventTrigger</members>
     <name>ApexTrigger</name>
   </types>
   <types>
-    <members>FAT_logo</members>
+    <members>EAL_logo</members>
     <name>ContentAsset</name>
   </types>
   <types>
-    <members>FAT_Sample</members>
+    <members>EAL_Sample</members>
     <name>CustomApplication</name>
   </types>
   <types>
@@ -44,41 +46,48 @@
     <name>CustomLabels</name>
   </types>
   <types>
-    <members>FAT_LoggerConfig.DEFAULT</members>
+    <members>EAL_LoggerConfig.Default</members>
     <members>FAT_TriggerObserver.AccountTriggerService</members>
     <members>FAT_TriggerObserver.AccountTriggerValidation</members>
     <members>FAT_TriggerObserver.FAT_CommonTriggerServiceMock</members>
     <name>CustomMetadata</name>
   </types>
   <types>
-    <members>FAT_LoggerConfig__mdt</members>
-    <members>FAT_LoggerEvent__e</members>
-    <members>FAT_Logger__c</members>
+    <members>EAL_LoggerConfig__mdt</members>
+    <members>EAL_LoggerEvent__e</members>
+    <members>EAL_Logger__c</members>
     <members>FAT_TriggerObserver__mdt</members>
     <name>CustomObject</name>
   </types>
   <types>
-    <members>FAT_Logger__c</members>
+    <members>EAL_LoggerConfig__mdt-en_US</members>
+    <members>EAL_LoggerEvent__e-en_US</members>
+    <members>EAL_Logger__c-en_US</members>
+    <members>FAT_TriggerObserver__mdt-en_US</members>
+    <name>CustomObjectTranslation</name>
+  </types>
+  <types>
+    <members>EAL_Logger__c</members>
     <name>CustomTab</name>
   </types>
   <types>
-    <members>FAT_Logger_Record_Page</members>
-    <members>FAT_Sample_UtilityBar</members>
+    <members>EAL_Logger_Record_Page</members>
+    <members>EAL_Sample_UtilityBar</members>
     <name>FlexiPage</name>
   </types>
   <types>
-    <members>FAT_LoggerConfig__mdt-FAT_LoggerConfig_Layout</members>
-    <members>FAT_Logger__c-FAT_Logger_Layout</members>
+    <members>EAL_LoggerConfig__mdt-EAL_LoggerConfig_Layout</members>
+    <members>EAL_Logger__c-EAL_Logger_Layout</members>
     <members>FAT_TriggerObserver__mdt-FAT_TriggerObserver_Layout</members>
     <name>Layout</name>
   </types>
   <types>
-    <members>fatSubscribeLoggerEvent</members>
+    <members>ealLoggerEventSubscriber</members>
     <name>LightningComponentBundle</name>
   </types>
   <types>
-    <members>FAT_Logger_User</members>
+    <members>EAL_Logger_User</members>
     <name>PermissionSet</name>
   </types>
-  <version>49.0</version>
+  <version>50.0</version>
 </Package>

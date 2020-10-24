@@ -22,7 +22,7 @@ This is a framework that makes our Apex Trigger development more flexible.
 ### 1. install the framework on your org
 
 ```sh
-sfdx force:package:install -p flexible-apex-trigger@1.0.6.0 -s AllUsers -u [targetusername]
+sfdx force:package:install -p flexible-apex-trigger@1.0.7.0 -s AllUsers -u [targetusername]
 sfdx force:package:install:report -i 0HfXXXXXXXXXXXXXXX -u [targetusername]
 sfdx force:org:open -p lightning/setup/ImportedPackage/home -u [targetusername]
 ```
@@ -67,7 +67,7 @@ sfdx force:source:deploy -p force-app/test/default/classes/ -u [targetusername]
 
 - [Apex Test Classes](https://github.com/takahitomiyamoto/flexible-apex-trigger/tree/master/force-app/test/default/classes)
 
-## Acknowledgment
+## Acknowledgments
 
 - [Dependency Injection Sample for Apex Trigger](https://github.com/takahitomiyamoto/di-sample-apex-trigger)
 

@@ -13,7 +13,7 @@ public with sharing class AccountTriggerValidation implements FAT_ITriggerObserv
   private static final String ERROR_MESSAGE_PHONE_REQUIRED = System.Label.ERROR_MESSAGE_PHONE_REQUIRED;
 
   // Logger Variable
-  private final FAT_CommonLogger logger = FAT_CommonLogger.getInstance();
+  private final EAL_Logger logger = EAL_Logger.getInstance();
 
   /**
    * @description set method name

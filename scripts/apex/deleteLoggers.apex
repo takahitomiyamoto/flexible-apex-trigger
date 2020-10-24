@@ -5,9 +5,9 @@
 // You can also execute the entire file by running the command:
 //     SFDX: Execute Anonymous Apex with Editor Contents
 
-List<FAT_Logger__c> oldLoggers = [
+List<EAL_Logger__c> oldLoggers = [
   SELECT Id
-  FROM FAT_Logger__c
+  FROM EAL_Logger__c
   ORDER BY CreatedDate ASC
   LIMIT 100
 ];

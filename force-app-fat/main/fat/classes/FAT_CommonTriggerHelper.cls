@@ -4,7 +4,7 @@
  */
 public without sharing class FAT_CommonTriggerHelper {
   // Logger Variable
-  private final FAT_CommonLogger logger = FAT_CommonLogger.getInstance();
+  private final EAL_Logger logger = EAL_Logger.getInstance();
 
   // Class Variables
   private static FAT_CommonTriggerHelper singleton = new FAT_CommonTriggerHelper();

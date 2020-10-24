@@ -30,7 +30,7 @@ sfdx force:org:open -p lightning/setup/ImportedPackage/home -u [targetusername]
 ### 2. assign the permission set to one or more users of your org
 
 ```sh
-sfdx force:user:permset:assign -n FAT_Logger_User -u [targetusername]
+sfdx force:user:permset:assign -n EAL_Logger_User -u [targetusername]
 ```
 
 ### 3. create Apex classes

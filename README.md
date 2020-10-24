@@ -128,7 +128,7 @@ sfdx force:package:version:list -p flexible-apex-trigger -v DevHub --verbose
 ### 1. create a package version
 
 ```sh
-sfdx force:package:version:create -a "Summer '20" -b "master" -c -e "Summer '20 (API version 49.0)" -f config/project-scratch-def.json -n 1.0.1.0 -p 0HoXXXXXXXXXXXXXXX -t v49.0 -v DevHub-FAT -x --postinstallurl "https://github.com/takahitomiyamoto/flexible-apex-trigger" --releasenotesurl "https://github.com/takahitomiyamoto/flexible-apex-trigger/releases"
+sfdx force:package:version:create -a "Winter '21" -b "master" -c -e "Winter '21 (API version 50.0)" -f config/project-scratch-def.json -n 1.0.7.0 -p 0HoXXXXXXXXXXXXXXX -t v50.0 -v DevHub-FAT -x --postinstallurl "https://github.com/takahitomiyamoto/flexible-apex-trigger" --releasenotesurl "https://github.com/takahitomiyamoto/flexible-apex-trigger/releases"
 ```
 
 ### 2. retrieve details about a package version creation request
@@ -140,7 +140,7 @@ sfdx force:package:version:create:report -i 08cXXXXXXXXXXXXXXX -v DevHub-FAT
 ### 3. update a package version
 
 ```sh
-sfdx force:package:version:update -a "Summer '20" -b "master" -e "Summer '20 (API version 49.0)" -p 04tXXXXXXXXXXXXXXX -t v49.0 -v DevHub-FAT
+sfdx force:package:version:update -a "Winter '21" -b "master" -e "Winter '21 (API version 50.0)" -p 04tXXXXXXXXXXXXXXX -t v50.0 -v DevHub-FAT
 ```
 
 ### 4. promote a package version to released

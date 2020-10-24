@@ -16,7 +16,7 @@
       "postInstallUrl": "https://github.com/takahitomiyamoto/flexible-apex-trigger",
       "dependencies": [
         {
-          "package": "event-based-apex-logger@1.0.0.0"
+          "package": "event-based-apex-logger@1.0.1.0"
         }
       ]
     }
@@ -25,7 +25,7 @@
   "sfdcLoginUrl": "https://login.salesforce.com",
   "sourceApiVersion": "50.0",
   "packageAliases": {
-    "event-based-apex-logger@1.0.0.0": "04t2x000003vCy2AAE",
+    "event-based-apex-logger@1.0.1.0": "04t2x000003vQnOAAU",
     "flexible-apex-trigger": "0Ho2x0000004CbMCAU",
     "flexible-apex-trigger@1.0.0.0": "04t2x000003uVmQAAU",
     "flexible-apex-trigger@1.0.1.0": "04t2x000003uVmaAAE",

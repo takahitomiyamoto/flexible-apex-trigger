@@ -4,7 +4,7 @@
  */
 public without sharing class FAT_CommonTriggerHandler {
   // Logger Variable
-  private final FAT_CommonLogger logger = FAT_CommonLogger.getInstance();
+  private final EAL_Logger logger = EAL_Logger.getInstance();
 
   // Helper Variable
   private final FAT_CommonTriggerHelper helper = FAT_CommonTriggerHelper.getInstance();
@@ -214,7 +214,7 @@ public without sharing class FAT_CommonTriggerHandler {
         }
       }
     } catch (Exception e) {
-      logger.store(LoggingLevel.ERROR, FAT_CommonError.createErrorMessage(e));
+      logger.store(LoggingLevel.ERROR, EAL_CommonError.createErrorMessage(e));
     } finally {
       helper.clearObservers();
       logger.publish();

@@ -6,7 +6,7 @@ import { query, readFileSyncUtf8, writeFileSyncUtf8 } from '../common/lib';
 import { getEnvironment } from '../common/utils';
 
 /**
- * @description query FAT_Logger__c
+ * @description query EAL_Logger__c
  */
 export default async function _queryLogger() {
   const environment = getEnvironment();
@@ -25,7 +25,7 @@ export default async function _queryLogger() {
   _query.push('SELECT');
   _query.push(fields.join(','));
   _query.push('FROM');
-  _query.push('FAT_Logger__c');
+  _query.push('EAL_Logger__c');
   _query.push('WHERE');
   _query.push('Id != null');
   _query.push('ORDER BY');

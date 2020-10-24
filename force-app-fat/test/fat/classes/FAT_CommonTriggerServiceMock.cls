@@ -11,7 +11,7 @@ public with sharing class FAT_CommonTriggerServiceMock implements FAT_ITriggerOb
   }
 
   // Logger Variable
-  private final FAT_CommonLogger logger = FAT_CommonLogger.getInstance();
+  private final EAL_Logger logger = EAL_Logger.getInstance();
 
   /**
    * @description set method name

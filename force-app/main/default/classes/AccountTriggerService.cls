@@ -13,7 +13,7 @@ public with sharing class AccountTriggerService implements FAT_ITriggerObserver 
   private static final String NAME_PREFIX_SAMPLE = System.Label.NAME_PREFIX_SAMPLE;
 
   // Logger Variable
-  private final FAT_CommonLogger logger = FAT_CommonLogger.getInstance();
+  private final EAL_Logger logger = EAL_Logger.getInstance();
 
   /**
    * @description set method name

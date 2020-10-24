@@ -8,18 +8,24 @@
       "path": "force-app-fat",
       "default": false,
       "package": "flexible-apex-trigger",
-      "versionName": "Summer '20",
-      "versionDescription": "Summer '20 (API version 49.0)",
-      "versionNumber": "1.0.6.0",
+      "versionName": "Winter '21",
+      "versionDescription": "Winter '21 (API version 50.0)",
+      "versionNumber": "1.0.7.0",
       "definitionFile": "config/project-scratch-def.json",
       "releaseNotesUrl": "https://github.com/takahitomiyamoto/flexible-apex-trigger/releases",
-      "postInstallUrl": "https://github.com/takahitomiyamoto/flexible-apex-trigger"
+      "postInstallUrl": "https://github.com/takahitomiyamoto/flexible-apex-trigger",
+      "dependencies": [
+        {
+          "package": "event-based-apex-logger@1.0.0.0"
+        }
+      ]
     }
   ],
   "namespace": "",
   "sfdcLoginUrl": "https://login.salesforce.com",
-  "sourceApiVersion": "49.0",
+  "sourceApiVersion": "50.0",
   "packageAliases": {
+    "event-based-apex-logger@1.0.0.0": "04t2x000003vCy2AAE",
     "flexible-apex-trigger": "0Ho2x0000004CbMCAU",
     "flexible-apex-trigger@1.0.0.0": "04t2x000003uVmQAAU",
     "flexible-apex-trigger@1.0.1.0": "04t2x000003uVmaAAE",
@@ -27,6 +33,7 @@
     "flexible-apex-trigger@1.0.3.0": "04t2x000003ul4xAAA",
     "flexible-apex-trigger@1.0.4.0": "04t2x000003uv9jAAA",
     "flexible-apex-trigger@1.0.5.0": "04t2x000003uvI4AAI",
-    "flexible-apex-trigger@1.0.6.0": "04t2x000003uvUXAAY"
+    "flexible-apex-trigger@1.0.6.0": "04t2x000003uvUXAAY",
+    "flexible-apex-trigger@1.0.7.0": "04t2x000003vQnEAAU"
   }
 }

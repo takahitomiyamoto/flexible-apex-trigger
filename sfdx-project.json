@@ -10,13 +10,13 @@
       "package": "flexible-apex-trigger",
       "versionName": "Winter '21",
       "versionDescription": "Winter '21 (API version 50.0)",
-      "versionNumber": "1.0.8.0",
+      "versionNumber": "1.0.9.0",
       "definitionFile": "config/project-scratch-def.json",
       "releaseNotesUrl": "https://github.com/takahitomiyamoto/flexible-apex-trigger/releases",
       "postInstallUrl": "https://github.com/takahitomiyamoto/flexible-apex-trigger",
       "dependencies": [
         {
-          "package": "event-based-apex-logger@1.0.1.0"
+          "package": "event-based-apex-logger@1.0.3.0"
         }
       ]
     }
@@ -25,7 +25,7 @@
   "sfdcLoginUrl": "https://login.salesforce.com",
   "sourceApiVersion": "50.0",
   "packageAliases": {
-    "event-based-apex-logger@1.0.1.0": "04t2x000003vQnOAAU",
+    "event-based-apex-logger@1.0.3.0": "04t2x000003vQndAAE",
     "flexible-apex-trigger": "0Ho2x0000004CbMCAU",
     "flexible-apex-trigger@1.0.0.0": "04t2x000003uVmQAAU",
     "flexible-apex-trigger@1.0.1.0": "04t2x000003uVmaAAE",
@@ -35,6 +35,7 @@
     "flexible-apex-trigger@1.0.5.0": "04t2x000003uvI4AAI",
     "flexible-apex-trigger@1.0.6.0": "04t2x000003uvUXAAY",
     "flexible-apex-trigger@1.0.7.0": "04t2x000003vQnEAAU",
-    "flexible-apex-trigger@1.0.8.0": "04t2x000003vQnJAAU"
+    "flexible-apex-trigger@1.0.8.0": "04t2x000003vQnJAAU",
+    "flexible-apex-trigger@1.0.9.0": "04t2x000003vQniAAE"
   }
 }

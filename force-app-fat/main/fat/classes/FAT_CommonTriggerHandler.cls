@@ -9,9 +9,12 @@ public without sharing class FAT_CommonTriggerHandler {
   // Helper Variable
   private final FAT_CommonTriggerHelper helper = FAT_CommonTriggerHelper.getInstance();
 
-  // Class Variables
-  @TestVisible
-  private static Boolean firstRun = true;
+  /**
+   * @name firstRun
+   * @description set false after the 2nd time.
+   * @example FAT_CommonTriggerHandler.firstRun = false;
+   */
+  public static Boolean firstRun = true;
 
   // Instance Variables
   private String sObjectName;
@@ -156,8 +159,6 @@ public without sharing class FAT_CommonTriggerHandler {
 
     if (firstRun) {
       return false;
-    } else if (TriggerOperation.AFTER_UNDELETE === this.triggerOperationType) {
-      return false;
     } else {
       return true;
     }
@@ -197,20 +198,16 @@ public without sharing class FAT_CommonTriggerHandler {
         }
         when AFTER_INSERT {
           this.onAfterInsert();
-          firstRun = false;
         }
         when AFTER_UPDATE {
           this.onAfterUpdate();
-          firstRun = false;
         }
         when AFTER_DELETE {
           this.onAfterDelete();
-          firstRun = false;
         }
         // AFTER_UNDELETE
         when else {
           this.onAfterUndelete();
-          firstRun = false;
         }
       }
     } catch (Exception e) {

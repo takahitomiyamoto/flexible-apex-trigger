@@ -22,8 +22,8 @@ This is a framework that makes our Apex Trigger development more flexible.
 ### 1. install the framework on your org
 
 ```sh
-sfdx force:package:install -p event-based-apex-logger@1.0.1.0 -s AllUsers -u [targetusername]
-sfdx force:package:install -p flexible-apex-trigger@1.0.8.0 -s AllUsers -u [targetusername]
+sfdx force:package:install -p event-based-apex-logger@1.0.3.0 -s AllUsers -u [targetusername]
+sfdx force:package:install -p flexible-apex-trigger@1.0.9.0 -s AllUsers -u [targetusername]
 sfdx force:package:install:report -i 0HfXXXXXXXXXXXXXXX -u [targetusername]
 sfdx force:org:open -p lightning/setup/ImportedPackage/home -u [targetusername]
 ```
@@ -130,7 +130,7 @@ sfdx force:package:version:list -p flexible-apex-trigger -v DevHub --verbose
 ### 1. create a package version
 
 ```sh
-sfdx force:package:version:create -a "Winter '21" -b "master" -c -e "Winter '21 (API version 50.0)" -f config/project-scratch-def.json -n 1.0.8.0 -p 0HoXXXXXXXXXXXXXXX -t v50.0 -v DevHub-FAT -x --postinstallurl "https://github.com/takahitomiyamoto/flexible-apex-trigger" --releasenotesurl "https://github.com/takahitomiyamoto/flexible-apex-trigger/releases"
+sfdx force:package:version:create -a "Winter '21" -b "master" -c -e "Winter '21 (API version 50.0)" -f config/project-scratch-def.json -n 1.0.9.0 -p 0HoXXXXXXXXXXXXXXX -t v50.0 -v DevHub-FAT -x --postinstallurl "https://github.com/takahitomiyamoto/flexible-apex-trigger" --releasenotesurl "https://github.com/takahitomiyamoto/flexible-apex-trigger/releases"
 ```
 
 ### 2. retrieve details about a package version creation request

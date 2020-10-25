@@ -19,7 +19,8 @@ private class FAT_CommonTriggerHandlerTest {
     handler.invoke();
     Test.stopTest();
 
-    System.assertEquals(false, FAT_CommonTriggerHandler.firstRun, 'invoke');
+    System.assertEquals(null, Trigger.operationType, 'invoke');
+    System.assertEquals(true, FAT_CommonTriggerHandler.firstRun, 'invoke');
   }
 
   @isTest

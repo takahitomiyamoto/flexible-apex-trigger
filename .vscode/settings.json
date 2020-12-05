@@ -1,29 +1,51 @@
 {
-  // Core
+  // core
   "editor.fontSize": 14,
   "editor.formatOnSave": true,
-  "editor.minimap.enabled": false,
-  "editor.mouseWheelZoom": true,
-  "editor.renderWhitespace": "all",
+  "editor.minimap.enabled": true,
+  "editor.renderWhitespace": "boundary",
   "editor.tabSize": 2,
   "editor.wordWrap": "on",
   "extensions.ignoreRecommendations": true,
   "files.trimTrailingWhitespace": true,
   "git.autofetch": true,
   "git.confirmSync": false,
-  "terminal.integrated.fontSize": 14,
-  "terminal.integrated.shell.osx": "/bin/zsh",
-  // Extensions
-  "apexPMD.enableCache": true,
-  "apexPMD.runOnFileOpen": true,
-  "eslint.alwaysShowStatus": true,
-  "eslint.run": "onSave",
   "git.showPushSuccessNotification": true,
+  "terminal.integrated.fontSize": 14,
+  "terminal.integrated.shell.windows": "/bin/zsh",
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/bower_components": true,
+    "**/.sfdx": true
+  },
+  // sfdx
+  "apexPMD.enableCache": true,
+  "apexPMD.runOnFileSave": true,
+  "apexPMD.runOnFileOpen": true,
+  "apexPMD.rulesets": [
+    "pmd-ruleset.xml",
+    "pmd-ruleset-acn.xml"
+  ],
+  "eslint.alwaysShowStatus": true,
+  "eslint.format.enable": false,
+  "eslint.run": "onSave",
   "prettier.requireConfig": true,
   "salesforcedx-vscode-apex.java.home": "/Library/Java/JavaVirtualMachines/zulu-11.jdk/Contents/Home",
+  "salesforcedx-vscode-core.detectConflictsAtSync": true,
+  "salesforcedx-vscode-core.experimental.deployRetrieve": true,
+  "salesforcedx-vscode-core.push-or-deploy-on-save.enabled": false,
   "salesforcedx-vscode-core.retrieve-test-code-coverage": true,
-  "salesforcedx-vscode-core.show-cli-success-msg": false,
+  "salesforcedx-vscode-core.show-cli-success-msg": true,
+  // other extensions
+  "todo-tree.general.statusBar": "tags",
   "todo-tree.tree.buttons.export": true,
+  "todo-tree.tree.expanded": true,
+  "todo-tree.tree.showCountsInTree": true,
   "trailing-spaces.trimOnSave": true,
-  "xml.java.home": "/Library/Java/JavaVirtualMachines/zulu-11.jdk/Contents/Home"
+  "[jsonc]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "[xml]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
 }

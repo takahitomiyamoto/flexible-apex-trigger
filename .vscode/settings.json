@@ -23,8 +23,7 @@
   "apexPMD.runOnFileSave": true,
   "apexPMD.runOnFileOpen": true,
   "apexPMD.rulesets": [
-    "pmd-ruleset.xml",
-    "pmd-ruleset-acn.xml"
+    "pmd-ruleset.xml"
   ],
   "eslint.alwaysShowStatus": true,
   "eslint.format.enable": false,

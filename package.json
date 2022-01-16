@@ -16,20 +16,20 @@
     "test:unit:coverage": "sfdx-lwc-jest --coverage"
   },
   "devDependencies": {
-    "@babel/cli": "7.13.10",
-    "@babel/core": "7.13.13",
-    "@babel/preset-env": "7.13.12",
-    "@babel/register": "7.13.8",
-    "@prettier/plugin-xml": "0.13.1",
-    "@salesforce/eslint-config-lwc": "0.11.0",
-    "@salesforce/eslint-plugin-aura": "1.4.0",
-    "eslint": "7.23.0",
+    "@babel/cli": "7.16.8",
+    "@babel/core": "7.16.7",
+    "@babel/preset-env": "7.16.8",
+    "@babel/register": "7.16.9",
+    "@prettier/plugin-xml": "1.2.0",
+    "@salesforce/eslint-config-lwc": "3.2.1",
+    "@salesforce/eslint-plugin-aura": "2.0.0",
+    "eslint": "8.7.0",
     "gulp": "4.0.2",
     "gulp-babel": "8.0.0",
     "gulp-shell": "0.8.0",
-    "heat-sfdx-common": "0.1.14",
-    "heat-sfdx-metadata": "0.0.18",
-    "prettier": "2.2.1",
-    "prettier-plugin-apex": "1.8.0"
+    "heat-sfdx-common": "0.2.1",
+    "heat-sfdx-metadata": "0.3.1",
+    "prettier": "2.5.1",
+    "prettier-plugin-apex": "1.10.0"
   }
 }

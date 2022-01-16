@@ -25,6 +25,7 @@ export default function _upgradeDependencies() {
   commands.push('heat-sfdx-metadata');
   commands.push('prettier');
   commands.push('prettier-plugin-apex');
+  commands.push('glob-parent');
 
   return execute(commands.join(' '));
 }

@@ -12,7 +12,7 @@
   "git.confirmSync": false,
   "git.showPushSuccessNotification": true,
   "terminal.integrated.fontSize": 14,
-  "terminal.integrated.shell.windows": "/bin/zsh",
+  // "terminal.integrated.shell.windows": "/bin/zsh",
   "search.exclude": {
     "**/node_modules": true,
     "**/bower_components": true,
